@@ -698,18 +698,48 @@ if ( !class_exists('SoccerInfo') ) {
 		}
 		
 		public $competitions = array (
-			'NOTHING'						 => 0, //0
-			'Spanish Primera Division'		 => 7, //1
-			'English Premier League'		 => 8, //2
-			'German Bundesliga'				 => 9, //3
-			'Portuguese Liga'				 => 63, //4
-			'Italian Serie A'				 => 13, //5
-			'French Ligue 1'				 => 16, //6
-			'Dutch Eredivisie'				 => 1, //8
-			'Belgian Pro Liga'				 => 24, //8
-			'Finnish Veikkausliiga'			 => 22, //9
-			'Hungarian NB I'				 => 67, //10
-			'Brazilian Serie A'				 => 26 //11
+			'NOTHING'							 => 0,	 //0
+			'Spanish Primera Division'			 => 7,	 //1
+			'English Premier League'			 => 8,	 //2
+			'German Bundesliga'					 => 9,	 //3
+			'Portuguese Liga'					 => 63,	 //4
+			'Italian Serie A'					 => 13,	 //5
+			'French Ligue 1'					 => 16,	 //6
+			'Dutch Eredivisie'					 => 1,	 //8
+			'Belgian Pro League'				 => 24,	 //8
+			'Finnish Veikkausliiga'				 => 22,	 //9
+			'Hungarian NB I'					 => 67,	 //10
+			'Brazilian Serie A'					 => 26,	 //11
+			'Argentina - Primera División'		 => 87,	 //12
+			'Australia - A-League'				 => 283, //13
+			'Austria - Bundesliga'				 => 49,	 //14
+			'Belarus - Premier League'			 => 66,	 //15
+			'Bulgaria - A PFG'					 => 59,	 //16
+			'Canadian Soccer League'			 => 146, //17
+			'Czech Republic - Czech Liga'		 => 82,	 //18
+			'Denmark - Superliga'				 => 30,	 //19
+			'England - Championship'			 => 70,	 //20
+			'England - League One'				 => 15,	 //21
+			'England - League Two'				 => 32,	 //22
+			'France - Ligue 2'					 => 17,	 //23
+			'Germany - 2. Bundesliga'			 => 11,	 //24
+			'Italy - Serie B'					 => 14,	 //25
+			'Japan - J1 League'					 => 109, //26
+			'Paraguay - Division Profesional'	 => 157, //27
+			'Poland - Ekstraklasa'				 => 119, //28
+			'Romania - Liga I'					 => 85,	 //29
+			'Russia - Premier League'			 => 121, //30
+			'Scotland - Premier League'			 => 43,	 //31
+			'Serbia - Super Liga'				 => 440, //32
+			'Singapore - S.League'				 => 137, //33
+			'Slovakia - Super Liga'				 => 123, //34
+			'Spain - Segunda División'			 => 12,	 //35
+			'Sweden - Allsvenskan'				 => 28,	 //36
+			'Turkey - Süper Lig'				 => 19,	 //37
+			'Ukraine - Premier League'			 => 125, //38
+			'United States - MLS'				 => 33,	 //39
+			'Venezuela - Primera División'		 => 163 //40
+			
 		);
 	
 		/**

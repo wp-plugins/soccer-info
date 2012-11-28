@@ -4,14 +4,14 @@ Donate link: http://www.mihalysoft.com/
 Tags: soccer info, football, sport, league table, championship, soccer, sports, leagues, next fixtures, latest results
 Requires at least: 3.2.1
 Tested up to: 3.4.2
-Stable tag: 1.0
+Stable tag: 1.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
 Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
 
 == Description ==
-Soccer Info is a plugin that let you show ranking tables, upcoming fixtures and results of different soccer leagues.
+Soccer Info is a plugin that lets you show ranking tables, upcoming fixtures and results of different soccer leagues.
 
 Requires WordPress 3.2+ and PHP 5.2+.
 
@@ -29,6 +29,7 @@ Requires WordPress 3.2+ and PHP 5.2+.
 * Finnish Veikkausliiga
 * Hungarian NB I
 * Brazilian Serie A
+* and many more (40)
 
 * Accessible easily through your posts or pages
 * Display full or partial data, it's up to you
@@ -41,7 +42,7 @@ Requires WordPress 3.2+ and PHP 5.2+.
 * More soccer leagues
 * Romanian translation
 
-If you have suggestions for a new add-on, feel free to contact us on http://www.mihalysoft.com/wordpress-plugins/soccer-info/
+If you have any suggestions for a new add-on or league, feel free to contact us: [Soccer Info - WordPress Plugin](http://www.mihalysoft.com/wordpress-plugins/soccer-info/)
 
 **Languages**
 
@@ -62,7 +63,7 @@ Soccer Info is really easy to install so just follow the guide:
 
 You are now able to add the shortcodes that displays the tables (fixtures or results) to any of your posts or pages. 
 For example: `[soccer-info id='1' type='table' /]`
-That means you want to display the raking `table` (type) of the soccer league with the id=1 (Spanish Primera Division)
+That means you want to display the ranking `table` (type) of the soccer league with the id=1 (Spanish Primera Division)
 You will find the whole list of the soccer leagues supported by the plugin on the `Settings` > `Soccer Info` page.
 
 = I don't know how to use shortcodes, what should I do then? =
@@ -76,7 +77,7 @@ Yes, and it's easy to use.
 
 = I have a another question. Where can I ask that? =
 
-For more information, check out the plugin's website: <http://www.mihalysoft.com/wordpress-plugins/soccer-info/>
+For more information, check out the plugin's website: [Soccer Info - WordPress Plugin](http://www.mihalysoft.com/wordpress-plugins/soccer-info/)
 
 == Screenshots ==
 
@@ -90,6 +91,10 @@ For more information, check out the plugin's website: <http://www.mihalysoft.com
 8. In action - 2
 
 == Changelog ==
+
+= 1.1 =
+* New: Added leagues: Argentina - Primera División, Australia - A-League, Austria - Bundesliga ID, Belarus - Premier League, Bulgaria - A PFG, Canadian Soccer League, Czech Republic - Czech Liga, Denmark - Superliga, England - Championship, England - League One, England - League Two, France - Ligue 2, Germany - 2. Bundesliga, Italy - Serie B, Japan - J1 League, Paraguay - Division Profesional, Poland - Ekstraklasa, Romania - Liga I, Russia - Premier League, Scotland - Premier League, Serbia - Super Liga, Singapore - S.League, Slovakia - Super Liga, Spain - Segunda División, Sweden - Allsvenskan, Turkey - Süper Lig, Ukraine - Premier League ID, United States - MLS, Venezuela - Primera División
+* Fixed: Typos
 
 = 1.0 =
 * Initial release!
