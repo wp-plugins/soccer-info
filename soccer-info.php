@@ -3,10 +3,11 @@
 Plugin Name: Soccer Info
 Plugin URI: http://www.mihalysoft.com/
 Description: Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
-Version: 1.0
+Version: 1.1
 Requires at least: WordPress 3.2.1
 Tested up to: WordPress 3.4.2
-License: #
+License: GPLv2 or later
+License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Author: Szilard Mihaly
 Author URI: http://www.mihalysoft.com/
 */
