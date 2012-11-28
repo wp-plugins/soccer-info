@@ -1,0 +1,126 @@
+/** div.sitable - Standings table - BEGIN **/
+
+div.sitable {
+	font-size: 12px;
+	line-height: 20px;
+	width: 320px;
+}
+div.sitable.siwidget {
+	width: auto;
+}
+div.sitable table {
+	border: none;
+	border-spacing: 1px;
+	width: 100%;
+}
+div.sitable table thead th,
+div.sitable table tbody td {
+	padding:4px;
+	text-align:center;
+}
+div.sitable table thead th.team,
+div.sitable table tbody td.team {
+	text-align:left;
+}
+div.sitable table tbody td.rank {
+	padding-right:4px;
+	text-align:right;
+}
+
+div.sitable table thead,
+div.sitable table thead th {
+	background-color: #DDD;
+}
+div.sitable table tr.highlight {
+	background-color: #EEE;
+}
+
+/** div.sitable - Standings table - END **/
+
+
+/** div.sitable - Fixtures table - BEGIN **/
+
+div.sifixtures {
+	font-size: 12px;
+	line-height: 20px;
+	float:left;
+	width: 320px;
+}
+div.sifixtures.siwidget {
+	float:none;
+	width: auto;
+}
+div.sifixtures table {
+	border: none;
+	border-spacing: 1px;
+	width: 100%;
+}
+div.sifixtures table tbody td {
+	padding:4px;
+	text-align:left;
+}
+div.sifixtures table tbody td.team_a {
+	text-align:right;
+}
+div.sifixtures table tbody td.team_b {
+	text-align:left;
+}
+div.sifixtures table tbody td.time {
+	white-space:nowrap;
+	text-align:center;
+}
+
+div.sifixtures table tr.date {
+	background-color: #DDD;
+}
+div.sifixtures table tr.highlight {
+	background-color: #EEE;
+}
+
+/** div.sitable - Fixtures table - END **/
+
+
+/** div.sitable - Results table - BEGIN **/
+
+div.siresults {
+	font-size: 12px;
+	line-height: 20px;
+	float:left;
+	width: 320px;
+}
+div.siresults.siwidget {
+	float:none;
+	width: auto;
+}
+div.siresults table {
+	border: none;
+	border-spacing: 1px;
+	width: 100%;
+}
+div.siresults table tbody td {
+	padding:4px;
+	text-align:left;
+}
+div.siresults table tbody td.team_a {
+	text-align:right;
+}
+div.siresults table tbody td.team_b {
+	text-align:left;
+}
+div.siresults table tbody td.team_bold {
+	/*font-weight: bold;*/
+	color: #090;
+}
+div.siresults table tbody td.result {
+	white-space:nowrap;
+	text-align:center;
+}
+
+div.siresults table tr.date {
+	background-color: #DDD;
+}
+div.siresults table tr.highlight {
+	background-color: #EEE;
+}
+
+/** div.sitable - Results table - END **/
