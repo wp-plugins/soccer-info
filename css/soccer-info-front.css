@@ -1,0 +1,197 @@
+/** div.sitable - Standings table - BEGIN **/
+
+
+div.sitable table tr.odd,
+div.sifixtures table tr.odd,
+div.siresults table tr.odd {
+	background-color: #F1F1F1;
+}
+
+div.sitable {
+	font-size: 12px;
+	line-height: 20px;
+	width: 320px;
+	color: #222 !important;
+}
+div.sitable.siwidget {
+	width: auto;
+}
+div.sitable table {
+	border: none;
+	border-spacing: 0px !important;
+	width: 100%;
+}
+div.sitable table thead th,
+div.sitable table tbody td {
+	padding:2px;
+	text-align:center;
+	color: #222 !important;
+}
+div.sitable table thead th.team,
+div.sitable table tbody td.team {
+	text-align:left;
+}
+div.sitable table tbody td.rank {
+	padding-right:4px;
+	text-align:right;
+}
+
+div.sitable table thead,
+div.sitable table thead th {
+	background-color: #DDD;
+}
+div.sitable table tr.highlight {
+	background-color: #EEE;
+	font-weight: bold;
+}
+
+/** div.sitable - Standings table - END **/
+
+
+/** div.sitable - Fixtures table - BEGIN **/
+
+div.sifixtures {
+	font-size: 12px;
+	line-height: 20px;
+	float:left;
+	width: 320px;
+	color: #222;
+}
+div.sifixtures.siwidget {
+	float:none;
+	width: auto;
+}
+div.sifixtures table {
+	border: none;
+	border-spacing: 0px !important;
+	width: 100%;
+}
+div.sifixtures table tbody td {
+	padding:2px;
+	text-align:left;
+}
+div.sifixtures table tbody td.team_a {
+	width: 40%;
+	text-align:right;
+}
+div.sifixtures table tbody td.team_b {
+	width: 40%;
+	text-align:left;
+}
+div.sifixtures table tbody td.time {
+	white-space:nowrap;
+	text-align:center;
+}
+
+div.sifixtures table tr.date {
+	background-color: #DDD;
+}
+div.sifixtures table tr.highlight {
+	background-color: #EEE;
+}
+
+/** div.sitable - Fixtures table - END **/
+
+
+/** div.sitable - Results table - BEGIN **/
+
+div.siresults {
+	font-size: 12px;
+	line-height: 20px;
+	float:left;
+	width: 320px;
+	color: #222;
+}
+div.siresults.siwidget {
+	float:none;
+	width: auto;
+}
+div.siresults table {
+	border: none;
+	border-spacing: 0px !important;
+	width: 100%;
+}
+div.siresults table tbody td {
+	padding:2px;
+	text-align:left;
+}
+div.siresults table tbody td.team_a {
+	width: 40%;
+	text-align:right;
+}
+div.siresults table tbody td.team_b {
+	width: 40%;
+	text-align:left;
+}
+div.siresults table tbody td.team_bold {
+	/*font-weight: bold;*/
+	color: #090;
+}
+div.siresults table tbody td.result {
+	white-space:nowrap;
+	text-align:center;
+}
+
+div.siresults table tr.date {
+	background-color: #DDD;
+}
+div.siresults table tr.highlight {
+	background-color: #EEE;
+}
+
+/** div.sitable - Results table - END **/
+
+
+/** blue-grey - style - BEGIN **/
+
+div.sitable.blue_light,
+div.sifixtures.blue_light,
+div.siresults.blue_light {
+	color: #444 !important;
+}
+
+div.sitable.blue_light table tr td,
+div.sifixtures.blue_light table tr td,
+div.siresults.blue_light table tr td {
+	border: none;
+	border-bottom: solid 1px #E5E5E5 !important;
+	color: #444;
+	background-color: transparent;
+}
+
+div.sitable.blue_light table tr td.team,
+div.sifixtures.blue_light table tr td.team_a,
+div.sifixtures.blue_light table tr td.team_b,
+div.siresults.blue_light table tr td.team_a,
+div.siresults.blue_light table tr td.team_b {
+	color: #336699 !important;
+}
+
+div.sitable.blue_light table thead,
+div.sitable.blue_light table thead th,
+div.sifixtures.blue_light table thead,
+div.sifixtures.blue_light table thead th,
+div.siresults.blue_light table thead,
+div.siresults.blue_light table thead th {
+	background: none;
+	background-color: #B1CBE4 !important;
+	border: none;
+}
+
+div.sitable.blue_light table tr.highlight,
+div.sifixtures.blue_light table tr.highlight,
+div.siresults.blue_light table tr.highlight {
+	background-color: #CBDCED !important;
+}
+
+div.sitable.blue_light table tr.date,
+div.sifixtures.blue_light table tr.date,
+div.siresults.blue_light table tr.date {
+	background-color: #B1CBE4;
+}
+
+div.siresults.blue_light table tbody td.team_bold {
+	font-weight: bold;
+}
+
+/** blue-grey - style - END **/
