@@ -6,7 +6,7 @@
                 ed.windowManager.open({
                     file : url + '/window.php',
                     width : 500 + ed.getLang('SoccerInfo.delta_width', 0),
-                    height : 310 + ed.getLang('SoccerInfo.delta_height', 0),
+                    height : 360 + ed.getLang('SoccerInfo.delta_height', 0),
                     inline : 1
                 }, {
                     plugin_url : url
@@ -35,8 +35,8 @@
                     longname  : 'SoccerInfo',
                     author    : 'Szilard Mihaly',
                     authorurl : 'http://www.mihalysoft.com/',
-                    infourl   : 'http://www.mihalysoft.com',
-                    version   : '1.0'
+                    infourl   : 'http://www.mihalysoft.com/wordpress-plugins/soccer-info/',
+                    version   : '1.2'
             };
         }
     });

@@ -32,6 +32,23 @@ function show_si_options( $type ) {
 	?>
 				
                 <tr>
+                    <td><label for="style<?php echo $type; ?>"><?php _e('Style:', SOCCER_INFO) ?></label></td>
+                    <td colspan="3">
+						<select class="widefat" 
+							id="style<?php echo $type; ?>" 
+							name="style<?php echo $type; ?>" style="width: 117px">
+						<?php
+							$styles = array('general'		 => __('Minimal', SOCCER_INFO), 
+											'blue_light'	 => __('Blue - Light', SOCCER_INFO));
+							foreach($styles as $v => $t) {
+								echo '<option value="'.$v.'">'.esc_html($t).'</option>'."\n";
+							}
+						?> 
+						</select>
+						<?php _e('Choose a style', SOCCER_INFO) ?>
+					</td>
+                </tr>
+                <tr>
                     <td><label for="limit<?php echo $type; ?>"><?php _e('Limit:', SOCCER_INFO) ?></label></td>
                     <td><input type="text" size="5" value="" name="limit<?php echo $type; ?>" id="limit<?php echo $type; ?>" /></td>
                     <td><label for="width<?php echo $type; ?>"><?php _e('Width:', SOCCER_INFO) ?></label></td>
@@ -43,11 +60,25 @@ function show_si_options( $type ) {
                 </tr>
                 <tr>
                     <td><label for="highlight<?php echo $type; ?>"><?php _e('Highlight:', SOCCER_INFO) ?></label></td>
-                    <td colspan="3"><input type="text" size="20" value="" name="highlight<?php echo $type; ?>" id="highlight<?php echo $type; ?>" /> <?php _e('Highlighted team', SOCCER_INFO) ?></td>
+                    <td colspan="3">
+					<select class="widefat" 
+						id="highlight<?php echo $type; ?>" 
+						name="highlight<?php echo $type; ?>" style="width: 200px">
+					</select> 
+					<?php _e('Highlighted team', SOCCER_INFO) ?>
+					 <img id='img_highlight<?php echo $type; ?>' class='ajax-loading' src='<?php echo admin_url();?>images/wpspin_light.gif' />
+					</td>
                 </tr>
                 <tr>
                     <td><label for="team<?php echo $type; ?>"><?php _e('Only 1 team:', SOCCER_INFO) ?></label></td>
-                    <td colspan="3"><input type="text" size="20" value="" name="team<?php echo $type; ?>" id="team<?php echo $type; ?>" /> <?php _e('Show only this team', SOCCER_INFO) ?></td>
+                    <td colspan="3">
+					<select class="widefat" 
+						id="team<?php echo $type; ?>" 
+						name="team<?php echo $type; ?>" style="width: 200px">
+					</select> 
+					<?php _e('Show only this team', SOCCER_INFO) ?>
+					 <img id='img_team<?php echo $type; ?>' class='ajax-loading' src='<?php echo admin_url();?>images/wpspin_light.gif' />
+					</td>
                 </tr>
 	
 	<?php
@@ -60,6 +91,7 @@ $site_url = get_option('siteurl');
 <head>
     <title><?php _e('Soccer Info', SOCCER_INFO) ?></title>
     <meta http-equiv="Content-Type" content="<?php bloginfo('html_type'); ?>; charset=<?php echo get_option('blog_charset'); ?>" />
+    <script language="javascript" type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.7/jquery.min.js"></script>
     <script language="javascript" type="text/javascript" src="<?php echo $site_url; ?>/wp-includes/js/tinymce/tiny_mce_popup.js"></script>
     <script language="javascript" type="text/javascript" src="<?php echo $site_url; ?>/wp-includes/js/tinymce/utils/mctabs.js"></script>
     <script language="javascript" type="text/javascript" src="<?php echo $site_url; ?>/wp-includes/js/tinymce/utils/form_utils.js"></script>
@@ -75,7 +107,7 @@ $site_url = get_option('siteurl');
             <li id="results_tab"><span><a href="javascript:mcTabs.displayTab('results_tab', 'results_panel');" onMouseOver="return false;"><?php _e('Results', SOCCER_INFO); ?></a></span></li>
         </ul>
     </div>
-    <div class="panel_wrapper" style="height:230px;">
+    <div class="panel_wrapper" style="height:260px;">
         <!-- tables panel -->
 		<?php $type_most = 'tables'; ?>
         <div id="tables_panel" class="panel current"><br />
@@ -105,6 +137,47 @@ $site_url = get_option('siteurl');
 				<?php show_si_options( $type_most ); ?>
 				
             </table>
+					
+	<script type='text/javascript'>
+		function get_soccer_info_teams_go(league_id, select_id, team_id, copy_to_id){
+			$('#img_'+select_id.substring(1)).show();
+			$('#img_'+select_id.substring(1)).css('visibility', 'visible');
+			$('#img_'+copy_to_id.substring(1)).show();
+			$('#img_'+copy_to_id.substring(1)).css('visibility', 'visible');
+			
+			this.get_soccer_info_teams_ajax_query = $.ajax({
+                url: '<?php echo admin_url('admin-ajax.php');?>',
+				data: { 'league_id': league_id, 'new_id': '1', 'team_id': team_id, 'action': 'get_soccer_info_teams' },
+				cache: false,
+				dataType: 'json',
+                success: function(data) {
+					if(data.teams == null){
+						// no teams found
+					}
+					else {
+						// user found
+						$(select_id).html(data.teams);
+						$(copy_to_id).html(data.teams);
+					}
+					
+					$('#img_'+select_id.substring(1)).hide();
+					$('#img_'+select_id.substring(1)).css('visibility', 'hidden');
+					$('#img_'+copy_to_id.substring(1)).hide();
+					$('#img_'+copy_to_id.substring(1)).css('visibility', 'hidden');
+				}
+            });
+		}
+		
+		$(document).ready(function(){
+			get_soccer_info_teams_go( $('#league_id<?php echo '_'.$type_most;?>').val(), '#team<?php echo '_'.$type_most;?>', '', '#highlight<?php echo '_'.$type_most;?>' );
+			
+		});
+		$('#league_id<?php echo '_'.$type_most;?>').change(function(){
+			get_soccer_info_teams_go( $('#league_id<?php echo '_'.$type_most;?>').val(), '#team<?php echo '_'.$type_most;?>', '', '#highlight<?php echo '_'.$type_most;?>' );
+		});
+
+	</script>
+	
             <p><?php _e('Display the table for the chosen league.', SOCCER_INFO); ?></p>
         </div>
         <!-- fixtures panel -->
@@ -132,6 +205,19 @@ $site_url = get_option('siteurl');
 				<?php show_si_options( $type_most ); ?>
 				
             </table>
+					
+	<script type='text/javascript'>
+		
+		$(document).ready(function(){
+			get_soccer_info_teams_go( $('#league_id<?php echo '_'.$type_most;?>').val(), '#team<?php echo '_'.$type_most;?>', '', '#highlight<?php echo '_'.$type_most;?>' );
+			
+		});
+		$('#league_id<?php echo '_'.$type_most;?>').change(function(){
+			get_soccer_info_teams_go( $('#league_id<?php echo '_'.$type_most;?>').val(), '#team<?php echo '_'.$type_most;?>', '', '#highlight<?php echo '_'.$type_most;?>' );
+		});
+
+	</script>
+	
             <p><?php _e('Display all fixtures for the chosen league or only those for a selected team.', SOCCER_INFO); ?></p>
         </div>
         <!-- results panel -->
@@ -159,6 +245,19 @@ $site_url = get_option('siteurl');
 				<?php show_si_options( $type_most ); ?>
 				
             </table>
+					
+	<script type='text/javascript'>
+		
+		$(document).ready(function(){
+			get_soccer_info_teams_go( $('#league_id<?php echo '_'.$type_most;?>').val(), '#team<?php echo '_'.$type_most;?>', '', '#highlight<?php echo '_'.$type_most;?>' );
+			
+		});
+		$('#league_id<?php echo '_'.$type_most;?>').change(function(){
+			get_soccer_info_teams_go( $('#league_id<?php echo '_'.$type_most;?>').val(), '#team<?php echo '_'.$type_most;?>', '', '#highlight<?php echo '_'.$type_most;?>' );
+		});
+
+	</script>
+	
             <p><?php _e('Display the last results for the chosen league or only those for a selected team.', SOCCER_INFO); ?></p>
         </div>
     </div>

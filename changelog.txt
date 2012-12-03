@@ -1,6 +1,12 @@
 Soccer Info
 by Szilard Mihaly
 
+= 1.2 - 12.03.2012 =
+* New: `Blue - Light` style added
+* New: Scroll down team selector
+* Enhancement: Increasing limits for results and fixtures of a selected team
+* Fixed: minor fixes
+
 = 1.1 - 11.28.2012 =
 * New: Added leagues:  Argentina - Primera División, Australia - A-League, Austria - Bundesliga ID, Belarus - Premier League, Bulgaria - A PFG, Canadian Soccer League, Czech Republic - Czech Liga, Denmark - Superliga, England - Championship, England - League One, England - League Two, France - Ligue 2, Germany - 2. Bundesliga, Italy - Serie B, Japan - J1 League, Paraguay - Division Profesional, Poland - Ekstraklasa, Romania - Liga I, Russia - Premier League, Scotland - Premier League, Serbia - Super Liga, Singapore - S.League, Slovakia - Super Liga, Spain - Segunda División, Sweden - Allsvenskan, Turkey - Süper Lig, Ukraine - Premier League ID, United States - MLS, Venezuela - Primera División
 * Fixed: Typos

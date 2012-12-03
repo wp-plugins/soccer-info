@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Soccer Info 1.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2012-11-26 12:08+0200\n"
-"PO-Revision-Date: 2012-11-26 12:13+0200\n"
+"POT-Creation-Date: 2012-12-02 12:10+0200\n"
+"PO-Revision-Date: 2012-12-02 12:11+0200\n"
 "Last-Translator: Szilard Mihaly <office@mihalysoft.com>\n"
 "Language-Team: Mihaly Soft <office@mihalysoft.com>\n"
 "MIME-Version: 1.0\n"
@@ -185,7 +185,7 @@ msgid "Reset options"
 msgstr "Alapértelmezett beállítások"
 
 #: soccer-info-admin.class.php:420
-#: js/tinymce/window.php:61
+#: js/tinymce/window.php:88
 msgid "Soccer Info"
 msgstr ""
 
@@ -193,197 +193,222 @@ msgstr ""
 msgid "Display a league's Ranking Table, Next Fixtures and Latest Results"
 msgstr "Mutatja a labdarúgó ligák tabelláit, következő mérkőzéseit és utóbbi eredményeit."
 
-#: soccer-info-widgets.class.php:154
-#: js/tinymce/window.php:41
+#: soccer-info-widgets.class.php:162
+#: js/tinymce/window.php:58
 msgid "Title:"
 msgstr "Cím:"
 
-#: soccer-info-widgets.class.php:160
+#: soccer-info-widgets.class.php:168
 msgid "Show:"
 msgstr "Mutasd:"
 
-#: soccer-info-widgets.class.php:165
+#: soccer-info-widgets.class.php:173
 msgid "Table"
 msgstr "Tabella"
 
-#: soccer-info-widgets.class.php:166
+#: soccer-info-widgets.class.php:174
 msgid "Next Fixtures"
 msgstr "Következő mérkőzések"
 
-#: soccer-info-widgets.class.php:167
+#: soccer-info-widgets.class.php:175
 msgid "Latest Results"
 msgstr "Legutóbbi eredmények"
 
-#: soccer-info-widgets.class.php:174
+#: soccer-info-widgets.class.php:182
+#: js/tinymce/window.php:35
+msgid "Style:"
+msgstr "Stílus:"
+
+#: soccer-info-widgets.class.php:187
+#: js/tinymce/window.php:41
+msgid "Minimal"
+msgstr "Minimális"
+
+#: soccer-info-widgets.class.php:188
+#: js/tinymce/window.php:42
+msgid "Blue - Light"
+msgstr "Kék - Halvány"
+
+#: soccer-info-widgets.class.php:195
 msgid "Select League:"
 msgstr "Válassz Ligát:"
 
-#: soccer-info-widgets.class.php:188
+#: soccer-info-widgets.class.php:209
 msgid "Columns (#,Team,MP,W,D,L,F,A,G,P):"
 msgstr "Oszlopok (#,Team,MP,W,D,L,F,A,G,P):"
 
-#: soccer-info-widgets.class.php:194
-#: js/tinymce/window.php:35
+#: soccer-info-widgets.class.php:215
+#: js/tinymce/window.php:52
 msgid "Limit:"
 msgstr ""
 
-#: soccer-info-widgets.class.php:200
-#: js/tinymce/window.php:37
+#: soccer-info-widgets.class.php:221
+#: js/tinymce/window.php:54
 msgid "Width:"
 msgstr "Szélesség:"
 
-#: soccer-info-widgets.class.php:207
+#: soccer-info-widgets.class.php:229
+#: soccer-info-widgets.class.php:271
 msgid "Highlighted team:"
 msgstr "Kiemelt csapat:"
 
-#: soccer-info-widgets.class.php:213
+#: soccer-info-widgets.class.php:235
+#: soccer-info-widgets.class.php:278
 msgid "Show only this team:"
 msgstr "Csak ezt a csapatot:"
 
-#: soccer-info-widgets.class.php:225
+#: soccer-info-widgets.class.php:290
 msgid "Hide widget style."
 msgstr "Ne mutasd a widget stílusát."
 
-#: soccer-info.php:426
+#: soccer-info.php:504
 msgid "#"
 msgstr ""
 
-#: soccer-info.php:427
-#: soccer-info.php:438
+#: soccer-info.php:505
+#: soccer-info.php:516
 msgid "Team"
 msgstr "Csapat"
 
-#: soccer-info.php:428
+#: soccer-info.php:506
 msgid "MP"
 msgstr "LM"
 
-#: soccer-info.php:429
+#: soccer-info.php:507
 msgid "W"
 msgstr "Gy"
 
-#: soccer-info.php:430
+#: soccer-info.php:508
 msgid "D"
 msgstr "D"
 
-#: soccer-info.php:431
+#: soccer-info.php:509
 msgid "L"
 msgstr "V"
 
-#: soccer-info.php:432
+#: soccer-info.php:510
 msgid "F"
 msgstr "RG"
 
-#: soccer-info.php:433
+#: soccer-info.php:511
 msgid "A"
 msgstr "KG"
 
-#: soccer-info.php:434
+#: soccer-info.php:512
 msgid "G"
 msgstr "GK"
 
-#: soccer-info.php:435
+#: soccer-info.php:513
 msgid "P"
 msgstr "P"
 
-#: soccer-info.php:437
+#: soccer-info.php:515
 msgid "Rank"
 msgstr "Pozíció"
 
-#: soccer-info.php:439
+#: soccer-info.php:517
 msgid "Matches played"
 msgstr "Lejátszott mérkőzések"
 
-#: soccer-info.php:440
+#: soccer-info.php:518
 msgid "Wins"
 msgstr "Győzelem"
 
-#: soccer-info.php:441
+#: soccer-info.php:519
 msgid "Draws"
 msgstr "Döntetlen"
 
-#: soccer-info.php:442
+#: soccer-info.php:520
 msgid "Losses"
 msgstr "Vereség"
 
-#: soccer-info.php:443
+#: soccer-info.php:521
 msgid "Goals for"
 msgstr "Rúgott gólok"
 
-#: soccer-info.php:444
+#: soccer-info.php:522
 msgid "Goals against"
 msgstr "Kapott gólok"
 
-#: soccer-info.php:445
+#: soccer-info.php:523
 msgid "Goal difference"
 msgstr "Gólkülönbség"
 
-#: soccer-info.php:446
+#: soccer-info.php:524
 msgid "Points"
 msgstr "Pontok"
 
-#: js/tinymce/window.php:42
+#: soccer-info.php:855
+msgid "-- None --"
+msgstr "-- Nincs --"
+
+#: js/tinymce/window.php:48
+msgid "Choose a style"
+msgstr "Válassz stílust"
+
+#: js/tinymce/window.php:59
 msgid "It shows before the table"
 msgstr "Ez jelenik meg a táblázat előtt."
 
-#: js/tinymce/window.php:45
+#: js/tinymce/window.php:62
 msgid "Highlight:"
 msgstr "Kiemelt:"
 
-#: js/tinymce/window.php:46
+#: js/tinymce/window.php:68
 msgid "Highlighted team"
 msgstr "Kiemelt csapat:"
 
-#: js/tinymce/window.php:49
+#: js/tinymce/window.php:71
 msgid "Only 1 team:"
 msgstr "Csak 1 csapat:"
 
-#: js/tinymce/window.php:50
+#: js/tinymce/window.php:77
 msgid "Show only this team"
 msgstr "Csak ezt a csapatot mutasd"
 
-#: js/tinymce/window.php:73
+#: js/tinymce/window.php:101
 msgid "Tables"
 msgstr "Tabellák"
 
-#: js/tinymce/window.php:74
+#: js/tinymce/window.php:102
 msgid "Fixtures"
 msgstr "Mérkőzések"
 
-#: js/tinymce/window.php:75
+#: js/tinymce/window.php:103
 msgid "Results"
 msgstr "Eredmények"
 
-#: js/tinymce/window.php:84
-#: js/tinymce/window.php:115
-#: js/tinymce/window.php:142
+#: js/tinymce/window.php:112
+#: js/tinymce/window.php:177
+#: js/tinymce/window.php:217
 msgid "League:"
 msgstr "Liga:"
 
-#: js/tinymce/window.php:101
+#: js/tinymce/window.php:129
 msgid "Columns:"
 msgstr "Oszlopok:"
 
-#: js/tinymce/window.php:102
+#: js/tinymce/window.php:130
 msgid "You may use: #,Team,MP,W,D,L,F,A,G,P"
 msgstr "Ezeket használhatod: #,Team,MP,W,D,L,F,A,G,P"
 
-#: js/tinymce/window.php:108
+#: js/tinymce/window.php:170
 msgid "Display the table for the chosen league."
 msgstr "Mutatja a kiválasztott liga tabelláját."
 
-#: js/tinymce/window.php:135
+#: js/tinymce/window.php:210
 msgid "Display all fixtures for the chosen league or only those for a selected team."
 msgstr "Mutatja a kiválasztott liga következő mérkőzéseinek az időpontját (vagy csak a kiválasztott csapatét)"
 
-#: js/tinymce/window.php:162
+#: js/tinymce/window.php:250
 msgid "Display the last results for the chosen league or only those for a selected team."
 msgstr "Mutatja a kiválasztott liga legutóbbi eredményeit (vagy csak a kiválasztott csapatét)"
 
-#: js/tinymce/window.php:167
+#: js/tinymce/window.php:255
 msgid "Cancel"
 msgstr "Visszavon"
 
-#: js/tinymce/window.php:170
+#: js/tinymce/window.php:258
 msgid "Insert"
 msgstr "Beszúr"
 

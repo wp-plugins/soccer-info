@@ -21,6 +21,7 @@ function insertSoccerInfo() {
 		var highlight	 = document.getElementById('highlight' +'_'+ type +'s').value;
 		var team 		 = document.getElementById('team' +'_'+ type +'s').value;
 		var leagueId	 = document.getElementById('league_id' +'_'+ type +'s').value;
+		var style		 = document.getElementById('style' +'_'+ type +'s').value;
 	}
 	
 	// Fixtures mode
@@ -36,6 +37,7 @@ function insertSoccerInfo() {
 		var highlight	 = document.getElementById('highlight' +'_'+ type).value;
 		var team 		 = document.getElementById('team' +'_'+ type).value;
 		var leagueId	 = document.getElementById('league_id' +'_'+ type).value;
+		var style		 = document.getElementById('style' +'_'+ type).value;
 	}
 	
 	// Results mode
@@ -51,17 +53,29 @@ function insertSoccerInfo() {
 		var highlight	 = document.getElementById('highlight' +'_'+ type).value;
 		var team 		 = document.getElementById('team' +'_'+ type).value;
 		var leagueId	 = document.getElementById('league_id' +'_'+ type).value;
+		var style		 = document.getElementById('style' +'_'+ type).value;
 	}
 	
 	if ( columns != '' ) columns = " columns='" + columns + "'";
 	if ( width != '' ) width = " width='" + width + "'";
 	if ( limit != '' ) limit = " limit='" + limit + "'";
 	if ( title != '' ) title = " title='" + title + "'";
-	if ( highlight != '' ) highlight = " highlight='" + highlight + "'";
-	if ( team != '' ) team = " team='" + team + "'";
+	if ( highlight != '' && highlight != '0||' )
+		highlight = " highlight='" + highlight + "'";
+	else
+		highlight = '';
+	if ( team != '' && team != '0||' )
+		team = " team='" + team + "'";
+	else
+		team = '';
+	if ( style != '' && style != 'general' )
+		style = " style='" + style + "'";
+	else
+		style = '';
+	
 	
 	if (leagueId != 0)
-		tagtext = "[soccer-info id='" + leagueId + "' type='" + type + "'" + columns + highlight + team + title + limit + width + " /]";
+		tagtext = "[soccer-info id='" + leagueId + "' type='" + type + "'" + style + columns + highlight + team + title + limit + width + " /]";
 	else
 		tinyMCEPopup.close();
 	

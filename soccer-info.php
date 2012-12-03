@@ -3,7 +3,7 @@
 Plugin Name: Soccer Info
 Plugin URI: http://www.mihalysoft.com/wordpress-plugins/soccer-info/
 Description: Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
-Version: 1.1
+Version: 1.2
 Requires at least: WordPress 3.2.1
 Tested up to: WordPress 3.4.2
 License: GPLv2 or later
@@ -81,6 +81,7 @@ if ( !class_exists('SoccerInfo') ) {
                 add_action('admin_print_styles', array('SoccerInfo_Admin', 'print_admin_styles'));
                 add_action('admin_print_scripts', array('SoccerInfo_Admin', 'print_admin_scripts'));
                 //add_action('wp_dashboard_setup', array('SoccerInfo_Admin', 'register_admin_widgets'));
+                add_action('admin_print_scripts-widgets.php', array('SoccerInfo_Admin', 'print_admin_scripts_widgets'));
                 
                 // AJAX library
                 //require_once SOCCER_INFO_PATH.'/libs/soccer-info-ajax.php';
@@ -93,6 +94,9 @@ if ( !class_exists('SoccerInfo') ) {
 				
 				add_action('wp_print_styles', array(&$this, 'print_front_styles'));
 			}
+
+			/** Hook for add-points user query */
+			add_action( 'wp_ajax_get_soccer_info_teams', array(&$this, 'get_soccer_info_teams') );
 			
 		}
 				
@@ -148,6 +152,9 @@ if ( !class_exists('SoccerInfo') ) {
 				$attributes
 			));
 			
+			if ($style == 'general')
+				$style = '';
+			
 			if ( !in_array( $type, array('table', 'fixtures', 'results') ) )
 				return '';
 			
@@ -160,10 +167,46 @@ if ( !class_exists('SoccerInfo') ) {
 			
 			if ( $league_id == 0 )
 				return '';
-				
-			$feed_url1 = 'http://widgets.soccerway.com/widget/free/classic/competition/';
 			
-			$feed_url = $feed_url1.$league_id.'/#d=350x800&f=table,table_colmp,table_colmw,table_colmd,table_colml,table_colgf,table_colga,results,fixtures&cbackground=FFFFFF&ctext=000000&ctitle=F85F00&cshadow=E8E8E8&cbutton=C0C0C0&cbuttontext=000000&chighlight=FF0000&tbody_family=Tahoma,sans-serif&tbody_size=9&tbody_weight=normal&tbody_style=normal&tbody_decoration=none&tbody_transform=none&ttitle_family=Impact,sans-serif&ttitle_size=13&ttitle_weight=normal&ttitle_style=normal&ttitle_decoration=none&ttitle_transform=none&ttab_family=Tahoma,sans-serif&ttab_size=9&ttab_weight=normal&ttab_style=normal&ttab_decoration=none&ttab_transform=none';
+			$team_id = 0;
+			if ($type != 'table') {
+				if (!empty($team)) {
+					$h = explode('||', $team);
+					if (count($h) > 1 && (int)$h[0] > 0) {
+						$team_id = (int)$h[0];
+						$team = $h[1];
+					}
+					else {
+						$team = '';
+					}
+				}
+			}
+			else {
+				if (!empty($team)) {
+					$h = explode('||', $team);
+					if (count($h) > 1)
+						$team = $h[1]; 
+					else
+						$team = '';
+				}
+			}
+			
+			if (!empty($highlight)) {
+				$h = explode('||', $highlight);
+				if (count($h) > 1)
+					$highlight = $h[1];
+				else
+					$highlight = '';
+			}
+			
+			if ( $team_id > 0 ) {
+				$feed_url = 'http://widgets.soccerway.com/widget/free/classic/team/'.$team_id;
+			}
+			else {
+				$feed_url1 = 'http://widgets.soccerway.com/widget/free/classic/competition/';
+				
+				$feed_url = $feed_url1.$league_id.'/#d=350x800&f=table,table_colmp,table_colmw,table_colmd,table_colml,table_colgf,table_colga,results,fixtures&cbackground=FFFFFF&ctext=000000&ctitle=F85F00&cshadow=E8E8E8&cbutton=C0C0C0&cbuttontext=000000&chighlight=FF0000&tbody_family=Tahoma,sans-serif&tbody_size=9&tbody_weight=normal&tbody_style=normal&tbody_decoration=none&tbody_transform=none&ttitle_family=Impact,sans-serif&ttitle_size=13&ttitle_weight=normal&ttitle_style=normal&ttitle_decoration=none&ttitle_transform=none&ttab_family=Tahoma,sans-serif&ttab_size=9&ttab_weight=normal&ttab_style=normal&ttab_decoration=none&ttab_transform=none';
+			}
 				
 				$response = $this->wpsi_remote_get( $feed_url ); //, $cache_args, $http_args);
 				
@@ -174,7 +217,7 @@ if ( !class_exists('SoccerInfo') ) {
 					
 					$raw_html = $response['body'];
 					
-					$filtered_html = 'salata';
+					$filtered_html = '';
 					if( !empty($selector) ) {
 						$raw_html = $this->wpsi_get_html_by_selector($raw_html, $selector); //, $wpwsopt['output']);
 						 if( !is_wp_error( $raw_html ) ) {
@@ -195,6 +238,7 @@ if ( !class_exists('SoccerInfo') ) {
 					
 					$filtered_html = $this->wpsi_strip_only($filtered_html, '<a>');
 					
+					
 					switch ( $type ) {
 						case 'table':
 							if ( $widget && empty($columns) )
@@ -202,10 +246,10 @@ if ( !class_exists('SoccerInfo') ) {
 							$filtered_html = $this->wpsi_table($filtered_html, $columns, $highlight, $team, $limit);
 						break;
 						case 'fixtures':
-							$filtered_html = $this->wpsi_fixtures($filtered_html, $highlight, $team, $limit);
+							$filtered_html = $this->wpsi_fixtures($filtered_html, $highlight, $team, $limit, $team_id);
 						break;
 						case 'results':
-							$filtered_html = $this->wpsi_results($filtered_html, $highlight, $team, $limit);
+							$filtered_html = $this->wpsi_results($filtered_html, $highlight, $team, $limit, $team_id);
 						break;
 					}
 					
@@ -217,7 +261,7 @@ if ( !class_exists('SoccerInfo') ) {
 					}
 					
 					
-					$this_wpsiopt_si_table_before = '<div class="si'.$type.(($widget)?' siwidget':'').'">';
+					$this_wpsiopt_si_table_before = '<div class="si'.$type.(($widget)?' siwidget':'').' '.$style.'">';
 					$this_wpsiopt_si_table_after = '</div>';
 					
 					$c_count = 1;
@@ -247,7 +291,7 @@ if ( !class_exists('SoccerInfo') ) {
 		 * @param  none
 		 * @return void
 		 */
-		function wpsi_results($filtered_html, $highlight = '', $team = '', $limit = 0) {
+		function wpsi_results($filtered_html, $highlight = '', $team = '', $limit = 0, $team_id = 0) {
 			
 			$limit = (int)$limit;
 			
@@ -272,15 +316,23 @@ if ( !class_exists('SoccerInfo') ) {
 					$date_format = $this->getDateFormat();
 					$time_format = $this->wpsiopt['si_time_format'];
 					$i_limit = 0;
+					
+					$van_comp = 0;
+					if ( $team_id > 0 )
+						$van_comp = 1;
+					
 					foreach ( $table->tbody[0] as $ii => $tr ) {
 						$filtered_html_td = '';
-						$highlight_ok = '';
+						if ($i_limit % 2 == 0)
+							$highlight_ok = ' class="even"';
+						else
+							$highlight_ok = ' class="odd"';
 						
 						if ( $limit == 0 || $i_limit < $limit ) {
-							if ( count($tr->td) > 4 && isset($tr->td[0]->span[0]) ) {
+							if ( count($tr->td) > 4 + $van_comp && isset($tr->td[0]->span[0]) ) {
 								
-								$team_a = $this->coorect_team_name( $tr->td[2] );
-								$team_b = $this->coorect_team_name( $tr->td[4] );
+								$team_a = $this->correct_team_name( $tr->td[2 + $van_comp] );
+								$team_b = $this->correct_team_name( $tr->td[4 + $van_comp] );
 								if ( empty($team) || $team == $team_a || $team == $team_b ) { //check for the ONLY team
 									
 									$span_attr = $tr->td[0]->span[0]->attributes();
@@ -289,17 +341,18 @@ if ( !class_exists('SoccerInfo') ) {
 									//$time_new = date( $time_format, (int)$span_attr['data-value'] + $offset );
 									if ( $date_new != $date_old ) {
 										$filtered_html .= '<tr class="date">';
-										$filtered_html .= '<td class="date" colspan="3">'.$date_new.'</td>';
+										$filtered_html .= '<td class="date" colspan="'.(3 + $van_comp).'">'.$date_new.'</td>';
 										$filtered_html .= '</tr>'."\n";
 										$date_old = $date_new;
 									}
 								
-									if ( $highlight == $team_a || $highlight == $team_b )
-										$highlight_ok = ' class="highlight"';
+									if ( $highlight == $team_a || $highlight == $team_b ) {
+										$highlight_ok = str_replace(' class="', ' class="highlight ', $highlight_ok);
+									}
 									
 									$team_a_bold = '';
 									$team_b_bold = '';
-									$score = (string)$tr->td[3];
+									$score = (string)$tr->td[3 + $van_comp];
 									$scores = explode(' - ', $score);
 									if ( count($scores) == 2 && $scores[0] != $scores[1] ) {
 										if ( $scores[0] > $scores[1] )
@@ -307,7 +360,14 @@ if ( !class_exists('SoccerInfo') ) {
 										elseif ( $scores[0] < $scores[1] )
 											$team_b_bold = ' team_bold';
 									}
-												
+									if ($van_comp > 0) {
+										$td_2_attr = $tr->td[2]->attributes();
+										if (isset($td_2_attr['title']))
+											$td_2_attr_title = ' title="'.$td_2_attr['title'].'"';
+										else
+											$td_2_attr_title = '';
+										$filtered_html_td .= '<td class="competition"'.$td_2_attr_title.'>' .$tr->td[2]. '</td>'."\n";
+									}
 									$filtered_html_td .= '<td class="'.$all_columns['class'][2].$team_a_bold.'">' .$team_a. '</td>'."\n";
 									$filtered_html_td .= '<td class="'.$all_columns['class'][3].'">' .$score. '</td>'."\n";
 									$filtered_html_td .= '<td class="'.$all_columns['class'][4].$team_b_bold.'">' .$team_b. '</td>'."\n";
@@ -337,7 +397,7 @@ if ( !class_exists('SoccerInfo') ) {
 		 * @param  none
 		 * @return void
 		 */
-		function wpsi_fixtures($filtered_html, $highlight = '', $team = '', $limit = 0) {
+		function wpsi_fixtures($filtered_html, $highlight = '', $team = '', $limit = 0, $team_id = 0) {
 			
 			$limit = (int)$limit;
 			
@@ -362,15 +422,23 @@ if ( !class_exists('SoccerInfo') ) {
 					$date_format = $this->getDateFormat();
 					$time_format = $this->wpsiopt['si_time_format'];
 					$i_limit = 0;
+					
+					$van_comp = 0;
+					if ( $team_id > 0 )
+						$van_comp = 1;
+					
 					foreach ( $table->tbody[0] as $ii => $tr ) {
 						$filtered_html_td = '';
-						$highlight_ok = '';
+						if ($i_limit % 2 == 0)
+							$highlight_ok = ' class="even"';
+						else
+							$highlight_ok = ' class="odd"';
 						
 						if ( $limit == 0 || $i_limit < $limit ) {
-							if ( count($tr->td) > 4 && isset($tr->td[0]->span[0]) ) {
+							if ( count($tr->td) > 4 + $van_comp && isset($tr->td[0]->span[0]) ) {
 								
-								$team_a = $this->coorect_team_name( $tr->td[2] );
-								$team_b = $this->coorect_team_name( $tr->td[4] );
+								$team_a = $this->correct_team_name( $tr->td[2 + $van_comp] );
+								$team_b = $this->correct_team_name( $tr->td[4 + $van_comp] );
 								if ( empty($team) || $team == $team_a || $team == $team_b ) { //check for the ONLY team
 									
 									$span_attr = $tr->td[0]->span[0]->attributes();
@@ -379,17 +447,27 @@ if ( !class_exists('SoccerInfo') ) {
 									$time_new = date_i18n( $time_format, (int)$span_attr['data-value'] + $offset );
 									if ( $date_new != $date_old ) {
 										$filtered_html .= '<tr class="date">';
-										$filtered_html .= '<td class="date" colspan="3">'.$date_new.'</td>';
+										$filtered_html .= '<td class="date" colspan="'.(3 + $van_comp).'">'.$date_new.'</td>';
 										$filtered_html .= '</tr>'."\n";
 										$date_old = $date_new;
 									}
-								
-									if ( $highlight == $team_a || $highlight == $team_b )
-										$highlight_ok = ' class="highlight"';
-												
-									$filtered_html_td .= '<td class="'.$all_columns['class'][2].'">' .$team_a. '</td>'."\n";
-									$filtered_html_td .= '<td class="'.$all_columns['class'][3].'">' .$time_new. '</td>'."\n";
-									$filtered_html_td .= '<td class="'.$all_columns['class'][4].'">' .$team_b. '</td>'."\n";
+									
+									
+									if ($van_comp > 0) {
+										$td_2_attr = $tr->td[2]->attributes();
+										if (isset($td_2_attr['title']))
+											$td_2_attr_title = ' title="'.$td_2_attr['title'].'"';
+										else
+											$td_2_attr_title = '';
+										$filtered_html_td .= '<td class="competition"'.$td_2_attr_title.'>' .$tr->td[2]. '</td>'."\n";
+									}
+									if ( $highlight == $team_a || $highlight == $team_b ) {
+										$highlight_ok = str_replace(' class="', ' class="highlight ', $highlight_ok);
+									}
+									
+									$filtered_html_td .= '<td class="'.$all_columns['class'][2 + $van_comp].'">' .$team_a. '</td>'."\n";
+									$filtered_html_td .= '<td class="'.$all_columns['class'][3 + $van_comp].'">' .$time_new. '</td>'."\n";
+									$filtered_html_td .= '<td class="'.$all_columns['class'][4 + $van_comp].'">' .$team_b. '</td>'."\n";
 								}
 							}
 							if ( !empty($filtered_html_td) ) {
@@ -484,10 +562,17 @@ if ( !class_exists('SoccerInfo') ) {
 					$filtered_html .= '</tr></thead>'."\n";
 					
 					$filtered_html .= '<tbody>'."\n";
+					
 					$i_limit = 0;
 					foreach ( $table->tbody[0] as $ii => $tr ) {
 						$filtered_html_td = '';
-						$highlight_ok = '';
+						
+						if ($i_limit % 2 == 0)
+							$highlight_ok = ' class="even"';
+						else
+							$highlight_ok = ' class="odd"';
+						
+						
 						$row_ok = 1;
 						if ( $limit == 0 || $i_limit < $limit ) {
 							foreach ( $cols_ok as $i => $c ) {
@@ -501,12 +586,13 @@ if ( !class_exists('SoccerInfo') ) {
 									else
 										$first_last = '';
 									if ( $c == 1 ) { //team column
-										$td = $this->coorect_team_name( $td );
+										$td = $this->correct_team_name( $td );
 										if ( !empty($team) && $team != $td ) { //check for the ONLY team
 											$row_ok = 0;
 										}
-										if ( $td == $highlight )
-											$highlight_ok = ' class="highlight"';
+										if ( $td == $highlight ) {
+											$highlight_ok = str_replace(' class="', ' class="highlight ', $highlight_ok);
+										}
 									}
 									$filtered_html_td .= '<td class="'.$all_columns['class'][$c].$first_last.'">' .$td. '</td>'."\n";
 								}
@@ -550,7 +636,7 @@ if ( !class_exists('SoccerInfo') ) {
 		 * @param array $http_args Optional. Override the defaults.
 		 * @return WP_Error|array The response or WP_Error on failure.
 		 */
-		function wpsi_remote_get($url, $cache_args = array(), $http_args = array()) {
+		function wpsi_remote_get($url, $method = 'GET', $cache_args = array(), $http_args = array()) {
 			$default_cache_args = array(
 				'cache' => 60,
 				'on-error' => 'cache'
@@ -568,7 +654,7 @@ if ( !class_exists('SoccerInfo') ) {
 		
 			if ( false === ( $cache = get_transient($transient) ) || $cache_args['cache'] == 0 ) {
 				//$response = wp_remote_request($url, $http_args);
-				$response = wp_remote_get($url, array( 'method' => 'GET', 'timeout' => 30, 'redirection' => 5, 'httpversion' => '1.0', 'blocking' => 'true', 'headers' => $http_args, 'body' => null, 'cookies' => array() ) );
+				$response = wp_remote_get($url, array( 'method' => $method, 'timeout' => 30, 'redirection' => 5, 'httpversion' => '1.0', 'blocking' => 'true', 'headers' => $http_args, 'body' => null, 'cookies' => array() ) );
 				
 				if( !is_wp_error( $response ) ) {
 					if($cache_args['cache'] != 0)
@@ -668,7 +754,7 @@ if ( !class_exists('SoccerInfo') ) {
 			return $liga;
 		}
 		
-		function coorect_team_name( $team_name ) {
+		function correct_team_name( $team_name ) {
 			$incorrect_teams = array ("Eintracht Fran…",
 									  "Borussia M'gla…",
 									  "Olympique Mars…",
@@ -696,6 +782,74 @@ if ( !class_exists('SoccerInfo') ) {
 		
 		public function getLeagueArray() {
 			return $this->competitions;
+		}
+		
+		function getTeams($league_id = 1) {
+			//http://widgets.soccerway.com/wizard/step2'
+			
+			$feed_url = 'http://widgets.soccerway.com/a/block_competition_team_control?block_id=page_step2_1_block_widget_parameters_2_block_competition_team_control_2&callback_params=%7B%22data_name%22%3A%20%22team_id%22%2C%20%22group%22%3A%20%22parameters%22%2C%20%22nullable%22%3A%20%22%22%2C%20%22filter%22%3A%20%22%22%7D&action=parentChanged&params=%7B%22parent_value%22%3A%20%22'.$league_id.'%22%7D';
+				
+			$response = $this->wpsi_remote_get( $feed_url ); //, 'GET', array(), array('content-type' => 'application/json; charset=utf-8') ); //, $cache_args, $http_args);
+				
+			if ( !is_wp_error( $response ) ) {
+				
+				$json_html = json_decode($response['body']);
+				if ( !empty($json_html) && isset($json_html->{'commands'}[0]->{'parameters'}->{'content'}) ) {
+					
+					$f = "%<option\ value=\"(.*?)\".*?>(.*?)</option.*?>%is";
+					
+					preg_match_all($f, $json_html->{'commands'}[0]->{'parameters'}->{'content'}, $matches);
+					
+					if ( !isset($matches[0][0]) )
+						return array();
+						
+					foreach ($matches[2] as $k => $v)
+						$matches[2][$k] = $this->correct_team_name( $matches[2][$k] );
+						
+					return array( 'value' => $matches[1], 'option' => $matches[2] );
+				}
+			}
+			
+			return array();
+		}
+		
+		function get_soccer_info_teams() {
+		
+			header( "Content-Type: application/json" );			
+			
+			if ( !isset($_REQUEST['league_id']) || (int)$_REQUEST['league_id'] <= 0 ){
+				$response = json_encode( array() );
+				echo $response;
+				exit;
+			}
+			
+			if (isset($_REQUEST['new_id']) && $_REQUEST['new_id'] == 1)
+				$league_id = $this->get_league_number_by_id( (int)$_REQUEST['league_id'] );
+			else
+				$league_id = (int)$_REQUEST['league_id'];
+			
+			$teams = $this->getTeams( $league_id );
+			
+			
+			if (isset($_REQUEST['team_id']))
+				$team_id = $_REQUEST['team_id'];
+			else
+				$team_id = 0;
+			
+			$oo = '';
+			if (isset($teams['value'])) {
+				$oo_before = '<option value="0||"'.selected($team_id, '0||', false).'>'.__('-- None --', SOCCER_INFO).'</option>';
+				$oo_after = '';
+				foreach ($teams['value'] as $k => $v) {
+					$oo .= '<option value="'.$v.'||'.$teams['option'][$k].'"'.selected($team_id, $v.'||'.$teams['option'][$k], false).'>'.$teams['option'][$k].'</option>';
+				}
+				$oo = $oo_before.$oo.$oo_after;
+			}
+			
+			$response = json_encode( array('teams' => $oo) );
+			echo $response;
+			exit;
+			
 		}
 		
 		public $competitions = array (

@@ -1,10 +1,10 @@
 === Soccer Info ===
-Contributors: Mihaly Soft
+Contributors: szi19830728, Mihaly Soft
 Donate link: http://www.mihalysoft.com/
 Tags: soccer info, football, sport, league table, championship, soccer, sports, leagues, next fixtures, latest results
 Requires at least: 3.2.1
 Tested up to: 3.4.2
-Stable tag: 1.1
+Stable tag: 1.2
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -92,6 +92,12 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 
 == Changelog ==
 
+= 1.2 =
+* New: `Blue - Light` style added
+* New: Scroll down team selector
+* Enhancement: Increased limits for results and fixtures of a selected team
+* Fixed: minor fixes
+
 = 1.1 =
 * New: Added leagues: Argentina - Primera División, Australia - A-League, Austria - Bundesliga ID, Belarus - Premier League, Bulgaria - A PFG, Canadian Soccer League, Czech Republic - Czech Liga, Denmark - Superliga, England - Championship, England - League One, England - League Two, France - Ligue 2, Germany - 2. Bundesliga, Italy - Serie B, Japan - J1 League, Paraguay - Division Profesional, Poland - Ekstraklasa, Romania - Liga I, Russia - Premier League, Scotland - Premier League, Serbia - Super Liga, Singapore - S.League, Slovakia - Super Liga, Spain - Segunda División, Sweden - Allsvenskan, Turkey - Süper Lig, Ukraine - Premier League ID, United States - MLS, Venezuela - Primera División
 * Fixed: Typos
@@ -101,4 +107,10 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 
 == Upgrade Notice ==
 
-No notes
+= 1.2 =
+* New: `Blue - Light` style added
+* New: Scroll down team selector
+* Enhancement: Increasing limits for results and fixtures of a selected team
+* Fixed: minor fixes
+
+If you used `highlight` and/or `team` in your Soccer Info shortcodes (or in your widgets), please, readd them to prefent any errors. Thank you!

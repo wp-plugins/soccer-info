@@ -402,6 +402,12 @@ For more information, check out the plugin's website: <a href='http://www.mihaly
                 //wp_enqueue_script('soccer-info-mask');
             }
         }
+        public static function print_admin_scripts_widgets() {
+			
+			wp_register_script('soccer-info-widgets', plugins_url( SOCCER_INFO_BASEPATH.'/js/admin-widgets.js'), array('jquery') );
+			wp_enqueue_script('soccer-info-widgets');
+			
+		}
         
         /**
          * Admin menu generation
