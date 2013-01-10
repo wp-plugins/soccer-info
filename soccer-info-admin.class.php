@@ -110,7 +110,7 @@ if ( ! class_exists('SoccerInfo_Admin')) {
 				if ( isset($_POST['si_update']) && !empty($_POST['si_update']) ) { //Pressed Button: Update Config
 					check_admin_referer('soccer_info');
 					
-					if (isset($_POST['si_timezone']) && !empty($_POST['si_timezone']))
+					if (isset($_POST['si_timezone']) && ( $_POST['si_timezone'] == 0 || !empty($_POST['si_timezone']) ))
 						$wpsiopt['si_timezone'] = $_POST['si_timezone'];
 					
 					if (isset($_POST['si_date_format']) && !empty($_POST['si_date_format']))
@@ -157,7 +157,21 @@ if ( ! class_exists('SoccerInfo_Admin')) {
 							
 							<?php $this->HtmlPrintBoxHeader('si_pnres',__('About this Plugin:',SOCCER_INFO),true); ?>
 								<?php _e('Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.',SOCCER_INFO); ?>
-								<?php if(__('translator_name',SOCCER_INFO)!='translator_name') {?><a class="si_button si_pluginSupport" href="<?php _e('translator_url',SOCCER_INFO); ?>"><?php _e('translator_name',SOCCER_INFO); ?></a><?php } ?>
+								<?php
+									$translator_name = __('translator_name', SOCCER_INFO);
+									if ( $translator_name != 'translator_name'  ) {
+										echo '<br />'.__('Translated by:', SOCCER_INFO).'<br />';
+										$translator_url = __('translator_url', SOCCER_INFO);
+										if ( $translator_url != 'translator_url' )
+											echo '<a class="si_button si_pluginSupport" href="'.$translator_url.'">';
+										
+										echo $translator_name;
+										
+										if ( $translator_url != 'translator_url' )
+											echo '</a>';
+									}
+								?>
+									
 							<?php $this->HtmlPrintBoxFooter(true); ?>
 							
 							<?php $this->HtmlPrintBoxHeader('si_faq',__('Frequently Asked Questions:',SOCCER_INFO),true); ?>

@@ -3,9 +3,9 @@
 Plugin Name: Soccer Info
 Plugin URI: http://www.mihalysoft.com/wordpress-plugins/soccer-info/
 Description: Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
-Version: 1.2
+Version: 1.3
 Requires at least: WordPress 3.2.1
-Tested up to: WordPress 3.4.2
+Tested up to: WordPress 3.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Author: Szilard Mihaly
@@ -893,7 +893,19 @@ if ( !class_exists('SoccerInfo') ) {
 			'Turkey - Süper Lig'				 => 19,	 //37
 			'Ukraine - Premier League'			 => 125, //38
 			'United States - MLS'				 => 33,	 //39
-			'Venezuela - Primera División'		 => 163 //40
+			'Venezuela - Primera División'		 => 163, //40
+			
+			'Morocco - GNF 1'					 => 209, //41
+			'Bolivia - LFPB'					 => 69,  //42
+			'Chile - Primera División'			 => 90,  //43
+			'Colombia - Primera A'				 => 91,  //44
+			'Costa Rica - Primera División'		 => 315, //45
+			'Ecuador - Primera A'				 => 165, //46
+			'Mexico - Liga MX'					 => 155, //47
+			'Panama - LPF'						 => 525, //48
+			'Peru - Primera División'			 => 158, //49
+			'Uruguay - Primera División'		 => 162, //50
+			'China PR - CSL'					 => 51,  //51
 			
 		);
 	

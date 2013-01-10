@@ -38,8 +38,13 @@ function show_si_options( $type ) {
 							id="style<?php echo $type; ?>" 
 							name="style<?php echo $type; ?>" style="width: 117px">
 						<?php
-							$styles = array('general'		 => __('Minimal', SOCCER_INFO), 
-											'blue_light'	 => __('Blue - Light', SOCCER_INFO));
+							$styles = array('general'		 => __('Minimal', SOCCER_INFO),
+											'blue_light'	 => __('Blue - Light', SOCCER_INFO),
+											'blue_dark'		 => __('Blue - Dark', SOCCER_INFO),
+								    		'green_light'	 => __('Green - Light', SOCCER_INFO),
+								    		'green_dark'	 => __('Green - Dark', SOCCER_INFO),
+										    'red_light'		 => __('Red - Light', SOCCER_INFO),
+										    'red_dark'		 => __('Red - Dark', SOCCER_INFO));
 							foreach($styles as $v => $t) {
 								echo '<option value="'.$v.'">'.esc_html($t).'</option>'."\n";
 							}

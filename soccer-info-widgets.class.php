@@ -186,8 +186,13 @@ if ( ! class_exists('SoccerInfo_Widgets')) {
 					id="<?php echo $this->get_field_id('style'); ?>" 
 					name="<?php echo $this->get_field_name('style'); ?>" >
 				<?php
-					$styles = array('general'		 => __('Minimal', SOCCER_INFO), 
-								    'blue_light'	 => __('Blue - Light', SOCCER_INFO));
+					$styles = array('general'		 => __('Minimal', SOCCER_INFO),
+								    'blue_light'	 => __('Blue - Light', SOCCER_INFO),
+									'blue_dark'		 => __('Blue - Dark', SOCCER_INFO),
+								    'green_light'	 => __('Green - Light', SOCCER_INFO),
+								    'green_dark'	 => __('Green - Dark', SOCCER_INFO),
+								    'red_light'		 => __('Red - Light', SOCCER_INFO),
+								    'red_dark'		 => __('Red - Dark', SOCCER_INFO));
 					foreach($styles as $v => $t) {
 						echo '<option value="'.$v.'"'.selected($instance['style'], $v, false).'>'.esc_html($t).'</option>'."\n";
 					}

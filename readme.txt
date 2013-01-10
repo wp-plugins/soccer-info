@@ -3,8 +3,8 @@ Contributors: szi19830728, Mihaly Soft
 Donate link: http://www.mihalysoft.com/
 Tags: soccer info, football, sport, league table, championship, soccer, sports, leagues, next fixtures, latest results
 Requires at least: 3.2.1
-Tested up to: 3.4.2
-Stable tag: 1.2
+Tested up to: 3.5
+Stable tag: 1.3
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,7 +29,7 @@ Requires WordPress 3.2+ and PHP 5.2+.
 * Finnish Veikkausliiga
 * Hungarian NB I
 * Brazilian Serie A
-* and many more (40)
+* and many more (51)
 
 * Accessible easily through your posts or pages
 * Display full or partial data, it's up to you
@@ -46,7 +46,7 @@ If you have any suggestions for a new add-on or league, feel free to contact us:
 
 **Languages**
 
-* This plugin is currently available in English and Hungarian. Please help me translate it!
+* This plugin is currently available in English, Spanish (by Wilfredo Cayllahua) and Hungarian. Please help me translate it!
 
 == Installation ==
 
@@ -92,6 +92,12 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 
 == Changelog ==
 
+= 1.3 =
+* New: Added leagues: Morocco - GNF 1, Bolivia - LFPB, Chile - Primera División, Colombia - Primera A, Costa Rica - Primera División, Ecuador - Primera A, Mexico - Liga MX, Panama - LPF, Peru - Primera División, Uruguay - Primera División, China PR - CSL
+* New: Added styles: `Blue - Dark`, `Green - Light`, `Green - Dark`, `Red - Light`, `Red - Dark`
+* New: Added language: Spanish - Thanks to Wilfredo Cayllahua
+* Fixed: Minor bug with UTC +0 timezone reported by Mathias Eriksson
+
 = 1.2 =
 * New: `Blue - Light` style added
 * New: Scroll down team selector
@@ -113,4 +119,4 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 * Enhancement: Increasing limits for results and fixtures of a selected team
 * Fixed: minor fixes
 
-If you used `highlight` and/or `team` in your Soccer Info shortcodes (or in your widgets), please, readd them to prefent any errors. Thank you!
+If you used `highlight` and/or `team` in your Soccer Info shortcodes (or in your widgets), please, readd them to prevent any errors. Thank you!

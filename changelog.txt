@@ -1,6 +1,12 @@
 Soccer Info
 by Szilard Mihaly
 
+= 1.3 - 01.10.2013 =
+* New: Added leagues: Morocco - GNF 1, Bolivia - LFPB, Chile - Primera División, Colombia - Primera A, Costa Rica - Primera División, Ecuador - Primera A, Mexico - Liga MX, Panama - LPF, Peru - Primera División, Uruguay - Primera División, China PR - CSL
+* New: Added styles: `Blue - Dark`, `Green - Light`, `Green - Dark`, `Red - Light`, `Red - Dark`
+* New: Added language: Spanish - Thanks to Wilfredo Cayllahua
+* Fixed: Minor bug with UTC +0 timezone reported by Mathias Eriksson
+
 = 1.2 - 12.03.2012 =
 * New: `Blue - Light` style added
 * New: Scroll down team selector
