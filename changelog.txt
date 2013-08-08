@@ -1,6 +1,11 @@
 Soccer Info
 by Szilard Mihaly
 
+= 1.4 - 08.08.2013 =
+* New: More than 400 leagues were added
+* New: Added language: Italian - Thanks to Andrea Cavasin
+* Fixed: It is working now with WP 3.6
+
 = 1.3 - 01.10.2013 =
 * New: Added leagues: Morocco - GNF 1, Bolivia - LFPB, Chile - Primera División, Colombia - Primera A, Costa Rica - Primera División, Ecuador - Primera A, Mexico - Liga MX, Panama - LPF, Peru - Primera División, Uruguay - Primera División, China PR - CSL
 * New: Added styles: `Blue - Dark`, `Green - Light`, `Green - Dark`, `Red - Light`, `Red - Dark`
