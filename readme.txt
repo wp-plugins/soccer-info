@@ -2,18 +2,18 @@
 Contributors: szi19830728, Mihaly Soft
 Donate link: http://www.mihalysoft.com/
 Tags: soccer info, football, sport, league table, championship, soccer, sports, leagues, next fixtures, latest results
-Requires at least: 3.2.1
-Tested up to: 3.5
-Stable tag: 1.3
+Requires at least: 3.3
+Tested up to: 3.6
+Stable tag: 1.4
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
+Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues (450+) without any hassles.
 
 == Description ==
 Soccer Info is a plugin that lets you show ranking tables, upcoming fixtures and results of different soccer leagues.
 
-Requires WordPress 3.2+ and PHP 5.2+.
+Requires WordPress 3.3+ and PHP 5.2+.
 
 **Current features**
 
@@ -29,7 +29,7 @@ Requires WordPress 3.2+ and PHP 5.2+.
 * Finnish Veikkausliiga
 * Hungarian NB I
 * Brazilian Serie A
-* and many more (51)
+* and many more (450+)
 
 * Accessible easily through your posts or pages
 * Display full or partial data, it's up to you
@@ -39,14 +39,12 @@ Requires WordPress 3.2+ and PHP 5.2+.
 **Coming features**
 
 * Pre-defined styles
-* More soccer leagues
-* Romanian translation
 
 If you have any suggestions for a new add-on or league, feel free to contact us: [Soccer Info - WordPress Plugin](http://www.mihalysoft.com/wordpress-plugins/soccer-info/)
 
 **Languages**
 
-* This plugin is currently available in English, Spanish (by Wilfredo Cayllahua) and Hungarian. Please help me translate it!
+* This plugin is currently available in English, Spanish (by Wilfredo Cayllahua), Italian (by Andrea Cavasin) and Hungarian. Please help me translate it!
 
 == Installation ==
 
@@ -75,7 +73,7 @@ It sounds easy. Isn't is?
 
 Yes, and it's easy to use.
 
-= I have a another question. Where can I ask that? =
+= I have another question. Where can I ask that? =
 
 For more information, check out the plugin's website: [Soccer Info - WordPress Plugin](http://www.mihalysoft.com/wordpress-plugins/soccer-info/)
 
@@ -91,6 +89,11 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 8. In action - 2
 
 == Changelog ==
+
+= 1.4 =
+* New: More than 400 leagues were added
+* New: Added language: Italian - Thanks to Andrea Cavasin
+* Fixed: It is working now with WP 3.6
 
 = 1.3 =
 * New: Added leagues: Morocco - GNF 1, Bolivia - LFPB, Chile - Primera División, Colombia - Primera A, Costa Rica - Primera División, Ecuador - Primera A, Mexico - Liga MX, Panama - LPF, Peru - Primera División, Uruguay - Primera División, China PR - CSL
@@ -112,6 +115,11 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 * Initial release!
 
 == Upgrade Notice ==
+
+= 1.4 =
+* New: More than 400 leagues were added
+* New: Added language: Italian - Thanks to Andrea Cavasin
+* Fixed: It is working now with WP 3.6
 
 = 1.2 =
 * New: `Blue - Light` style added

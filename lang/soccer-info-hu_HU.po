@@ -5,10 +5,10 @@
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Soccer Info 1.0\n"
+"Project-Id-Version: Soccer Info 1.3\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-01-10 19:21+0200\n"
-"PO-Revision-Date: 2013-01-10 19:22+0200\n"
+"PO-Revision-Date: 2013-01-16 11:54+0200\n"
 "Last-Translator: Szilard Mihaly <office@mihalysoft.com>\n"
 "Language-Team: Mihaly Soft <office@mihalysoft.com>\n"
 "MIME-Version: 1.0\n"
