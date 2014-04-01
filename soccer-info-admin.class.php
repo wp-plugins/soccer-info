@@ -17,7 +17,7 @@ if ( ! class_exists('SoccerInfo_Admin')) {
      * @category   Admin
      * @package    SoccerInfo
      * @author     Szilard Mihaly
-     * @copyright  (c) 2012 Mihaly Soft
+     * @copyright  (c) 2014 Mihaly Soft
      */
     class SoccerInfo_Admin {
 
@@ -202,8 +202,12 @@ For more information, check out the plugin's website: <a href='http://www.mihaly
 								<?php
 									$i_l = 0;
 									foreach($soccer_info->competitions as $league => $ii) {
-										if ( $i_l > 0 )
-											echo esc_html($league).' <span class="alignright">ID = '.$i_l.'</span><br />'."\n";
+										if ( $i_l > 0 ) {
+											$e_h_l = esc_html($league);
+											if ( strlen($e_h_l) > 30 )
+												$e_h_l = substr($e_h_l, 0, 30).'...';
+											echo $e_h_l.' <span class="alignright">ID = '.$i_l.'</span><br />'."\n";
+										}
 										$i_l++;
 									}
 								?>

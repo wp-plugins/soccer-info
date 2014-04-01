@@ -7,55 +7,55 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Soccer Info 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-10 19:22+0200\n"
-"PO-Revision-Date: 2014-04-01 21:52+0200\n"
+"POT-Creation-Date: 2013-08-11 23:59+0200\n"
+"PO-Revision-Date: 2014-04-01 21:53+0200\n"
 "Last-Translator: Szilard Mihaly <office@mihalysoft.com>\n"
 "Language-Team: Mihaly Soft <office@mihalysoft.com>\n"
+"Language: hu_HU\n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
 "Content-Transfer-Encoding: 8bit\n"
-"Language: hu_HU\n"
 "Plural-Forms: nplurals=2; plural=n != 1;\n"
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.5.4\n"
-"X-Poedit-Language: Italian\n"
-"X-Poedit-Country: ITALY\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Language: Greek\n"
+"X-Poedit-Country: GREECE\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: soccer-info-admin.class.php:96
 msgid "<noscript>Javascript must be enabled, thank you.</noscript>"
-msgstr "<noscript>Per poter visualizzare il contenuto Javascript deve essere abilitato!</noscript>"
+msgstr "<noscript>Η Javascript πρέπει να είναι ενεργοποιημένη, σας ευχαριστώ.</noscript>"
 
 #: soccer-info-admin.class.php:107
 #, php-format
 msgid "Soccer Info %s for WordPress"
-msgstr "Info Calcio %s per WordPress"
+msgstr "Πληροφορίες για το Ποδόσφαιρο %s for WordPress"
 
 #: soccer-info-admin.class.php:129
 msgid "Settings Updated"
-msgstr "Configurazione aggiornata"
+msgstr "Ενημέρωση Ρυθμίσεων"
 
 #: soccer-info-admin.class.php:147
 msgid "Settings Updated to the default values"
-msgstr "Configurazione aggiornata ai valori di partenza"
+msgstr "Ενημέρωση Ρυθμίσεων στις προεπιλεγμένες τιμές"
 
 #: soccer-info-admin.class.php:158
 msgid "About this Plugin:"
-msgstr "Info Plugin"
+msgstr "Σχετικά με το πρόσθετο"
 
 #: soccer-info-admin.class.php:159
 msgid "Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles."
-msgstr "Info Calcio consente di visualizzare le classifiche, i calendari e risultati dei piu importanti campionati di calcio."
+msgstr "Πληροφορίες για το Ποδόσφαιρο σας επιτρέπει να εμφανίσετε πίνακες κατάταξης (βαθμολογίες), αγώνες και τα αποτελέσματα των μεγάλων πρωταθλημάτων ποδοσφαίρου χωρίς οποιεσδήποτε παρενοχλήσεις."
 
 #: soccer-info-admin.class.php:161
 msgid "translator_name"
-msgstr "Andrea Cavasin "
+msgstr "Spiros Smilianis"
 
 #: soccer-info-admin.class.php:163
 msgid "Translated by:"
-msgstr "Tradotto da:"
+msgstr "Μετάφραση από:"
 
 #: soccer-info-admin.class.php:164
 msgid "translator_url"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: soccer-info-admin.class.php:177
 msgid "Frequently Asked Questions:"
-msgstr "Domande Frequenti:"
+msgstr "Συχνές Ερωτήσεις:"
 
 #: soccer-info-admin.class.php:178
 msgid ""
@@ -89,35 +89,56 @@ msgid ""
 "For more information, check out the plugin's website: <a href='http://www.mihalysoft.com/wordpress-plugins/soccer-info/' target='_blank'>Soccer Info</a>\n"
 "</p>"
 msgstr ""
+"\n"
+"<h4>Έχω ενεργοποιημένο το Soccer Info, τι πρέπει να κάνω τώρα;</h4>\n"
+"<p>\n"
+"Τώρα είστε σε θέση να προσθέσετε τους σύντομους κωδικούς που εμφανίζει τις βαθμολογίες (των αγώνων ή των αποτελεσμάτων) σε οποιαδήποτε από τα άρθρα σας  ή τις σελίδες σας.<br /> \n"
+"Για παράδειγμα: <strong>[soccer-info id='1' type='table' /]</strong><br />\n"
+"Αυτό σημαίνει ότι θέλετε να εμφανίσετε την <em>`βαθμολογία`</em> (type) του πρωταθλήματος ποδοσφαίρου με την<em> id=1 </em> (Ισπανική Primera Division)<br />\n"
+"Θα βρείτε ολόκληρη τη λίστα με τα πρωταθλήματα του ποδοσφαίρου που υποστηρίζονται από το πρόσθετο στο <strong>`Soccer Info` > `Ρυθμίσεις` </strong> σελίδα.\n"
+"</p>\n"
+"<h4>Δεν ξέρω πώς  χρησιμοποιούν τους σύντομους κωδικούς, τι πρέπει να κάνω στη συνέχεια;</h4>\n"
+"<p>\n"
+"Για την άνεση σας, προσθέσαμε μια λειτουργία στον επεξεργαστή άρθρων/σελίδα που αυτόματα δημιουργεί και εισάγει τους σύντομους κωδικούς για σας. Θα σας ζητηθεί να επιλέξετε το πρωτάθλημα (και κάποιες άλλες πληροφορίες) και στη συνέχεια κάντε κλικ `Εισαγωγή` <br />\n"
+"Ακούγεται εύκολο. Δεν είναι;\n"
+"</p>\n"
+"<h4>Μήπως αυτό το πρόσθετο έχει ένα widget;</h4>\n"
+"<p>\n"
+"Ναι, και είναι εύκολο στη χρήση.\n"
+"</p>\n"
+"<h4>Έχω μια άλλη μία ερώτηση. Πού μπορώ να ρωτήσω περισσότερα;</h4>\n"
+"<p>\n"
+"Για περισσότερες πληροφορίες, δείτε την ιστοσελίδα του πρόσθετου:<a href='http://www.mihalysoft.com/wordpress-plugins/soccer-info/' target='_blank'>Soccer Info</a>\n"
+"</p>"
 
 #: soccer-info-admin.class.php:201
 msgid "Supported Leagues:"
-msgstr "Campionati disponibili:"
+msgstr "Υποστηριζόμενα Πρωταθλήματα:"
 
 #: soccer-info-admin.class.php:223
 msgid "Options"
-msgstr "Opzioni"
+msgstr "Επιλογές"
 
 #: soccer-info-admin.class.php:225
 msgid "Description..."
-msgstr "Descrizione..."
+msgstr "Περιγραφή …"
 
 #: soccer-info-admin.class.php:232
 msgid "Timezone"
-msgstr "Fascia Oraria"
+msgstr "Χρονική ζώνη"
 
 #: soccer-info-admin.class.php:278
 #: soccer-info-admin.class.php:283
 msgid "Date Format"
-msgstr "Formato Data"
+msgstr "Μορφή ημερομηνίας"
 
 #: soccer-info-admin.class.php:285
 msgid "l, F j, Y"
-msgstr "Y. F j.  l"
+msgstr "l  j F Y"
 
 #: soccer-info-admin.class.php:286
 msgid "F j, Y"
-msgstr "Y. F j."
+msgstr "j F  Y"
 
 #: soccer-info-admin.class.php:287
 msgid "Y/m/d"
@@ -133,291 +154,291 @@ msgstr "d/m/Y"
 
 #: soccer-info-admin.class.php:299
 msgid "Custom:"
-msgstr "Custom:"
+msgstr "Προσαρμογή:"
 
 #: soccer-info-admin.class.php:300
 msgid "Documentation on date and time formatting."
-msgstr "Documentazione relativa a data e ora di formattazione."
+msgstr "Τεκμηρίωση σχετικά με την ημερομηνία και τη μορφοποίηση του χρόνου."
 
 #: soccer-info-admin.class.php:307
 #: soccer-info-admin.class.php:312
 msgid "Time Format"
-msgstr "Formato Ora"
+msgstr "Μορφή Ώρας"
 
 #: soccer-info-admin.class.php:314
 msgid "g:i a"
-msgstr ""
+msgstr "g:i a"
 
 #: soccer-info-admin.class.php:315
 msgid "g:i A"
-msgstr ""
+msgstr "g:i A"
 
 #: soccer-info-admin.class.php:316
 msgid "H:i"
-msgstr ""
+msgstr "H:i"
 
 #: soccer-info-admin.class.php:338
 msgid "Update options"
-msgstr "Aggiorna Opzioni"
+msgstr "Ενημερώστε τις επιλογών"
 
 #: soccer-info-admin.class.php:339
 msgid "Do you really want to reset your configuration?"
-msgstr "Sei realmente sicuro di voler resettare la tua configurazione?"
+msgstr "Είστε σίγουροι ότι θέλετε να επαναφέρετε τις ρυθμίσεις σας;"
 
 #: soccer-info-admin.class.php:339
 msgid "Reset options"
-msgstr "Ripristina opzioni"
+msgstr "Επαναφορά επιλογών"
 
 #: soccer-info-admin.class.php:440
 #: js/tinymce/window.php:97
 msgid "Soccer Info"
-msgstr "Info Calcio"
+msgstr "Πληροφορίες για το ποδόσφαιρο"
 
 #: soccer-info-widgets.class.php:41
 msgid "Display a league's Ranking Table, Next Fixtures and Latest Results"
-msgstr "Visualizza le classifiche dei campionati, i prossimi ncontri e gli ultimi risultati"
+msgstr "Εμφάνιση Πίνακα Κατάταξης (βαθμολογία) ενός πρωταθλήματος, Επόμενοι Αγώνες και Τελευταίοι αγώνες"
 
 #: soccer-info-widgets.class.php:164
 #: js/tinymce/window.php:63
 msgid "Title:"
-msgstr "Titolo:"
+msgstr "Τίτλος"
 
 #: soccer-info-widgets.class.php:170
 msgid "Show:"
-msgstr "Mostra:"
+msgstr "Προβολή:"
 
 #: soccer-info-widgets.class.php:175
 msgid "Table"
-msgstr "Classifica"
+msgstr "Βαθμολογία"
 
 #: soccer-info-widgets.class.php:176
 msgid "Next Fixtures"
-msgstr "Prossimo Incontri"
+msgstr "Επόμενοι Αγώνες"
 
 #: soccer-info-widgets.class.php:177
 msgid "Latest Results"
-msgstr "Ultimi Risultati"
+msgstr "Τελευταίοι αγώνες"
 
 #: soccer-info-widgets.class.php:184
 #: js/tinymce/window.php:35
 msgid "Style:"
-msgstr "Stile:"
+msgstr "Στυλ:"
 
 #: soccer-info-widgets.class.php:189
 #: js/tinymce/window.php:41
 msgid "Minimal"
-msgstr "Minimo"
+msgstr "Minimal"
 
 #: soccer-info-widgets.class.php:190
 #: js/tinymce/window.php:42
 msgid "Blue - Light"
-msgstr "Blu - Chiaro"
+msgstr "Μπλε - Φωτεινό"
 
 #: soccer-info-widgets.class.php:191
 #: js/tinymce/window.php:43
 msgid "Blue - Dark"
-msgstr "Blu - Scuro"
+msgstr "Μπλε - Σκοτεινό"
 
 #: soccer-info-widgets.class.php:192
 #: js/tinymce/window.php:44
 msgid "Green - Light"
-msgstr "Verde - Chiaro"
+msgstr "Πράσινο - Φωτεινό"
 
 #: soccer-info-widgets.class.php:193
 #: js/tinymce/window.php:45
 msgid "Green - Dark"
-msgstr "Verde - Scuro"
+msgstr "Πράσινο - Σκοτεινό"
 
 #: soccer-info-widgets.class.php:194
 #: js/tinymce/window.php:46
 msgid "Red - Light"
-msgstr "Rosso Chiaro"
+msgstr "Κόκκινο - Φωτεινό"
 
 #: soccer-info-widgets.class.php:195
 #: js/tinymce/window.php:47
 msgid "Red - Dark"
-msgstr "Rosso Scuro"
+msgstr "Κόκκινο - Σκοτεινό"
 
 #: soccer-info-widgets.class.php:202
 msgid "Select League:"
-msgstr "Seleziona squadra:"
+msgstr "Επιλογή διοργάνωσης:"
 
 #: soccer-info-widgets.class.php:216
 msgid "Columns (#,Team,MP,W,D,L,F,A,G,P):"
-msgstr "Columnas (#,Team,MP,W,D,L,F,A,G,P):"
+msgstr "Στήλες (#, Ομάδα, Αγ., Ν, Ι, Η, Γκ.Υ., Γκ.Κ., Διαφ., Βαθμοί):"
 
 #: soccer-info-widgets.class.php:222
 #: js/tinymce/window.php:57
 msgid "Limit:"
-msgstr "Limite:"
+msgstr "Όριο:"
 
 #: soccer-info-widgets.class.php:228
 #: js/tinymce/window.php:59
 msgid "Width:"
-msgstr "Larghezza:"
+msgstr "Πλάτος:"
 
 #: soccer-info-widgets.class.php:235
 msgid "Highlighted team:"
-msgstr "Squadra evidenziata:"
+msgstr "Υπογράμμισε ομάδα:"
 
 #: soccer-info-widgets.class.php:241
 msgid "Show only this team:"
-msgstr "Mostra solo questa squadra:"
+msgstr "Εμφάνιση μόνο αυτή η ομάδα:"
 
 #: soccer-info-widgets.class.php:253
 msgid "Hide widget style."
-msgstr "Nascondi stile widget."
+msgstr "Αποκρύψετε στυλ widget."
 
 #: soccer-info.php:505
 msgid "#"
-msgstr ""
+msgstr "#"
 
 #: soccer-info.php:506
 #: soccer-info.php:517
 msgid "Team"
-msgstr "Squadra"
+msgstr "Ομάδα"
 
 #: soccer-info.php:507
 msgid "MP"
-msgstr "PG"
+msgstr "Αγώνες"
 
 #: soccer-info.php:508
 msgid "W"
-msgstr "V"
+msgstr "Ν"
 
 #: soccer-info.php:509
 msgid "D"
-msgstr "P"
+msgstr "Ι"
 
 #: soccer-info.php:510
 msgid "L"
-msgstr "S"
+msgstr "Η"
 
 #: soccer-info.php:511
 msgid "F"
-msgstr "GF"
+msgstr "Γκ.Υ."
 
 #: soccer-info.php:512
 msgid "A"
-msgstr "GC"
+msgstr "Γκ.Κ."
 
 #: soccer-info.php:513
 msgid "G"
-msgstr "DG"
+msgstr "Διαφ."
 
 #: soccer-info.php:514
 msgid "P"
-msgstr "Pts."
+msgstr "Βαθμοί"
 
 #: soccer-info.php:516
 msgid "Rank"
-msgstr "Posizione"
+msgstr "Θέση"
 
 #: soccer-info.php:518
 msgid "Matches played"
-msgstr "Partite Giocate"
+msgstr "Αγώνες που παίχτηκαν"
 
 #: soccer-info.php:519
 msgid "Wins"
-msgstr "Vittorie"
+msgstr "Νίκες"
 
 #: soccer-info.php:520
 msgid "Draws"
-msgstr "Pareggi"
+msgstr "Ισοπαλίες"
 
 #: soccer-info.php:521
 msgid "Losses"
-msgstr "Partite Perse"
+msgstr "Ήττες"
 
 #: soccer-info.php:522
 msgid "Goals for"
-msgstr "Goal per"
+msgstr "Γκολ υπέρ"
 
 #: soccer-info.php:523
 msgid "Goals against"
-msgstr "Goal Contro"
+msgstr "Γκολ κατά"
 
 #: soccer-info.php:524
 msgid "Goal difference"
-msgstr "Differenza Goal"
+msgstr "Διαφορά τερμάτων"
 
 #: soccer-info.php:525
 msgid "Points"
-msgstr "Punti"
+msgstr "Βαθμοί"
 
 #: soccer-info.php:841
 msgid "-- None --"
-msgstr "-- Niente --"
+msgstr "-- κανένας --"
 
 #: js/tinymce/window.php:53
 msgid "Choose a style"
-msgstr "Scegli uno stile"
+msgstr "Επιλέξτε ένα στυλ"
 
 #: js/tinymce/window.php:64
 msgid "It shows before the table"
-msgstr "Mostra prima"
+msgstr "Δείχνει πριν από τον πίνακα"
 
 #: js/tinymce/window.php:67
 msgid "Highlight:"
-msgstr "In evidenza:"
+msgstr "Επισήμανση:"
 
 #: js/tinymce/window.php:73
 msgid "Highlighted team"
-msgstr "Squadra in evidenza"
+msgstr "Υπογράμμισε ομάδα"
 
 #: js/tinymce/window.php:78
 msgid "Only 1 team:"
-msgstr "Solo una squadra:"
+msgstr "Μόνο 1 ομάδα:"
 
 #: js/tinymce/window.php:84
 msgid "Show only this team"
-msgstr "Mostra solo questa squadra"
+msgstr "Παρουσίαση μόνο αυτή την ομάδα"
 
 #: js/tinymce/window.php:110
 msgid "Tables"
-msgstr "Classifica"
+msgstr "Βαθμολογία"
 
 #: js/tinymce/window.php:111
 msgid "Fixtures"
-msgstr "Prossimi Incontri"
+msgstr "Πρόγραμμα"
 
 #: js/tinymce/window.php:112
 msgid "Results"
-msgstr "Risultati"
+msgstr "Αποτελέσματα"
 
 #: js/tinymce/window.php:121
 #: js/tinymce/window.php:193
 #: js/tinymce/window.php:233
 msgid "League:"
-msgstr "Campionato:"
+msgstr "πρωτάθλημα:"
 
 #: js/tinymce/window.php:138
 msgid "Columns:"
-msgstr "Colonne:"
+msgstr "Στήλες:"
 
 #: js/tinymce/window.php:139
 msgid "You may use: #,Team,MP,W,D,L,F,A,G,P"
-msgstr "Puoi utilizzare: #,Team,MP,W,D,L,F,A,G,P"
+msgstr "Μπορείτε να χρησιμοποιήσετε: #, Ομάδα, Αγ., Ν, Ι, Η, Γκ.Υ., Γκ.Κ., Διαφ., Βαθ."
 
 #: js/tinymce/window.php:186
 msgid "Display the table for the chosen league."
-msgstr "Visualizzare la classifica per il campionato scelto."
+msgstr "Εμφάνιση του πίνακα για το επιλεγμένο πρωτάθλημα."
 
 #: js/tinymce/window.php:226
 msgid "Display all fixtures for the chosen league or only those for a selected team."
-msgstr "Mostra tutti gli incontri per il campionato scelto o solo quelli per una squadra selezionata."
+msgstr "Εμφάνιση όλων των αγώνων για το επιλεγμένο πρωτάθλημα ή μόνο εκείνα για μια επιλεγμένη ομάδα."
 
 #: js/tinymce/window.php:266
 msgid "Display the last results for the chosen league or only those for a selected team."
-msgstr "Visualizzare gli ultimi risultati per il campionato scelto o solo quelli per una squadra selezionata."
+msgstr "Εμφανίστε τα τελευταία αποτελέσματα για το επιλεγμένο πρωτάθλημα ή μόνο εκείνων για μια επιλεγμένη ομάδα."
 
 #: js/tinymce/window.php:271
 msgid "Cancel"
-msgstr "Cancella"
+msgstr "Ακύρωση"
 
 #: js/tinymce/window.php:274
 msgid "Insert"
-msgstr "Inserire"
+msgstr "Εισαγωγή"
 
 #~ msgid "Coming soon..."
 #~ msgstr "Hamarosan!"

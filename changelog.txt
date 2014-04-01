@@ -1,6 +1,17 @@
 Soccer Info
 by Szilard Mihaly
 
+= 1.5 - 04.01.2014 =
+* New: More than 50 leagues were added
+* New: Added language: German - Thanks to Hans Puac
+* New: Added language: French - Thanks to Papinade
+* New: Added language: Dutch - Thanks to Team VoetbalKN
+* New: Added language: Russian - Thanks to Георгий Фисичев
+* New: Added language: Greek - Thanks to Spiros Smilianis
+* New: Added language: Finnish - Thanks to Jukka Lammi I
+* New: Added language: Romanian - Thanks to Gabor Mihaly
+* New: Added language: Turkish - Thanks to Ferhat ERSOY
+
 = 1.4 - 08.08.2013 =
 * New: More than 400 leagues were added
 * New: Added language: Italian - Thanks to Andrea Cavasin

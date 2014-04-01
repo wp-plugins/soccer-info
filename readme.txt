@@ -3,8 +3,8 @@ Contributors: szi19830728, Mihaly Soft
 Donate link: http://www.mihalysoft.com/
 Tags: soccer info, football, sport, league table, championship, soccer, sports, leagues, next fixtures, latest results
 Requires at least: 3.3
-Tested up to: 3.6
-Stable tag: 1.4
+Tested up to: 3.8.1
+Stable tag: 1.5
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -29,22 +29,40 @@ Requires WordPress 3.3+ and PHP 5.2+.
 * Finnish Veikkausliiga
 * Hungarian NB I
 * Brazilian Serie A
-* and many more (450+)
+* and many more (500+)
 
 * Accessible easily through your posts or pages
 * Display full or partial data, it's up to you
 * Get widgets everywhere
 * A very powerful and user-friendly back-end
 
+**Demo**
+
+* [Sportfogadási tippek - Angol Premier Liga](http://www.sportfogadok.net/csoportok/angol-premier-liga/ligatablazat/)
+
+**Languages**
+
+* This plugin is currently available in
+English,
+Spanish (by Wilfredo Cayllahua),
+German (by Hans Puac),
+Italian (by Andrea Cavasin),
+French (by Papinade),
+Dutch (by Team VoetbalKN),
+Russian (by Георгий Фисичев),
+Greek (by Spiros Smilianis),
+Finnish (by Jukka Lammi I),
+Romanian (by Gabor Mihaly),
+Turkish (by Ferhat ERSOY)
+and Hungarian (by Szilard Mihaly).
+
+Please help me translate it into other languages!
+
 **Coming features**
 
 * Pre-defined styles
 
 If you have any suggestions for a new add-on or league, feel free to contact us: [Soccer Info - WordPress Plugin](http://www.mihalysoft.com/wordpress-plugins/soccer-info/)
-
-**Languages**
-
-* This plugin is currently available in English, Spanish (by Wilfredo Cayllahua), Italian (by Andrea Cavasin) and Hungarian. Please help me translate it!
 
 == Installation ==
 
@@ -89,6 +107,17 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 8. In action - 2
 
 == Changelog ==
+
+= 1.5 =
+* New: More than 50 leagues were added
+* New: Added language: German - Thanks to Hans Puac
+* New: Added language: French - Thanks to Papinade
+* New: Added language: Dutch - Thanks to Team VoetbalKN
+* New: Added language: Russian - Thanks to Георгий Фисичев
+* New: Added language: Greek - Thanks to Spiros Smilianis
+* New: Added language: Finnish - Thanks to Jukka Lammi I
+* New: Added language: Romanian - Thanks to Gabor Mihaly
+* New: Added language: Turkish - Thanks to Ferhat ERSOY
 
 = 1.4 =
 * New: More than 400 leagues were added

@@ -17,7 +17,7 @@ if ( ! class_exists('SoccerInfo_Widgets')) {
      * @category   Widgets
      * @package    Soccer Info
      * @author     Szilard Mihaly
-     * @copyright  (c) 2012 Mihaly Soft
+     * @copyright  (c) 2014 Mihaly Soft
      */
     class SoccerInfo_Widgets extends WP_Widget {
 		

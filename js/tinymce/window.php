@@ -102,6 +102,11 @@ $site_url = get_option('siteurl');
     <script language="javascript" type="text/javascript" src="<?php echo $site_url; ?>/wp-includes/js/tinymce/utils/form_utils.js"></script>
     <script language="javascript" type="text/javascript" src="<?php echo plugins_url( SOCCER_INFO_BASEPATH.'/js/tinymce/tinymce.js'); ?>"></script>
     <base target="_self" />
+	<style>
+		table, input, p {
+			font-size: 11px;
+		}
+	</style>
 </head>
 <body id="link" onLoad="tinyMCEPopup.executeOnLoad('init();');document.body.style.display='';document.getElementById('league_id_tables').focus();" style="display: none;">
 <form name="SoccerInfo" action="#">

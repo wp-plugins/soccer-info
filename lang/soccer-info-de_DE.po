@@ -19,43 +19,43 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.5.4\n"
-"X-Poedit-Language: Italian\n"
-"X-Poedit-Country: ITALY\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Language: German\n"
+"X-Poedit-Country: GERMANY\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: soccer-info-admin.class.php:96
 msgid "<noscript>Javascript must be enabled, thank you.</noscript>"
-msgstr "<noscript>Per poter visualizzare il contenuto Javascript deve essere abilitato!</noscript>"
+msgstr "<noscript>Javascript muss aktiviert sein, vielen dank.</noscript>"
 
 #: soccer-info-admin.class.php:107
 #, php-format
 msgid "Soccer Info %s for WordPress"
-msgstr "Info Calcio %s per WordPress"
+msgstr "Soccer Info %s für WordPress"
 
 #: soccer-info-admin.class.php:129
 msgid "Settings Updated"
-msgstr "Configurazione aggiornata"
+msgstr "Einstellungen aktualisiert"
 
 #: soccer-info-admin.class.php:147
 msgid "Settings Updated to the default values"
-msgstr "Configurazione aggiornata ai valori di partenza"
+msgstr "Einstellungen auf die Standardwerte zurückgesetzt"
 
 #: soccer-info-admin.class.php:158
 msgid "About this Plugin:"
-msgstr "Info Plugin"
+msgstr "Über dieses Plugin:"
 
 #: soccer-info-admin.class.php:159
 msgid "Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles."
-msgstr "Info Calcio consente di visualizzare le classifiche, i calendari e risultati dei piu importanti campionati di calcio."
+msgstr "Soccer Info zeigt dir Tabellen, Spielpläne und Ergebnisse der großen Fußball-Ligen ganz unkompliziert an."
 
 #: soccer-info-admin.class.php:161
 msgid "translator_name"
-msgstr "Andrea Cavasin "
+msgstr "Hans Puac"
 
 #: soccer-info-admin.class.php:163
 msgid "Translated by:"
-msgstr "Tradotto da:"
+msgstr "Übersetzt von:"
 
 #: soccer-info-admin.class.php:164
 msgid "translator_url"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: soccer-info-admin.class.php:177
 msgid "Frequently Asked Questions:"
-msgstr "Domande Frequenti:"
+msgstr "Häufig gestellte Fragen:"
 
 #: soccer-info-admin.class.php:178
 msgid ""
@@ -89,60 +89,81 @@ msgid ""
 "For more information, check out the plugin's website: <a href='http://www.mihalysoft.com/wordpress-plugins/soccer-info/' target='_blank'>Soccer Info</a>\n"
 "</p>"
 msgstr ""
+"\n"
+"<h4>Ich habe Soccer Info aktiviert, was muss ich nun tun?</h4>\n"
+"<p>\n"
+"Du kannst nun shortcodes, die dir die Tabelle, den Spielplan oder die Ergebnisse anzeigen, in all deinen Beiträgen oder Seiten verwenden.<br /> \n"
+"Ein Beispiel: <strong>[soccer-info id='1' type='table' /]</strong><br />\n"
+"Dies bedeutet, dass du die Tabelle (<em>`table`</em>) von der Fußballliga <em>id=1</em> (Spanish Primera Division) anzeigen möchtest.<br />\n"
+"Du findest die gesamte Liste der vom Plugin unterstützten Ligen auf der Seite <strong>`Einstellungen` > `Soccer Info`</strong>.\n"
+"</p>\n"
+"<h4>Ich weiß nicht wie man shortcodes nutzt, was mache ich nun?</h4>\n"
+"<p>\n"
+"Um es zu vereinfachen haben wir eine Funktion in den Beitrags/Seiteneditor eingebaut, der automatisch den shortcode für dich generiert und einfügt. Du wirst aufgefordert eine Liga (und ein paar weitere Infos) auszuwählen und klickst dann einfach auf `Einfügen`<br />\n"
+"Hört sich einfach an, oder nicht?\n"
+"</p>\n"
+"<h4>Hat dieses Plugin ein Widget?</h4>\n"
+"<p>\n"
+"Ja, und es ist sehr einfach zu nutzen.\n"
+"</p>\n"
+"<h4>Ich habe eine andere Frage. Wo kann ich diese stellen?</h4>\n"
+"<p>\n"
+"Für mehr Informationen, besuch einfach die Webseite des Plugins: <a href='http://www.mihalysoft.com/wordpress-plugins/soccer-info/' target='_blank'>Soccer Info</a>\n"
+"</p>"
 
 #: soccer-info-admin.class.php:201
 msgid "Supported Leagues:"
-msgstr "Campionati disponibili:"
+msgstr "Unterstützte Ligen:"
 
 #: soccer-info-admin.class.php:223
 msgid "Options"
-msgstr "Opzioni"
+msgstr "Einstellungen"
 
 #: soccer-info-admin.class.php:225
 msgid "Description..."
-msgstr "Descrizione..."
+msgstr "Beschreibung..."
 
 #: soccer-info-admin.class.php:232
 msgid "Timezone"
-msgstr "Fascia Oraria"
+msgstr "Zeitzone"
 
 #: soccer-info-admin.class.php:278
 #: soccer-info-admin.class.php:283
 msgid "Date Format"
-msgstr "Formato Data"
+msgstr "Datumsformat"
 
 #: soccer-info-admin.class.php:285
 msgid "l, F j, Y"
-msgstr "Y. F j.  l"
+msgstr "l, F j, Y"
 
 #: soccer-info-admin.class.php:286
 msgid "F j, Y"
-msgstr "Y. F j."
+msgstr "F j, Y"
 
 #: soccer-info-admin.class.php:287
 msgid "Y/m/d"
-msgstr "Y/m/d"
+msgstr ""
 
 #: soccer-info-admin.class.php:288
 msgid "m/d/Y"
-msgstr "m/d/Y"
+msgstr ""
 
 #: soccer-info-admin.class.php:289
 msgid "d/m/Y"
-msgstr "d/m/Y"
+msgstr ""
 
 #: soccer-info-admin.class.php:299
 msgid "Custom:"
-msgstr "Custom:"
+msgstr "Eigene:"
 
 #: soccer-info-admin.class.php:300
 msgid "Documentation on date and time formatting."
-msgstr "Documentazione relativa a data e ora di formattazione."
+msgstr "Dokumentation für die Formatierung von Datum und Uhrzeit."
 
 #: soccer-info-admin.class.php:307
 #: soccer-info-admin.class.php:312
 msgid "Time Format"
-msgstr "Formato Ora"
+msgstr "Zeitformat"
 
 #: soccer-info-admin.class.php:314
 msgid "g:i a"
@@ -158,115 +179,115 @@ msgstr ""
 
 #: soccer-info-admin.class.php:338
 msgid "Update options"
-msgstr "Aggiorna Opzioni"
+msgstr "Einstellungen speichern"
 
 #: soccer-info-admin.class.php:339
 msgid "Do you really want to reset your configuration?"
-msgstr "Sei realmente sicuro di voler resettare la tua configurazione?"
+msgstr "Wollen Sie wirklich die Einstellungen zurückzusetzen?"
 
 #: soccer-info-admin.class.php:339
 msgid "Reset options"
-msgstr "Ripristina opzioni"
+msgstr "Einstellungen zurückzusetzen"
 
 #: soccer-info-admin.class.php:440
 #: js/tinymce/window.php:97
 msgid "Soccer Info"
-msgstr "Info Calcio"
+msgstr ""
 
 #: soccer-info-widgets.class.php:41
 msgid "Display a league's Ranking Table, Next Fixtures and Latest Results"
-msgstr "Visualizza le classifiche dei campionati, i prossimi ncontri e gli ultimi risultati"
+msgstr "Zeigt die Tabelle, die nächsten Begegnungen und die Spielergebnisse einer Liga"
 
 #: soccer-info-widgets.class.php:164
 #: js/tinymce/window.php:63
 msgid "Title:"
-msgstr "Titolo:"
+msgstr "Titel:"
 
 #: soccer-info-widgets.class.php:170
 msgid "Show:"
-msgstr "Mostra:"
+msgstr "Anzeigen:"
 
 #: soccer-info-widgets.class.php:175
 msgid "Table"
-msgstr "Classifica"
+msgstr "Tabelle"
 
 #: soccer-info-widgets.class.php:176
 msgid "Next Fixtures"
-msgstr "Prossimo Incontri"
+msgstr "Spielplan"
 
 #: soccer-info-widgets.class.php:177
 msgid "Latest Results"
-msgstr "Ultimi Risultati"
+msgstr "Ergebnisse"
 
 #: soccer-info-widgets.class.php:184
 #: js/tinymce/window.php:35
 msgid "Style:"
-msgstr "Stile:"
+msgstr "Stil:"
 
 #: soccer-info-widgets.class.php:189
 #: js/tinymce/window.php:41
 msgid "Minimal"
-msgstr "Minimo"
+msgstr "Minimal"
 
 #: soccer-info-widgets.class.php:190
 #: js/tinymce/window.php:42
 msgid "Blue - Light"
-msgstr "Blu - Chiaro"
+msgstr "Blau - Hell"
 
 #: soccer-info-widgets.class.php:191
 #: js/tinymce/window.php:43
 msgid "Blue - Dark"
-msgstr "Blu - Scuro"
+msgstr "Blau - Dunkel"
 
 #: soccer-info-widgets.class.php:192
 #: js/tinymce/window.php:44
 msgid "Green - Light"
-msgstr "Verde - Chiaro"
+msgstr "Grün - Hell"
 
 #: soccer-info-widgets.class.php:193
 #: js/tinymce/window.php:45
 msgid "Green - Dark"
-msgstr "Verde - Scuro"
+msgstr "Grün - Dunkel"
 
 #: soccer-info-widgets.class.php:194
 #: js/tinymce/window.php:46
 msgid "Red - Light"
-msgstr "Rosso Chiaro"
+msgstr "Rot - Hell"
 
 #: soccer-info-widgets.class.php:195
 #: js/tinymce/window.php:47
 msgid "Red - Dark"
-msgstr "Rosso Scuro"
+msgstr "Rot - Dunkel"
 
 #: soccer-info-widgets.class.php:202
 msgid "Select League:"
-msgstr "Seleziona squadra:"
+msgstr "Liga auswählen:"
 
 #: soccer-info-widgets.class.php:216
 msgid "Columns (#,Team,MP,W,D,L,F,A,G,P):"
-msgstr "Columnas (#,Team,MP,W,D,L,F,A,G,P):"
+msgstr "Spalten (#,Team,MP,W,D,L,F,A,G,P):"
 
 #: soccer-info-widgets.class.php:222
 #: js/tinymce/window.php:57
 msgid "Limit:"
-msgstr "Limite:"
+msgstr ""
 
 #: soccer-info-widgets.class.php:228
 #: js/tinymce/window.php:59
 msgid "Width:"
-msgstr "Larghezza:"
+msgstr "Breite:"
 
 #: soccer-info-widgets.class.php:235
 msgid "Highlighted team:"
-msgstr "Squadra evidenziata:"
+msgstr "Team hervorheben:"
 
 #: soccer-info-widgets.class.php:241
 msgid "Show only this team:"
-msgstr "Mostra solo questa squadra:"
+msgstr "Zeige nur dieses Team:"
 
 #: soccer-info-widgets.class.php:253
 msgid "Hide widget style."
-msgstr "Nascondi stile widget."
+msgstr "Verstecke widget style."
 
 #: soccer-info.php:505
 msgid "#"
@@ -275,149 +296,149 @@ msgstr ""
 #: soccer-info.php:506
 #: soccer-info.php:517
 msgid "Team"
-msgstr "Squadra"
+msgstr "Mannschaft"
 
 #: soccer-info.php:507
 msgid "MP"
-msgstr "PG"
+msgstr "Spiele"
 
 #: soccer-info.php:508
 msgid "W"
-msgstr "V"
+msgstr "S"
 
 #: soccer-info.php:509
 msgid "D"
-msgstr "P"
+msgstr "U"
 
 #: soccer-info.php:510
 msgid "L"
-msgstr "S"
+msgstr "N"
 
 #: soccer-info.php:511
 msgid "F"
-msgstr "GF"
+msgstr "T"
 
 #: soccer-info.php:512
 msgid "A"
-msgstr "GC"
+msgstr "GT"
 
 #: soccer-info.php:513
 msgid "G"
-msgstr "DG"
+msgstr "TD"
 
 #: soccer-info.php:514
 msgid "P"
-msgstr "Pts."
+msgstr "P"
 
 #: soccer-info.php:516
 msgid "Rank"
-msgstr "Posizione"
+msgstr "Position"
 
 #: soccer-info.php:518
 msgid "Matches played"
-msgstr "Partite Giocate"
+msgstr "Gespielte Spiele"
 
 #: soccer-info.php:519
 msgid "Wins"
-msgstr "Vittorie"
+msgstr "Siege"
 
 #: soccer-info.php:520
 msgid "Draws"
-msgstr "Pareggi"
+msgstr "Unentschieden"
 
 #: soccer-info.php:521
 msgid "Losses"
-msgstr "Partite Perse"
+msgstr "Niederlagen"
 
 #: soccer-info.php:522
 msgid "Goals for"
-msgstr "Goal per"
+msgstr "Tore für"
 
 #: soccer-info.php:523
 msgid "Goals against"
-msgstr "Goal Contro"
+msgstr "Gegentore"
 
 #: soccer-info.php:524
 msgid "Goal difference"
-msgstr "Differenza Goal"
+msgstr "Tordifferenz"
 
 #: soccer-info.php:525
 msgid "Points"
-msgstr "Punti"
+msgstr "Punkte"
 
 #: soccer-info.php:841
 msgid "-- None --"
-msgstr "-- Niente --"
+msgstr "-- Keine --"
 
 #: js/tinymce/window.php:53
 msgid "Choose a style"
-msgstr "Scegli uno stile"
+msgstr "Wähle einen Stil"
 
 #: js/tinymce/window.php:64
 msgid "It shows before the table"
-msgstr "Mostra prima"
+msgstr "Wird vor der Tabelle angezeigt"
 
 #: js/tinymce/window.php:67
 msgid "Highlight:"
-msgstr "In evidenza:"
+msgstr "Hervorheben:"
 
 #: js/tinymce/window.php:73
 msgid "Highlighted team"
-msgstr "Squadra in evidenza"
+msgstr "Hervorgehobenes Team"
 
 #: js/tinymce/window.php:78
 msgid "Only 1 team:"
-msgstr "Solo una squadra:"
+msgstr "Nur ein Team:"
 
 #: js/tinymce/window.php:84
 msgid "Show only this team"
-msgstr "Mostra solo questa squadra"
+msgstr "Zeige nur dieses Team"
 
 #: js/tinymce/window.php:110
 msgid "Tables"
-msgstr "Classifica"
+msgstr "Tabelle"
 
 #: js/tinymce/window.php:111
 msgid "Fixtures"
-msgstr "Prossimi Incontri"
+msgstr "Spielpläne"
 
 #: js/tinymce/window.php:112
 msgid "Results"
-msgstr "Risultati"
+msgstr "Ergebnisse"
 
 #: js/tinymce/window.php:121
 #: js/tinymce/window.php:193
 #: js/tinymce/window.php:233
 msgid "League:"
-msgstr "Campionato:"
+msgstr "Liga:"
 
 #: js/tinymce/window.php:138
 msgid "Columns:"
-msgstr "Colonne:"
+msgstr "Spalten:"
 
 #: js/tinymce/window.php:139
 msgid "You may use: #,Team,MP,W,D,L,F,A,G,P"
-msgstr "Puoi utilizzare: #,Team,MP,W,D,L,F,A,G,P"
+msgstr "Nutzen kannst du: #,Team,MP,W,D,L,F,A,G,P"
 
 #: js/tinymce/window.php:186
 msgid "Display the table for the chosen league."
-msgstr "Visualizzare la classifica per il campionato scelto."
+msgstr "Zeigt die Tabelle für die gewählte Liga."
 
 #: js/tinymce/window.php:226
 msgid "Display all fixtures for the chosen league or only those for a selected team."
-msgstr "Mostra tutti gli incontri per il campionato scelto o solo quelli per una squadra selezionata."
+msgstr "Zeigt den Spielplan für die gewählte Liga oder nur für ein ausgewähltes Team."
 
 #: js/tinymce/window.php:266
 msgid "Display the last results for the chosen league or only those for a selected team."
-msgstr "Visualizzare gli ultimi risultati per il campionato scelto o solo quelli per una squadra selezionata."
+msgstr "Zeigt die letzten Ergebnisse für die gewählte Liga oder nur für ein ausgewähltes Team."
 
 #: js/tinymce/window.php:271
 msgid "Cancel"
-msgstr "Cancella"
+msgstr "Abbrechen"
 
 #: js/tinymce/window.php:274
 msgid "Insert"
-msgstr "Inserire"
+msgstr "Einfügen"
 
 #~ msgid "Coming soon..."
 #~ msgstr "Hamarosan!"

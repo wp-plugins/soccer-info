@@ -3,9 +3,9 @@
 Plugin Name: Soccer Info
 Plugin URI: http://www.mihalysoft.com/wordpress-plugins/soccer-info/
 Description: Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
-Version: 1.4
+Version: 1.5
 Requires at least: WordPress 3.3
-Tested up to: WordPress 3.6
+Tested up to: WordPress 3.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Author: Szilard Mihaly
@@ -18,7 +18,7 @@ Author URI: http://www.mihalysoft.com/
 * 
 * @author 	Szilard Mihaly
 * @package	Soccer Info
-* @copyright 	Copyright 2013
+* @copyright 	Copyright 2013-2014
 */
 if ( !class_exists('SoccerInfo') ) {
 	
@@ -45,7 +45,7 @@ if ( !class_exists('SoccerInfo') ) {
 		 */
 		public function __construct() {
 			
-			define('SOCCER_INFO_VERSION', '1.4');
+			define('SOCCER_INFO_VERSION', '1.5');
 			define('SOCCER_INFO_PATH', plugin_dir_path(__FILE__));
 			define('SOCCER_INFO_BASEPATH', basename(dirname(__FILE__)));
 			
@@ -1409,6 +1409,64 @@ if ( !class_exists('SoccerInfo') ) {
 			'Yemen - Yemeni League'					 => 235,	 //531
 			'Zambia - Super League'					 => 495,	 //532
 			'Zimbabwe - Premier Soccer League'		 => 496,	 //533
+			
+			//new leagues, added on - 2014-03-31
+			'Algeria - U21 League 1'				 => 1246,	 //534
+			'Algeria - U21 League 2'				 => 1247,	 //535
+			'Argentina - Reserve League'			 => 1255,	 //536
+			'Australia - National Premier League'	 => 1231,	 //537
+			'Australia - Victoria Division One'		 => 1318,	 //538
+			'Australia - Brisbane Reserves Premier League'			 => 1332,	 //539
+			'Australia - South Australia Reserves Premier League'	 => 1334,	 //540
+			'Australia - NPL Youth League'			 => 1333,	 //541
+			'Azerbaijan - Reserve League'			 => 1187,	 //542
+			'Azerbaijan - U19 League'				 => 1236,	 //543
+			'Bahrain - Second Division'				 => 1196,	 //544
+			'Belarus - Reserve League'				 => 1226,	 //545
+			'Belgium - Reserve Pro League'			 => 1188,	 //546
+			'Canada - Reserve League'				 => 1237,	 //547
+			'Chinese Taipei - U18 League'			 => 1252,	 //548
+			'Cyprus - U21 League'					 => 1240,	 //549
+			'Denmark - U21 Ligaen'					 => 1316,	 //550
+			'Denmark - U17 Ligaen'					 => 1189,	 //551
+			'Egypt - Division One'					 => 1267,	 //552
+			'England - Central League'				 => 1192,	 //553
+			'England - Professional Development League 2'			 => 1191,	 //554
+			'Estonia - U19 League'					 => 1343,	 //555
+			'Finland - U19 League'					 => 1328,	 //556
+			'Guinea - Ligue 1'						 => 1265,	 //557
+			'Hong Kong - Reserve Division'			 => 1190,	 //558
+			'Hungary - U21 League'					 => 1161,	 //559
+			'Hungary - U18 League'					 => 1162,	 //560
+			'Iceland - U19 League'					 => 1227,	 //561
+			'India - Calcutta Premier Division'		 => 1232,	 //562
+			'India - U19 League'					 => 1346,	 //563
+			'Indonesia - Play-offs 1/2 (ISL)'		 => 1169,	 //564
+			'Israel - U19 Elite Division'			 => 1193,	 //565
+			'Japan - J3 League'						 => 1272,	 //566
+			'Jordan - 1st Division'					 => 1195,	 //567
+			'Lithuania - Reserve League'			 => 1222,	 //568
+			'Malta - Gozo First Division'			 => 1264,	 //569
+			'Mexico - U20 League'					 => 1221,	 //570
+			'Mexico - U17 League'					 => 1257,	 //571
+			'New Zealand - ASB Youth League'		 => 1321,	 //572
+			'Northern Ireland - NIFL Reserve League' => 1327,	 //573
+			'Panama - Liga Nacional de Ascenso'		 => 1259,	 //574
+			'Poland - Central Youth League'			 => 1197,	 //575
+			'Portugal - Júniores U17'				 => 1251,	 //576
+			'Scotland - SPFL Reserve League'		 => 1225,	 //577
+			'Singapore - Reserve Prime League'		 => 1317,	 //578
+			'Slovakia - U19 League'					 => 1220,	 //579
+			'Somalia - First Division'				 => 1177,	 //580
+			'Spain - U18 League'					 => 1258,	 //581
+			'Thailand - Thai Division 2 League'		 => 1307,	 //582
+			'Turkey - U19 Elit Ligi'				 => 1168,	 //583
+			'United Arab Emirates - U19 League'		 => 1235,	 //584
+			'Uruguay - Segunda Amateur'				 => 1180,	 //585
+			'Venezuela - U20 League'				 => 1260,	 //586
+			'Vietnam - Second Division'				 => 1344,	 //587
+			'Vietnam - U19 Championship'			 => 1326,	 //588
+			
 			/**/
 			
 		);

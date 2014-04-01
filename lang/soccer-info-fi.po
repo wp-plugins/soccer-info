@@ -8,7 +8,7 @@ msgstr ""
 "Project-Id-Version: Soccer Info 1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-01-10 19:22+0200\n"
-"PO-Revision-Date: 2014-04-01 21:52+0200\n"
+"PO-Revision-Date: 2014-04-01 21:51+0200\n"
 "Last-Translator: Szilard Mihaly <office@mihalysoft.com>\n"
 "Language-Team: Mihaly Soft <office@mihalysoft.com>\n"
 "MIME-Version: 1.0\n"
@@ -19,43 +19,43 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.5.4\n"
-"X-Poedit-Language: Italian\n"
-"X-Poedit-Country: ITALY\n"
+"X-Generator: Poedit 1.5.7\n"
+"X-Poedit-Language: Finnish\n"
+"X-Poedit-Country: FINLAND\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: soccer-info-admin.class.php:96
 msgid "<noscript>Javascript must be enabled, thank you.</noscript>"
-msgstr "<noscript>Per poter visualizzare il contenuto Javascript deve essere abilitato!</noscript>"
+msgstr "<noscript>Javascript pitää olla päällä</noscript>"
 
 #: soccer-info-admin.class.php:107
 #, php-format
 msgid "Soccer Info %s for WordPress"
-msgstr "Info Calcio %s per WordPress"
+msgstr "Soccer Info %s"
 
 #: soccer-info-admin.class.php:129
 msgid "Settings Updated"
-msgstr "Configurazione aggiornata"
+msgstr "Asetukset päivitetty"
 
 #: soccer-info-admin.class.php:147
 msgid "Settings Updated to the default values"
-msgstr "Configurazione aggiornata ai valori di partenza"
+msgstr "Asetukset nollattu"
 
 #: soccer-info-admin.class.php:158
 msgid "About this Plugin:"
-msgstr "Info Plugin"
+msgstr "Lisätietoja tästä pluginista:"
 
 #: soccer-info-admin.class.php:159
 msgid "Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles."
-msgstr "Info Calcio consente di visualizzare le classifiche, i calendari e risultati dei piu importanti campionati di calcio."
+msgstr "Soccer Info antaa sinun valita haluamasi liigan tai joukkueen tulokset, tilastot ja tulevat ottelut helposti."
 
 #: soccer-info-admin.class.php:161
 msgid "translator_name"
-msgstr "Andrea Cavasin "
+msgstr "Jukka Lammi I"
 
 #: soccer-info-admin.class.php:163
 msgid "Translated by:"
-msgstr "Tradotto da:"
+msgstr "Kääntänyt: "
 
 #: soccer-info-admin.class.php:164
 msgid "translator_url"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: soccer-info-admin.class.php:177
 msgid "Frequently Asked Questions:"
-msgstr "Domande Frequenti:"
+msgstr "Usein kysytyt kysymykset:"
 
 #: soccer-info-admin.class.php:178
 msgid ""
@@ -89,27 +89,47 @@ msgid ""
 "For more information, check out the plugin's website: <a href='http://www.mihalysoft.com/wordpress-plugins/soccer-info/' target='_blank'>Soccer Info</a>\n"
 "</p>"
 msgstr ""
+"\n"
+"<h4>Olen juuri aktivoinut Soccer Info lisäosan, mitä minun tulee tehdä seuraavaksi?</h4>\n"
+"<p>\n"
+"Voit nyt käyttää lyhytkoodeja [shortcode] joiden avulla voit lisätä haluamastasi liigasta tuloksia, tulevia otteluita tai tilastoja artikkeleihin sekä sivuille.<br /> \n"
+"<br />Esimerkiksi: <strong>[soccer-info id='1' type='table' /]</strong><br />\n"
+"Tämä koodi näyttäisi artikkelissa taulukon <em>`table`</em> (type) valitusta liigasta, joka tässä tapauksessa olisi <em>id=1:llä</em> valittu (Spanish Primera liiga).<br />\n"
+"<br/>Täydellisen liigalistauksen löydät kun valitset ohjausnäkymästä <strong>`Asetukset` > `Soccer Info`</strong>sivun.\n"
+"</p>\n"
+"<h4>En ole aikaisemmin käyttänyt lyhytkoodeja, kuinka saan tulokset näkyviin?</h4>\n"
+"<p>\n"
+"Helppoa! Olemme lisänneet artikkeli- sekä sivutyökalun valikkoon jalkapallokuvakkeen, jonka kautta pääset helposti lisäämään tulokset haluamallesi sivulle tai artikkeliin. Valitset vain haluamasi liigan ja haluamasi tiedot ja painat \"lisää\".<br />\n"
+"</p>\n"
+"<h4>Tuleeko tämän lisäosan mukana myös widget?</h4>\n"
+"<p>\n"
+"Kyllä, ja sitä on helppoa käyttää.\n"
+"</p>\n"
+"<h4>Missä voin esittää lisäkysymyksiä?</h4>\n"
+"<p>\n"
+"Lisätietoja löydät tämän lisäosan internetsivuilta: <a href='http://www.mihalysoft.com/wordpress-plugins/soccer-info/' target='_blank'>Soccer Info</a>.\n"
+"</p>"
 
 #: soccer-info-admin.class.php:201
 msgid "Supported Leagues:"
-msgstr "Campionati disponibili:"
+msgstr "Tuetut liigat:"
 
 #: soccer-info-admin.class.php:223
 msgid "Options"
-msgstr "Opzioni"
+msgstr "Asetukset"
 
 #: soccer-info-admin.class.php:225
 msgid "Description..."
-msgstr "Descrizione..."
+msgstr "Kuvaus …"
 
 #: soccer-info-admin.class.php:232
 msgid "Timezone"
-msgstr "Fascia Oraria"
+msgstr "Aikavyöhyke"
 
 #: soccer-info-admin.class.php:278
 #: soccer-info-admin.class.php:283
 msgid "Date Format"
-msgstr "Formato Data"
+msgstr "Päivämäärän muoto"
 
 #: soccer-info-admin.class.php:285
 msgid "l, F j, Y"
@@ -121,28 +141,28 @@ msgstr "Y. F j."
 
 #: soccer-info-admin.class.php:287
 msgid "Y/m/d"
-msgstr "Y/m/d"
+msgstr ""
 
 #: soccer-info-admin.class.php:288
 msgid "m/d/Y"
-msgstr "m/d/Y"
+msgstr ""
 
 #: soccer-info-admin.class.php:289
 msgid "d/m/Y"
-msgstr "d/m/Y"
+msgstr ""
 
 #: soccer-info-admin.class.php:299
 msgid "Custom:"
-msgstr "Custom:"
+msgstr "Mukautettu:"
 
 #: soccer-info-admin.class.php:300
 msgid "Documentation on date and time formatting."
-msgstr "Documentazione relativa a data e ora di formattazione."
+msgstr "Lisätietoja päivämäärän ja ajan muodosta."
 
 #: soccer-info-admin.class.php:307
 #: soccer-info-admin.class.php:312
 msgid "Time Format"
-msgstr "Formato Ora"
+msgstr "Aikamuoto"
 
 #: soccer-info-admin.class.php:314
 msgid "g:i a"
@@ -158,115 +178,115 @@ msgstr ""
 
 #: soccer-info-admin.class.php:338
 msgid "Update options"
-msgstr "Aggiorna Opzioni"
+msgstr "Päivitä asetuksia"
 
 #: soccer-info-admin.class.php:339
 msgid "Do you really want to reset your configuration?"
-msgstr "Sei realmente sicuro di voler resettare la tua configurazione?"
+msgstr "Haluatko todella tyhjentää kaikki asetukset?"
 
 #: soccer-info-admin.class.php:339
 msgid "Reset options"
-msgstr "Ripristina opzioni"
+msgstr "Tyhjennä asetukset"
 
 #: soccer-info-admin.class.php:440
 #: js/tinymce/window.php:97
 msgid "Soccer Info"
-msgstr "Info Calcio"
+msgstr ""
 
 #: soccer-info-widgets.class.php:41
 msgid "Display a league's Ranking Table, Next Fixtures and Latest Results"
-msgstr "Visualizza le classifiche dei campionati, i prossimi ncontri e gli ultimi risultati"
+msgstr "Näytä liigan tilastot, tulevat ottelut ja uusimmat tulokset"
 
 #: soccer-info-widgets.class.php:164
 #: js/tinymce/window.php:63
 msgid "Title:"
-msgstr "Titolo:"
+msgstr "Otsikko:"
 
 #: soccer-info-widgets.class.php:170
 msgid "Show:"
-msgstr "Mostra:"
+msgstr "Näytä:"
 
 #: soccer-info-widgets.class.php:175
 msgid "Table"
-msgstr "Classifica"
+msgstr "Taulukko"
 
 #: soccer-info-widgets.class.php:176
 msgid "Next Fixtures"
-msgstr "Prossimo Incontri"
+msgstr "Tulevat ottelut"
 
 #: soccer-info-widgets.class.php:177
 msgid "Latest Results"
-msgstr "Ultimi Risultati"
+msgstr "Viimeisimmät tulokset"
 
 #: soccer-info-widgets.class.php:184
 #: js/tinymce/window.php:35
 msgid "Style:"
-msgstr "Stile:"
+msgstr "Ulkoasu:"
 
 #: soccer-info-widgets.class.php:189
 #: js/tinymce/window.php:41
 msgid "Minimal"
-msgstr "Minimo"
+msgstr "Minimaalinen"
 
 #: soccer-info-widgets.class.php:190
 #: js/tinymce/window.php:42
 msgid "Blue - Light"
-msgstr "Blu - Chiaro"
+msgstr "Vaaleansininen"
 
 #: soccer-info-widgets.class.php:191
 #: js/tinymce/window.php:43
 msgid "Blue - Dark"
-msgstr "Blu - Scuro"
+msgstr "Tummansininen"
 
 #: soccer-info-widgets.class.php:192
 #: js/tinymce/window.php:44
 msgid "Green - Light"
-msgstr "Verde - Chiaro"
+msgstr "Vaaleanvihreä"
 
 #: soccer-info-widgets.class.php:193
 #: js/tinymce/window.php:45
 msgid "Green - Dark"
-msgstr "Verde - Scuro"
+msgstr "Tummanvihreä"
 
 #: soccer-info-widgets.class.php:194
 #: js/tinymce/window.php:46
 msgid "Red - Light"
-msgstr "Rosso Chiaro"
+msgstr "Vaalea punainen"
 
 #: soccer-info-widgets.class.php:195
 #: js/tinymce/window.php:47
 msgid "Red - Dark"
-msgstr "Rosso Scuro"
+msgstr "Tummanpunainen"
 
 #: soccer-info-widgets.class.php:202
 msgid "Select League:"
-msgstr "Seleziona squadra:"
+msgstr "Valitse liiga:"
 
 #: soccer-info-widgets.class.php:216
 msgid "Columns (#,Team,MP,W,D,L,F,A,G,P):"
-msgstr "Columnas (#,Team,MP,W,D,L,F,A,G,P):"
+msgstr "Kolumnit (#,Team,MP,W,D,L,F,A,G,P):"
 
 #: soccer-info-widgets.class.php:222
 #: js/tinymce/window.php:57
 msgid "Limit:"
-msgstr "Limite:"
+msgstr ""
 
 #: soccer-info-widgets.class.php:228
 #: js/tinymce/window.php:59
 msgid "Width:"
-msgstr "Larghezza:"
+msgstr "Leveys: "
 
 #: soccer-info-widgets.class.php:235
 msgid "Highlighted team:"
-msgstr "Squadra evidenziata:"
+msgstr "Korostettu joukkue:"
 
 #: soccer-info-widgets.class.php:241
 msgid "Show only this team:"
-msgstr "Mostra solo questa squadra:"
+msgstr "Näytä vain tämä joukkue:"
 
 #: soccer-info-widgets.class.php:253
 msgid "Hide widget style."
-msgstr "Nascondi stile widget."
+msgstr "Piilota widget -muotoilu"
 
 #: soccer-info.php:505
 msgid "#"
@@ -275,11 +295,11 @@ msgstr ""
 #: soccer-info.php:506
 #: soccer-info.php:517
 msgid "Team"
-msgstr "Squadra"
+msgstr "Joukkue"
 
 #: soccer-info.php:507
 msgid "MP"
-msgstr "PG"
+msgstr "PO"
 
 #: soccer-info.php:508
 msgid "W"
@@ -287,137 +307,137 @@ msgstr "V"
 
 #: soccer-info.php:509
 msgid "D"
-msgstr "P"
+msgstr "T"
 
 #: soccer-info.php:510
 msgid "L"
-msgstr "S"
+msgstr "T"
 
 #: soccer-info.php:511
 msgid "F"
-msgstr "GF"
+msgstr "TM"
 
 #: soccer-info.php:512
 msgid "A"
-msgstr "GC"
+msgstr "PM"
 
 #: soccer-info.php:513
 msgid "G"
-msgstr "DG"
+msgstr "ME"
 
 #: soccer-info.php:514
 msgid "P"
-msgstr "Pts."
+msgstr "P"
 
 #: soccer-info.php:516
 msgid "Rank"
-msgstr "Posizione"
+msgstr "Sijoitus"
 
 #: soccer-info.php:518
 msgid "Matches played"
-msgstr "Partite Giocate"
+msgstr "Pelatut ottelut"
 
 #: soccer-info.php:519
 msgid "Wins"
-msgstr "Vittorie"
+msgstr "Voitot"
 
 #: soccer-info.php:520
 msgid "Draws"
-msgstr "Pareggi"
+msgstr "Tasapelit"
 
 #: soccer-info.php:521
 msgid "Losses"
-msgstr "Partite Perse"
+msgstr "Tappiot"
 
 #: soccer-info.php:522
 msgid "Goals for"
-msgstr "Goal per"
+msgstr "Tehdyt maalit"
 
 #: soccer-info.php:523
 msgid "Goals against"
-msgstr "Goal Contro"
+msgstr "Päästetyt maalit"
 
 #: soccer-info.php:524
 msgid "Goal difference"
-msgstr "Differenza Goal"
+msgstr "Maaliero"
 
 #: soccer-info.php:525
 msgid "Points"
-msgstr "Punti"
+msgstr "Pisteet"
 
 #: soccer-info.php:841
 msgid "-- None --"
-msgstr "-- Niente --"
+msgstr "-- Tyhjä --"
 
 #: js/tinymce/window.php:53
 msgid "Choose a style"
-msgstr "Scegli uno stile"
+msgstr "Valitse ulkoasu"
 
 #: js/tinymce/window.php:64
 msgid "It shows before the table"
-msgstr "Mostra prima"
+msgstr "Tulostuu"
 
 #: js/tinymce/window.php:67
 msgid "Highlight:"
-msgstr "In evidenza:"
+msgstr "Korosta: "
 
 #: js/tinymce/window.php:73
 msgid "Highlighted team"
-msgstr "Squadra in evidenza"
+msgstr "Korostettu joukkue"
 
 #: js/tinymce/window.php:78
 msgid "Only 1 team:"
-msgstr "Solo una squadra:"
+msgstr "Vain 1 joukkue"
 
 #: js/tinymce/window.php:84
 msgid "Show only this team"
-msgstr "Mostra solo questa squadra"
+msgstr "Näytä vain tämä joukkue"
 
 #: js/tinymce/window.php:110
 msgid "Tables"
-msgstr "Classifica"
+msgstr "Ruudukot"
 
 #: js/tinymce/window.php:111
 msgid "Fixtures"
-msgstr "Prossimi Incontri"
+msgstr "Tulokset"
 
 #: js/tinymce/window.php:112
 msgid "Results"
-msgstr "Risultati"
+msgstr "Tulokset"
 
 #: js/tinymce/window.php:121
 #: js/tinymce/window.php:193
 #: js/tinymce/window.php:233
 msgid "League:"
-msgstr "Campionato:"
+msgstr "Liiga:"
 
 #: js/tinymce/window.php:138
 msgid "Columns:"
-msgstr "Colonne:"
+msgstr "Kolumnit:"
 
 #: js/tinymce/window.php:139
 msgid "You may use: #,Team,MP,W,D,L,F,A,G,P"
-msgstr "Puoi utilizzare: #,Team,MP,W,D,L,F,A,G,P"
+msgstr "Voit käyttää: #,Team,MP,W,D,L,F,A,G,P"
 
 #: js/tinymce/window.php:186
 msgid "Display the table for the chosen league."
-msgstr "Visualizzare la classifica per il campionato scelto."
+msgstr "Näytä valitun liigan tulokset"
 
 #: js/tinymce/window.php:226
 msgid "Display all fixtures for the chosen league or only those for a selected team."
-msgstr "Mostra tutti gli incontri per il campionato scelto o solo quelli per una squadra selezionata."
+msgstr "Näytä valitun liigan tai valitun joukkueen tulevat ottelut"
 
 #: js/tinymce/window.php:266
 msgid "Display the last results for the chosen league or only those for a selected team."
-msgstr "Visualizzare gli ultimi risultati per il campionato scelto o solo quelli per una squadra selezionata."
+msgstr "Näytä valitun liigan tai valitun joukkueen tulokset"
 
 #: js/tinymce/window.php:271
 msgid "Cancel"
-msgstr "Cancella"
+msgstr "Keskeytä"
 
 #: js/tinymce/window.php:274
 msgid "Insert"
-msgstr "Inserire"
+msgstr "Lisää"
 
 #~ msgid "Coming soon..."
 #~ msgstr "Hamarosan!"
@@ -518,7 +538,7 @@ msgstr "Inserire"
 #~ msgstr "Tipp"
 
 #~ msgid "Team A"
-#~ msgstr "A csapat"
+#~ msgstr "Joukkue A"
 
 #~ msgid "Goals A"
 #~ msgstr "A csapat gólok"

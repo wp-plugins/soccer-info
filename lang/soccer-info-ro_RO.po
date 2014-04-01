@@ -7,8 +7,8 @@ msgid ""
 msgstr ""
 "Project-Id-Version: Soccer Info 1.5\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2013-01-10 19:22+0200\n"
-"PO-Revision-Date: 2014-04-01 21:52+0200\n"
+"POT-Creation-Date: 2013-01-10 19:21+0200\n"
+"PO-Revision-Date: 2014-04-01 21:51+0200\n"
 "Last-Translator: Szilard Mihaly <office@mihalysoft.com>\n"
 "Language-Team: Mihaly Soft <office@mihalysoft.com>\n"
 "MIME-Version: 1.0\n"
@@ -19,43 +19,43 @@ msgstr ""
 "X-Poedit-SourceCharset: utf-8\n"
 "X-Poedit-KeywordsList: _;gettext;gettext_noop;__;_e\n"
 "X-Poedit-Basepath: ..\n"
-"X-Generator: Poedit 1.5.4\n"
-"X-Poedit-Language: Italian\n"
-"X-Poedit-Country: ITALY\n"
+"X-Generator: Poedit 1.6.3\n"
+"X-Poedit-Language: Romanian\n"
+"X-Poedit-Country: ROMANIA\n"
 "X-Poedit-SearchPath-0: .\n"
 
 #: soccer-info-admin.class.php:96
 msgid "<noscript>Javascript must be enabled, thank you.</noscript>"
-msgstr "<noscript>Per poter visualizzare il contenuto Javascript deve essere abilitato!</noscript>"
+msgstr "<noscript>Javascript trebuie să fie activat, mulțumesc.</noscript>"
 
 #: soccer-info-admin.class.php:107
 #, php-format
 msgid "Soccer Info %s for WordPress"
-msgstr "Info Calcio %s per WordPress"
+msgstr "Soccer Info %s"
 
 #: soccer-info-admin.class.php:129
 msgid "Settings Updated"
-msgstr "Configurazione aggiornata"
+msgstr "Setări actualizate"
 
 #: soccer-info-admin.class.php:147
 msgid "Settings Updated to the default values"
-msgstr "Configurazione aggiornata ai valori di partenza"
+msgstr "Resetarea valorilor implicite s-a realizat cu succes"
 
 #: soccer-info-admin.class.php:158
 msgid "About this Plugin:"
-msgstr "Info Plugin"
+msgstr "Despre acest Plugin:"
 
 #: soccer-info-admin.class.php:159
 msgid "Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles."
-msgstr "Info Calcio consente di visualizzare le classifiche, i calendari e risultati dei piu importanti campionati di calcio."
+msgstr "Cu ajutorul pluginului Soccer Info poți lista ușor tabelele diferitelor ligi de fotbal, data exactă a următoarelor meciuri și cele mai recente rezultate."
 
 #: soccer-info-admin.class.php:161
 msgid "translator_name"
-msgstr "Andrea Cavasin "
+msgstr "Gabor Mihaly"
 
 #: soccer-info-admin.class.php:163
 msgid "Translated by:"
-msgstr "Tradotto da:"
+msgstr "Traducere:"
 
 #: soccer-info-admin.class.php:164
 msgid "translator_url"
@@ -63,7 +63,7 @@ msgstr ""
 
 #: soccer-info-admin.class.php:177
 msgid "Frequently Asked Questions:"
-msgstr "Domande Frequenti:"
+msgstr "Întrebări frecvente:"
 
 #: soccer-info-admin.class.php:178
 msgid ""
@@ -89,60 +89,81 @@ msgid ""
 "For more information, check out the plugin's website: <a href='http://www.mihalysoft.com/wordpress-plugins/soccer-info/' target='_blank'>Soccer Info</a>\n"
 "</p>"
 msgstr ""
+"\n"
+"<h4>Acuma activez pluginul Soccer Info, care este următorul pas?</h4>\n"
+"<p>\n"
+"De acum poți adăuga codurile scurte (codurile shortcode) ale tabelelor (următoarele meciuri sau rezultate) la oricare pagină sau notificare.<br /> \n"
+"De exemplu: <strong>[soccer-info id='1' type='table' /]</strong><br />\n"
+"Acest lucru înseamnă că dorești să listezi tabela (type=<em>`table`</em>) cu <em>id=1</em> (Primera Division din Spania).<br />\n"
+"Lista ligiilor de fotbal sprijinite de acest plugin găsești în pagina <strong>`Setări` > `Soccer Info`</strong>.\n"
+"</p>\n"
+"<h4>Nu cunosc modul de utilizare a shortcode-urilor, ce am de făcut în acest caz?</h4>\n"
+"<p>\n"
+"Pentru confort, am creat o interfață pe suprafața de editare a paginii sau a notificării, care în mod automat, fără nici un efort suplimentar inserează shortcode-urile. Într-o fereastră separată care este folosită tocmai pentru acest scop poți selecta liga sau alte setări, după care apeși butonul 'Inserează'.<br />\n"
+"Nu-i așa că e simplu?\n"
+"</p>\n"
+"<h4>Are widget acest plugin?</h4>\n"
+"<p>\n"
+"Da, și este ușor de utilizat.\n"
+"</p>\n"
+"<h4>Ași avea și alte întrebări. Unde pot întreba?</h4>\n"
+"<p>\n"
+"Pentru mai multe informații vizitează site-ul pluginului: <a href='http://www.mihalysoft.com/wordpress-plugins/soccer-info/' target='_blank'>Soccer Info</a>\n"
+"</p>"
 
 #: soccer-info-admin.class.php:201
 msgid "Supported Leagues:"
-msgstr "Campionati disponibili:"
+msgstr "Ligi susținute:"
 
 #: soccer-info-admin.class.php:223
 msgid "Options"
-msgstr "Opzioni"
+msgstr "Opțiuni"
 
 #: soccer-info-admin.class.php:225
 msgid "Description..."
-msgstr "Descrizione..."
+msgstr "Descriere..."
 
 #: soccer-info-admin.class.php:232
 msgid "Timezone"
-msgstr "Fascia Oraria"
+msgstr "Zone de timp"
 
 #: soccer-info-admin.class.php:278
 #: soccer-info-admin.class.php:283
 msgid "Date Format"
-msgstr "Formato Data"
+msgstr "Format dată"
 
 #: soccer-info-admin.class.php:285
 msgid "l, F j, Y"
-msgstr "Y. F j.  l"
+msgstr "l, F j, Y"
 
 #: soccer-info-admin.class.php:286
 msgid "F j, Y"
-msgstr "Y. F j."
+msgstr "F j, Y"
 
 #: soccer-info-admin.class.php:287
 msgid "Y/m/d"
-msgstr "Y/m/d"
+msgstr ""
 
 #: soccer-info-admin.class.php:288
 msgid "m/d/Y"
-msgstr "m/d/Y"
+msgstr ""
 
 #: soccer-info-admin.class.php:289
 msgid "d/m/Y"
-msgstr "d/m/Y"
+msgstr ""
 
 #: soccer-info-admin.class.php:299
 msgid "Custom:"
-msgstr "Custom:"
+msgstr "Individuală:"
 
 #: soccer-info-admin.class.php:300
 msgid "Documentation on date and time formatting."
-msgstr "Documentazione relativa a data e ora di formattazione."
+msgstr "Ajutor formatare data (în engleză)."
 
 #: soccer-info-admin.class.php:307
 #: soccer-info-admin.class.php:312
 msgid "Time Format"
-msgstr "Formato Ora"
+msgstr "Format timp"
 
 #: soccer-info-admin.class.php:314
 msgid "g:i a"
@@ -158,115 +179,115 @@ msgstr ""
 
 #: soccer-info-admin.class.php:338
 msgid "Update options"
-msgstr "Aggiorna Opzioni"
+msgstr "Salvare modificări"
 
 #: soccer-info-admin.class.php:339
 msgid "Do you really want to reset your configuration?"
-msgstr "Sei realmente sicuro di voler resettare la tua configurazione?"
+msgstr "Chiar vrei să restaurezi setările implicite?"
 
 #: soccer-info-admin.class.php:339
 msgid "Reset options"
-msgstr "Ripristina opzioni"
+msgstr "Setări implicite"
 
 #: soccer-info-admin.class.php:440
 #: js/tinymce/window.php:97
 msgid "Soccer Info"
-msgstr "Info Calcio"
+msgstr ""
 
 #: soccer-info-widgets.class.php:41
 msgid "Display a league's Ranking Table, Next Fixtures and Latest Results"
-msgstr "Visualizza le classifiche dei campionati, i prossimi ncontri e gli ultimi risultati"
+msgstr "Arată tabelele ligilor, următoarele meciuri și ultimele rezultate."
 
 #: soccer-info-widgets.class.php:164
 #: js/tinymce/window.php:63
 msgid "Title:"
-msgstr "Titolo:"
+msgstr "Titlu:"
 
 #: soccer-info-widgets.class.php:170
 msgid "Show:"
-msgstr "Mostra:"
+msgstr "Arată:"
 
 #: soccer-info-widgets.class.php:175
 msgid "Table"
-msgstr "Classifica"
+msgstr "Tabela"
 
 #: soccer-info-widgets.class.php:176
 msgid "Next Fixtures"
-msgstr "Prossimo Incontri"
+msgstr "Următoarele meciuri"
 
 #: soccer-info-widgets.class.php:177
 msgid "Latest Results"
-msgstr "Ultimi Risultati"
+msgstr "Ultimele rezultate"
 
 #: soccer-info-widgets.class.php:184
 #: js/tinymce/window.php:35
 msgid "Style:"
-msgstr "Stile:"
+msgstr "Stil:"
 
 #: soccer-info-widgets.class.php:189
 #: js/tinymce/window.php:41
 msgid "Minimal"
-msgstr "Minimo"
+msgstr "Minimal"
 
 #: soccer-info-widgets.class.php:190
 #: js/tinymce/window.php:42
 msgid "Blue - Light"
-msgstr "Blu - Chiaro"
+msgstr "Albastru - Dexchis"
 
 #: soccer-info-widgets.class.php:191
 #: js/tinymce/window.php:43
 msgid "Blue - Dark"
-msgstr "Blu - Scuro"
+msgstr "Albastru - Închis"
 
 #: soccer-info-widgets.class.php:192
 #: js/tinymce/window.php:44
 msgid "Green - Light"
-msgstr "Verde - Chiaro"
+msgstr "Verde - Deschis"
 
 #: soccer-info-widgets.class.php:193
 #: js/tinymce/window.php:45
 msgid "Green - Dark"
-msgstr "Verde - Scuro"
+msgstr "Verde - Închis"
 
 #: soccer-info-widgets.class.php:194
 #: js/tinymce/window.php:46
 msgid "Red - Light"
-msgstr "Rosso Chiaro"
+msgstr "Roșu - Deschis"
 
 #: soccer-info-widgets.class.php:195
 #: js/tinymce/window.php:47
 msgid "Red - Dark"
-msgstr "Rosso Scuro"
+msgstr "Roșu - Închis"
 
 #: soccer-info-widgets.class.php:202
 msgid "Select League:"
-msgstr "Seleziona squadra:"
+msgstr "Alege o Ligă:"
 
 #: soccer-info-widgets.class.php:216
 msgid "Columns (#,Team,MP,W,D,L,F,A,G,P):"
-msgstr "Columnas (#,Team,MP,W,D,L,F,A,G,P):"
+msgstr "Coloane (#,Team,MP,W,D,L,F,A,G,P):"
 
 #: soccer-info-widgets.class.php:222
 #: js/tinymce/window.php:57
 msgid "Limit:"
-msgstr "Limite:"
+msgstr ""
 
 #: soccer-info-widgets.class.php:228
 #: js/tinymce/window.php:59
 msgid "Width:"
-msgstr "Larghezza:"
+msgstr "Lățime:"
 
 #: soccer-info-widgets.class.php:235
 msgid "Highlighted team:"
-msgstr "Squadra evidenziata:"
+msgstr "Echipa evidențiată:"
 
 #: soccer-info-widgets.class.php:241
 msgid "Show only this team:"
-msgstr "Mostra solo questa squadra:"
+msgstr "Numai această echipă:"
 
 #: soccer-info-widgets.class.php:253
 msgid "Hide widget style."
-msgstr "Nascondi stile widget."
+msgstr "Nu arăta stilul widget-ului."
 
 #: soccer-info.php:505
 msgid "#"
@@ -275,11 +296,11 @@ msgstr ""
 #: soccer-info.php:506
 #: soccer-info.php:517
 msgid "Team"
-msgstr "Squadra"
+msgstr "Echipă"
 
 #: soccer-info.php:507
 msgid "MP"
-msgstr "PG"
+msgstr "MJ"
 
 #: soccer-info.php:508
 msgid "W"
@@ -287,19 +308,19 @@ msgstr "V"
 
 #: soccer-info.php:509
 msgid "D"
-msgstr "P"
+msgstr "E"
 
 #: soccer-info.php:510
 msgid "L"
-msgstr "S"
+msgstr "Î"
 
 #: soccer-info.php:511
 msgid "F"
-msgstr "GF"
+msgstr "GM"
 
 #: soccer-info.php:512
 msgid "A"
-msgstr "GC"
+msgstr "GP"
 
 #: soccer-info.php:513
 msgid "G"
@@ -307,117 +328,117 @@ msgstr "DG"
 
 #: soccer-info.php:514
 msgid "P"
-msgstr "Pts."
+msgstr "P"
 
 #: soccer-info.php:516
 msgid "Rank"
-msgstr "Posizione"
+msgstr "Poziția"
 
 #: soccer-info.php:518
 msgid "Matches played"
-msgstr "Partite Giocate"
+msgstr "Meciuri jucate"
 
 #: soccer-info.php:519
 msgid "Wins"
-msgstr "Vittorie"
+msgstr "Victorie"
 
 #: soccer-info.php:520
 msgid "Draws"
-msgstr "Pareggi"
+msgstr "Egal"
 
 #: soccer-info.php:521
 msgid "Losses"
-msgstr "Partite Perse"
+msgstr "Înfrângere"
 
 #: soccer-info.php:522
 msgid "Goals for"
-msgstr "Goal per"
+msgstr "Goluri marcate"
 
 #: soccer-info.php:523
 msgid "Goals against"
-msgstr "Goal Contro"
+msgstr "Goluri primite"
 
 #: soccer-info.php:524
 msgid "Goal difference"
-msgstr "Differenza Goal"
+msgstr "Diferențe goluri"
 
 #: soccer-info.php:525
 msgid "Points"
-msgstr "Punti"
+msgstr "Puncte"
 
 #: soccer-info.php:841
 msgid "-- None --"
-msgstr "-- Niente --"
+msgstr "-- Nu este --"
 
 #: js/tinymce/window.php:53
 msgid "Choose a style"
-msgstr "Scegli uno stile"
+msgstr "Alege stil"
 
 #: js/tinymce/window.php:64
 msgid "It shows before the table"
-msgstr "Mostra prima"
+msgstr "Aceasta se va afișa înaintea tabelei."
 
 #: js/tinymce/window.php:67
 msgid "Highlight:"
-msgstr "In evidenza:"
+msgstr "Evidențiat:"
 
 #: js/tinymce/window.php:73
 msgid "Highlighted team"
-msgstr "Squadra in evidenza"
+msgstr "Echipă evidențiată:"
 
 #: js/tinymce/window.php:78
 msgid "Only 1 team:"
-msgstr "Solo una squadra:"
+msgstr "Numai o (1) echipă:"
 
 #: js/tinymce/window.php:84
 msgid "Show only this team"
-msgstr "Mostra solo questa squadra"
+msgstr "Arată numai această echipă"
 
 #: js/tinymce/window.php:110
 msgid "Tables"
-msgstr "Classifica"
+msgstr "Tabele"
 
 #: js/tinymce/window.php:111
 msgid "Fixtures"
-msgstr "Prossimi Incontri"
+msgstr "Meciuri"
 
 #: js/tinymce/window.php:112
 msgid "Results"
-msgstr "Risultati"
+msgstr "Rezultate"
 
 #: js/tinymce/window.php:121
 #: js/tinymce/window.php:193
 #: js/tinymce/window.php:233
 msgid "League:"
-msgstr "Campionato:"
+msgstr "Liga:"
 
 #: js/tinymce/window.php:138
 msgid "Columns:"
-msgstr "Colonne:"
+msgstr "Coloane:"
 
 #: js/tinymce/window.php:139
 msgid "You may use: #,Team,MP,W,D,L,F,A,G,P"
-msgstr "Puoi utilizzare: #,Team,MP,W,D,L,F,A,G,P"
+msgstr "Poți folosi următoarele: #,Team,MP,W,D,L,F,A,G,P"
 
 #: js/tinymce/window.php:186
 msgid "Display the table for the chosen league."
-msgstr "Visualizzare la classifica per il campionato scelto."
+msgstr "Arată tabela ligii aleasă."
 
 #: js/tinymce/window.php:226
 msgid "Display all fixtures for the chosen league or only those for a selected team."
-msgstr "Mostra tutti gli incontri per il campionato scelto o solo quelli per una squadra selezionata."
+msgstr "Arată data și ora următoarelor meciuri la liga aleasă (sau numai a echipei aleasă)"
 
 #: js/tinymce/window.php:266
 msgid "Display the last results for the chosen league or only those for a selected team."
-msgstr "Visualizzare gli ultimi risultati per il campionato scelto o solo quelli per una squadra selezionata."
+msgstr "Arată ultimele rezultate la liga aleasă (sau numai a echipei aleasă)"
 
 #: js/tinymce/window.php:271
 msgid "Cancel"
-msgstr "Cancella"
+msgstr "Anulează"
 
 #: js/tinymce/window.php:274
 msgid "Insert"
-msgstr "Inserire"
+msgstr "Inserează"
 
 #~ msgid "Coming soon..."
 #~ msgstr "Hamarosan!"
@@ -536,4 +557,4 @@ msgstr "Inserire"
 #~ msgstr "B tizenegyes"
 
 #~ msgid "Match finished"
-#~ msgstr "partido terminado"
+#~ msgstr "Befejezett mérkőzés"

@@ -1,14 +1,14 @@
-# Translation of the WordPress plugin Euro 2012 Predictor 0.1 by Ian Haycox.
-# Copyright (C) 2012 Ian Haycox
-# This file is distributed under the same license as the Euro 2012 Predictor package.
-# FIRST AUTHOR <EMAIL@ADDRESS>, 2012.
+# Translation of the WordPress plugin Soccer Info 1.4 by Szilard Mihaly.
+# Copyright (C) 2013 Szilard Mihaly
+# This file is distributed under the same license as the Soccer Info package.
+# SZILARD MIHALY <OFFICE@MIHALYSOFT.COM>, 2013.
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Soccer Info 1.3\n"
+"Project-Id-Version: Soccer Info 1.5\n"
 "Report-Msgid-Bugs-To: \n"
 "POT-Creation-Date: 2013-01-10 19:22+0200\n"
-"PO-Revision-Date: 2013-01-16 11:53+0200\n"
+"PO-Revision-Date: 2014-04-01 21:52+0200\n"
 "Last-Translator: Szilard Mihaly <office@mihalysoft.com>\n"
 "Language-Team: Mihaly Soft <office@mihalysoft.com>\n"
 "MIME-Version: 1.0\n"
