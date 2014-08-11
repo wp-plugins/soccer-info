@@ -36,7 +36,7 @@
                     author    : 'Szilard Mihaly',
                     authorurl : 'http://www.mihalysoft.com/',
                     infourl   : 'http://www.mihalysoft.com/wordpress-plugins/soccer-info/',
-                    version   : '1.2'
+                    version   : '1.6'
             };
         }
     });

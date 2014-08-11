@@ -3,15 +3,15 @@ Contributors: szi19830728, Mihaly Soft
 Donate link: http://www.mihalysoft.com/
 Tags: soccer info, football, sport, league table, championship, soccer, sports, leagues, next fixtures, latest results
 Requires at least: 3.3
-Tested up to: 3.8.1
-Stable tag: 1.5
+Tested up to: 3.9.2
+Stable tag: 1.6
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues (450+) without any hassles.
+Soccer Info lets you display the ranking tables, fixtures and results of the major soccer leagues (450+) without any hassles.
 
 == Description ==
-Soccer Info is a plugin that lets you show ranking tables, upcoming fixtures and results of different soccer leagues.
+Soccer Info is a plugin that lets you show the ranking tables, upcoming fixtures and results of the different soccer leagues.
 
 Requires WordPress 3.3+ and PHP 5.2+.
 
@@ -53,7 +53,8 @@ Russian (by Георгий Фисичев),
 Greek (by Spiros Smilianis),
 Finnish (by Jukka Lammi I),
 Romanian (by Gabor Mihaly),
-Turkish (by Ferhat ERSOY)
+Turkish (by Ferhat ERSOY),
+Portuguese (by Jorge "FLaK" Rodrigues)
 and Hungarian (by Szilard Mihaly).
 
 Please help me translate it into other languages!
@@ -108,6 +109,10 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 
 == Changelog ==
 
+= 1.6 =
+* New: Added language: Portuguese - Thanks to Jorge "FLaK" Rodrigues
+* Fixed: Inserting shortcodes in 3.9+ was fixed. A Javascript file was modified, so please clear your browser's cache after you update the plugin.
+
 = 1.5 =
 * New: More than 50 leagues were added
 * New: Added language: German - Thanks to Hans Puac
@@ -144,6 +149,10 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 * Initial release!
 
 == Upgrade Notice ==
+
+= 1.6 =
+* New: Added language: Portuguese - Thanks to Jorge "FLaK" Rodrigues
+* Fixed: Inserting shortcodes in 3.9+ was fixed. A Javascript file was modified, so please clear your cache after you update the plugin.
 
 = 1.4 =
 * New: More than 400 leagues were added

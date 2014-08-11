@@ -1,6 +1,10 @@
 Soccer Info
 by Szilard Mihaly
 
+= 1.6 - 08.11.2014 =
+* New: Added language: Portuguese - Thanks to Jorge "FLaK" Rodrigues
+* Fixed: Inserting shortcodes in 3.9+ was fixed. A Javascript file was modified, so please clear your browser's cache after you update the plugin.
+
 = 1.5 - 04.01.2014 =
 * New: More than 50 leagues were added
 * New: Added language: German - Thanks to Hans Puac

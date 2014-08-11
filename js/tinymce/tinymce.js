@@ -73,14 +73,24 @@ function insertSoccerInfo() {
 	else
 		style = '';
 	
-	
 	if (leagueId != 0)
 		tagtext = "[soccer-info id='" + leagueId + "' type='" + type + "'" + style + columns + highlight + team + title + limit + width + " /]";
-	else
-		tinyMCEPopup.close();
+	else {
+		if ( typeof tinyMCEPopup != undefined)
+			tinyMCEPopup.close();
+	}
 	
 	if (window.tinyMCE) {
-		window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, tagtext);
+		
+		/* get the TinyMCE version to account for API diffs */
+    	var tmce_ver=window.tinyMCE.majorVersion;
+
+		if ( tmce_ver >= "4") {
+			window.tinyMCE.execCommand('mceInsertContent', false, tagtext);
+		} else {
+			window.tinyMCE.execInstanceCommand('content', 'mceInsertContent', false, tagtext);
+		}
+		
 		tinyMCEPopup.editor.execCommand('mceRepaint');
 		tinyMCEPopup.close();
 	}
