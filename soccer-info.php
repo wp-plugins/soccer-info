@@ -3,9 +3,9 @@
 Plugin Name: Soccer Info
 Plugin URI: http://www.mihalysoft.com/wordpress-plugins/soccer-info/
 Description: Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
-Version: 1.6
+Version: 1.7
 Requires at least: WordPress 3.3
-Tested up to: WordPress 3.9.2
+Tested up to: WordPress 4.0
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Author: Szilard Mihaly
@@ -45,7 +45,7 @@ if ( !class_exists('SoccerInfo') ) {
 		 */
 		public function __construct() {
 			
-			define('SOCCER_INFO_VERSION', '1.6');
+			define('SOCCER_INFO_VERSION', '1.7');
 			define('SOCCER_INFO_PATH', plugin_dir_path(__FILE__));
 			define('SOCCER_INFO_BASEPATH', basename(dirname(__FILE__)));
 			
@@ -114,14 +114,25 @@ if ( !class_exists('SoccerInfo') ) {
         public function plugin_admin_init() {
 			
 			add_filter("plugin_action_links_".plugin_basename(__FILE__), array(&$this, 'si_settings_link') );
+			   
+			//plugin row links
+			add_filter('plugin_row_meta', array(&$this, 'si_donate_link'), 10, 2);
 			
         }
 		
 		// Add settings link on plugin page
 		function si_settings_link($links) { 
-			$settings_link = '<a href="options-general.php?page='.SOCCER_INFO.'">Settings</a>'; 
+			$settings_link = '<a href="'.admin_url('options-general.php?page='.SOCCER_INFO).'">'.__('Settings', SOCCER_INFO).'</a>'; 
 			array_unshift($links, $settings_link); 
 			return $links; 
+		}
+		
+		function si_donate_link($links, $file) {
+			if ($file == plugin_basename(__FILE__)) {
+				$links[] = '<a href="'.admin_url('options-general.php?page='.SOCCER_INFO).'">'.__('Settings', SOCCER_INFO).'</a>';
+				$links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4V94PVSJNFZMA" target="_blank">'.__('Donate', SOCCER_INFO).'</a>';
+			}
+			return $links;
 		}
         
         /**
@@ -202,6 +213,27 @@ if ( !class_exists('SoccerInfo') ) {
 			if ( 1 == 0 && $team_id > 0 ) {
 				$feed_url = 'http://widgets.soccerway.com/widget/free/classic/team/'.$team_id;
 			}
+			elseif ( $league_id > -9 && $league_id < 0 ) {
+				/**
+					if ( $seasons_data[$season_id][$bookie] == '&ttFK=42&country=11' ) {
+						//836165 - BL Qualification
+						$bl_el_all = array('836870', '836871', '836872', '836873', '836874', '836875', '836876', '836877');
+					}
+					else {
+						//836161 - EL Qualification
+						$bl_el_all = array('836878', '836879', '836880', '836881', '836882', '836883', '836884', '836885', '836886', '836887', '836888', '836889');
+					}
+					foreach ( $bl_el_all as $bl_el ) {
+						$feed_url_all[] = 'http://football-data.enetpulse.com/standings.php?round='.$my_schedule['week_no'].'&standing=false'.$seasons_data[$season_id][$bookie].'&oFK='.$bl_el;
+					}
+				/**/
+				$oFK = 836870 - 1 - $league_id;
+				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=42&country=11'.'&oFK='.$oFK; //'&oFK=836870';
+			}
+			elseif ( $league_id > -22 && $league_id < -8 ) {
+				$oFK = 836878 - 9 - $league_id;
+				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=73&country=11'.'&oFK='.$oFK; //'&oFK=836878';
+			}
 			else {
 				$feed_url1 = 'http://widgets.soccerway.com/widget/free/classic/competition/';
 				
@@ -220,6 +252,19 @@ if ( !class_exists('SoccerInfo') ) {
 					
 					$what = $type; //'table';
 					$selector = 'div#tabset div#'.$what;
+					$filter_links = '<a>';
+					
+					$enetpulse = false;
+					
+					if ( $league_id < 0 ) {
+						$enetpulse = $league_id;
+						//var_export($response);
+						$filter_links = '<a><span><img>';
+						if ( $type == 'table' )
+							$selector = 'table.BackgroundTableHeader';
+						else
+							$selector = 'div#LeagueMatches table';
+					}
 					
 					$raw_html = $response['body'];
 					
@@ -242,20 +287,23 @@ if ( !class_exists('SoccerInfo') ) {
 						$filtered_html = $raw_html;
 					}
 					
-					$filtered_html = $this->wpsi_strip_only($filtered_html, '<a>');
+					$filtered_html = $this->wpsi_strip_only($filtered_html, $filter_links); //'<a>');
 					
+					if ( $league_id < 0 ) {
+						$filtered_html = '<table>'.str_replace('nowrap', '', $filtered_html).'</table>';
+					}
 					
 					switch ( $type ) {
 						case 'table':
 							if ( $widget && empty($columns) )
 								$columns = '#,Team,P';
-							$filtered_html = $this->wpsi_table($filtered_html, $columns, $highlight, $team, $limit);
+							$filtered_html = $this->wpsi_table($filtered_html, $columns, $highlight, $team, $limit, $enetpulse);
 						break;
 						case 'fixtures':
-							$filtered_html = $this->wpsi_fixtures($filtered_html, $highlight, $team, $limit, $team_id);
+							$filtered_html = $this->wpsi_fixtures($filtered_html, $highlight, $team, $limit, $team_id, $enetpulse);
 						break;
 						case 'results':
-							$filtered_html = $this->wpsi_results($filtered_html, $highlight, $team, $limit, $team_id);
+							$filtered_html = $this->wpsi_results($filtered_html, $highlight, $team, $limit, $team_id, $enetpulse);
 						break;
 					}
 					
@@ -297,20 +345,38 @@ if ( !class_exists('SoccerInfo') ) {
 		 * @param  none
 		 * @return void
 		 */
-		function wpsi_results($filtered_html, $highlight = '', $team = '', $limit = 0, $team_id = 0) {
+		function wpsi_results($filtered_html, $highlight = '', $team = '', $limit = 0, $team_id = 0, $enetpulse = false) {
 			
 			$limit = (int)$limit;
 			
 			$all_columns = array( 'class' => array( 'weekday', 'date', 'team_a', 'result', 'team_b' ) );
 			$cols_ok = array( 0, 1, 2, 3, 4);
 			
+			if ( $enetpulse !== false ) {
+				$filtered_html = str_replace(' colspan="2"', '></td><td', $filtered_html);
+				$filtered_html = str_replace(' colspan="3"', '></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(' colspan="4"', '></td><td></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(' colspan="5"', '></td><td></td><td></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(' colspan="6"', '></td><td></td><td></td><td></td><td></td><td', $filtered_html);
+				
+				$filtered_html = str_replace(" colspan='2'", '></td><td', $filtered_html);
+				$filtered_html = str_replace(" colspan='3'", '></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(" colspan='4'", '></td><td></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(" colspan='5'", '></td><td></td><td></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(" colspan='6'", '></td><td></td><td></td><td></td><td></td><td', $filtered_html);
+			
+				$filtered_html = str_replace(' id="{country}"', '', $filtered_html);
+			}
+			
 			$filtered_html = preg_replace('#<td[^>]*>#is', '<td>', $filtered_html);
 			
 			$data = "<?xml version='1.0' ?>\n".$filtered_html;
 			
-			try {
-	    		$table = new SimpleXmlElement($data);
-			} catch (Exception $e) {}
+			if ( !empty($filtered_html) ) {
+				try {
+					$table = new SimpleXmlElement($data);
+				} catch (Exception $e) {}
+			}
 			
 			if ( isset($table) && is_object($table) ) {
 				
@@ -331,7 +397,12 @@ if ( !class_exists('SoccerInfo') ) {
 						$van_comp = 1;
 					/**/
 					
-					foreach ( $table->tbody[0] as $ii => $tr ) {
+					if ( $enetpulse != false )
+						$table_tbody_0 = $table;
+					else
+						$table_tbody_0 = $table->tbody[0];
+					
+					foreach ( $table_tbody_0 as $ii => $tr ) {
 						$filtered_html_td = '';
 						if ($i_limit % 2 == 0)
 							$highlight_ok = ' class="even"';
@@ -339,21 +410,50 @@ if ( !class_exists('SoccerInfo') ) {
 							$highlight_ok = ' class="odd"';
 						
 						if ( $limit == 0 || $i_limit < $limit ) {
-							if ( count($tr->td) > 4 + $van_comp && isset($tr->td[0]->span[0]) ) {
+							
+							if ( (count($tr->td) > 4 + $van_comp) && $enetpulse != false && !empty($tr->td[count($tr->td) - 1]) && strpos($tr->td[count($tr->td) - 1], 'Standings') === false  ) {
+								$new_date_format = str_replace(',', '', trim($tr->td[count($tr->td) - 1]));
+								$new_date_formats = explode(' ', $new_date_format);
+								if ( count($new_date_formats) > 2 ) {
+										if ( $new_date_formats[2] < 100 )
+											$new_date_formats[2] = 2000 + $new_date_formats[2];
+										
+										$last_td_date = strtotime($new_date_formats[0].' '.$new_date_formats[1].' '.$new_date_formats[2]);
+										
+										$date_new = date_i18n( $date_format, (int)$last_td_date + $offset );
+										//$time_new = date( $time_format, (int)$span_attr['data-value'] + $offset );
+										if ( $date_new != $date_old ) {
+											$filtered_html_date = '';
+											$filtered_html_date .= '<tr class="date">';
+											$filtered_html_date .= '<td class="date" colspan="'.(3 + $van_comp).'">'.$date_new.'</td>';
+											$filtered_html_date .= '</tr>'."\n";
+										}
+								}
+							}
+									
+							if ( count($tr->td) > 4 + $van_comp && ( isset($tr->td[0]->span[0]) || ( $enetpulse != false && $tr->td[0] == 'FT' ) ) ) {
 								
-								$team_a = $this->correct_team_name( $tr->td[2 + $van_comp] );
-								$team_b = $this->correct_team_name( $tr->td[4 + $van_comp] );
+								if ( $enetpulse != false ) {
+									$team_a = $this->correct_team_name( $tr->td[1 + $van_comp] );
+									$team_b = $this->correct_team_name( $tr->td[3 + $van_comp] );
+								}
+								else {
+									$team_a = $this->correct_team_name( $tr->td[2 + $van_comp] );
+									$team_b = $this->correct_team_name( $tr->td[4 + $van_comp] );
+								}
 								if ( empty($team) || $team == $team_a || $team == $team_b ) { //check for the ONLY team
 									
-									$span_attr = $tr->td[0]->span[0]->attributes();
-									
-									$date_new = date_i18n( $date_format, (int)$span_attr['data-value'] + $offset );
-									//$time_new = date( $time_format, (int)$span_attr['data-value'] + $offset );
-									if ( $date_new != $date_old ) {
-										$filtered_html .= '<tr class="date">';
-										$filtered_html .= '<td class="date" colspan="'.(3 + $van_comp).'">'.$date_new.'</td>';
-										$filtered_html .= '</tr>'."\n";
-										$date_old = $date_new;
+									if ( $enetpulse === false ) {
+										$span_attr = $tr->td[0]->span[0]->attributes();
+										
+										$date_new = date_i18n( $date_format, (int)$span_attr['data-value'] + $offset );
+										//$time_new = date( $time_format, (int)$span_attr['data-value'] + $offset );
+										if ( $date_new != $date_old ) {
+											$filtered_html .= '<tr class="date">';
+											$filtered_html .= '<td class="date" colspan="'.(3 + $van_comp).'">'.$date_new.'</td>';
+											$filtered_html .= '</tr>'."\n";
+											$date_old = $date_new;
+										}
 									}
 								
 									if ( $highlight == $team_a || $highlight == $team_b ) {
@@ -362,8 +462,13 @@ if ( !class_exists('SoccerInfo') ) {
 									
 									$team_a_bold = '';
 									$team_b_bold = '';
-									$score = (string)$tr->td[3 + $van_comp];
-									$scores = explode(' - ', $score);
+									if ( $enetpulse != false ) {
+										$score = (string)$tr->td[2 + $van_comp];
+									}
+									else {
+										$score = (string)$tr->td[3 + $van_comp];
+									}
+									$scores = explode(' - ', trim($score));
 									if ( count($scores) == 2 && $scores[0] != $scores[1] ) {
 										if ( $scores[0] > $scores[1] )
 											$team_a_bold = ' team_bold';
@@ -371,12 +476,23 @@ if ( !class_exists('SoccerInfo') ) {
 											$team_b_bold = ' team_bold';
 									}
 									if ($van_comp > 0) {
-										$td_2_attr = $tr->td[2]->attributes();
+										if ( $enetpulse != false ) {
+											$td_2_attr = $tr->td[1]->attributes();
+										}
+										else {
+											$td_2_attr = $tr->td[2]->attributes();
+										}
 										if (isset($td_2_attr['title']))
 											$td_2_attr_title = ' title="'.$td_2_attr['title'].'"';
 										else
 											$td_2_attr_title = '';
-										$filtered_html_td .= '<td class="competition"'.$td_2_attr_title.'>' .$tr->td[2]. '</td>'."\n";
+										
+										if ( $enetpulse != false ) {
+											$filtered_html_td .= '<td class="competition"'.$td_2_attr_title.'>' .$tr->td[1]. '</td>'."\n";
+										}
+										else {
+											$filtered_html_td .= '<td class="competition"'.$td_2_attr_title.'>' .$tr->td[2]. '</td>'."\n";
+										}
 									}
 									$filtered_html_td .= '<td class="'.$all_columns['class'][2].$team_a_bold.'">' .$team_a. '</td>'."\n";
 									$filtered_html_td .= '<td class="'.$all_columns['class'][3].'">' .$score. '</td>'."\n";
@@ -384,6 +500,10 @@ if ( !class_exists('SoccerInfo') ) {
 								}
 							}
 							if ( !empty($filtered_html_td) ) {
+								if ( $enetpulse != false && $date_new != $date_old ) {
+									$filtered_html .= $filtered_html_date;
+									$date_old = $date_new;
+								}
 								$filtered_html .= '<tr'.$highlight_ok.'>'."\n";
 								$filtered_html .= $filtered_html_td;
 								$filtered_html .= '</tr>'."\n";
@@ -407,20 +527,40 @@ if ( !class_exists('SoccerInfo') ) {
 		 * @param  none
 		 * @return void
 		 */
-		function wpsi_fixtures($filtered_html, $highlight = '', $team = '', $limit = 0, $team_id = 0) {
+		function wpsi_fixtures($filtered_html, $highlight = '', $team = '', $limit = 0, $team_id = 0, $enetpulse = false) {
 			
 			$limit = (int)$limit;
 			
 			$all_columns = array( 'class' => array( 'weekday', 'date', 'team_a', 'time', 'team_b' ) );
 			$cols_ok = array( 0, 1, 2, 3, 4);
 			
+			if ( $enetpulse !== false ) {
+				$filtered_html = str_replace(' colspan="2"', '></td><td', $filtered_html);
+				$filtered_html = str_replace(' colspan="3"', '></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(' colspan="4"', '></td><td></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(' colspan="5"', '></td><td></td><td></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(' colspan="6"', '></td><td></td><td></td><td></td><td></td><td', $filtered_html);
+				
+				$filtered_html = str_replace(" colspan='2'", '></td><td', $filtered_html);
+				$filtered_html = str_replace(" colspan='3'", '></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(" colspan='4'", '></td><td></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(" colspan='5'", '></td><td></td><td></td><td></td><td', $filtered_html);
+				$filtered_html = str_replace(" colspan='6'", '></td><td></td><td></td><td></td><td></td><td', $filtered_html);
+			
+				$filtered_html = str_replace(' id="{country}"', '', $filtered_html);
+			}
+			
+			//echo $filtered_html;
+			
 			$filtered_html = preg_replace('#<td[^>]*>#is', '<td>', $filtered_html);
 			
 			$data = "<?xml version='1.0' ?>\n".$filtered_html;
 			
-			try {
-	    		$table = new SimpleXmlElement($data);
-			} catch (Exception $e) {}
+			if ( !empty($filtered_html) ) {
+				try {
+		    		$table = new SimpleXmlElement($data);
+				} catch (Exception $e) {}
+			}
 			
 			if ( isset($table) && is_object($table) ) {
 				
@@ -441,39 +581,92 @@ if ( !class_exists('SoccerInfo') ) {
 						$van_comp = 1;
 					/**/
 					
-					foreach ( $table->tbody[0] as $ii => $tr ) {
+					if ( $enetpulse != false )
+						$table_tbody_0 = $table;
+					else
+						$table_tbody_0 = $table->tbody[0];
+					
+					foreach ( $table_tbody_0 as $ii => $tr ) {
 						$filtered_html_td = '';
 						if ($i_limit % 2 == 0)
 							$highlight_ok = ' class="even"';
 						else
 							$highlight_ok = ' class="odd"';
 						
-						if ( $limit == 0 || $i_limit < $limit ) { 
-							if ( count($tr->td) > 4 + $van_comp && isset($tr->td[0]->span[0]) ) {
+						if ( $limit == 0 || $i_limit < $limit ) {
+							
+							if ( (count($tr->td) > 4 + $van_comp) && $enetpulse != false && !empty($tr->td[count($tr->td) - 1]) && strpos($tr->td[count($tr->td) - 1], 'Standings') === false  ) {
+								$new_date_format = str_replace(',', '', trim($tr->td[count($tr->td) - 1]));
+								$new_date_formats = explode(' ', $new_date_format);
+								if ( count($new_date_formats) > 2 ) {
+										if ( $new_date_formats[2] < 100 )
+											$new_date_formats[2] = 2000 + $new_date_formats[2];
+										
+										$last_td_date = strtotime($new_date_formats[0].' '.$new_date_formats[1].' '.$new_date_formats[2]);
+										
+										$last_new_date_formats = $new_date_formats;
+										
+										$date_new = date_i18n( $date_format, (int)$last_td_date + $offset );
+										//$time_new = date( $time_format, (int)$span_attr['data-value'] + $offset );
+										if ( $date_new != $date_old ) {
+											$filtered_html_date = '';
+											$filtered_html_date .= '<tr class="date">';
+											$filtered_html_date .= '<td class="date" colspan="'.(3 + $van_comp).'">'.$date_new.'</td>';
+											$filtered_html_date .= '</tr>'."\n";
+										}
+								}
+							}
+									
+							if ( count($tr->td) > 4 + $van_comp && ( isset($tr->td[0]->span[0]) || ( $enetpulse != false && strpos($tr->td[0], ':') !== false ) ) ) {
 								
-								$team_a = $this->correct_team_name( $tr->td[2 + $van_comp] ); 
-								$team_b = $this->correct_team_name( $tr->td[4 + $van_comp] );
+								if ( $enetpulse != false ) {
+									$team_a = $this->correct_team_name( $tr->td[1 + $van_comp] ); 
+									$team_b = $this->correct_team_name( $tr->td[3 + $van_comp] );
+								}
+								else {
+									$team_a = $this->correct_team_name( $tr->td[2 + $van_comp] ); 
+									$team_b = $this->correct_team_name( $tr->td[4 + $van_comp] );
+								}
 								if ( empty($team) || $team == $team_a || $team == $team_b ) { //check for the ONLY team
 									
-									$span_attr = $tr->td[0]->span[0]->attributes();
-									
-									$date_new = date_i18n( $date_format, (int)$span_attr['data-value'] + $offset );
-									$time_new = date_i18n( $time_format, (int)$span_attr['data-value'] + $offset );
-									if ( $date_new != $date_old ) {
-										$filtered_html .= '<tr class="date">';
-										$filtered_html .= '<td class="date" colspan="'.(3 + $van_comp).'">'.$date_new.'</td>';
-										$filtered_html .= '</tr>'."\n";
-										$date_old = $date_new;
+									if ( $enetpulse === false ) {
+										$span_attr = $tr->td[0]->span[0]->attributes();
+										
+										$date_new = date_i18n( $date_format, (int)$span_attr['data-value'] + $offset );
+										$time_new = date_i18n( $time_format, (int)$span_attr['data-value'] + $offset );
+										if ( $date_new != $date_old ) {
+											$filtered_html .= '<tr class="date">';
+											$filtered_html .= '<td class="date" colspan="'.(3 + $van_comp).'">'.$date_new.'</td>';
+											$filtered_html .= '</tr>'."\n";
+											$date_old = $date_new;
+										}
+									}
+									else {
+										$time_new = '';
+										if ( isset( $last_new_date_formats ) ) {
+											$last_td_time = strtotime($last_new_date_formats[0].' '.$last_new_date_formats[1].' '.$last_new_date_formats[2].' '.$tr->td[0].':00');
+											$time_new = date_i18n( $time_format, (int)$last_td_time + $offset );
+										}
 									}
 									
 									
 									if ($van_comp > 0) {
-										$td_2_attr = $tr->td[2]->attributes();
+										if ( $enetpulse != false ) {
+											$td_2_attr = $tr->td[1]->attributes();
+										}
+										else {
+											$td_2_attr = $tr->td[2]->attributes();
+										}
 										if (isset($td_2_attr['title']))
 											$td_2_attr_title = ' title="'.$td_2_attr['title'].'"';
 										else
 											$td_2_attr_title = '';
-										$filtered_html_td .= '<td class="competition"'.$td_2_attr_title.'>' .$tr->td[2]. '</td>'."\n";
+										if ( $enetpulse != false ) {
+											$filtered_html_td .= '<td class="competition"'.$td_2_attr_title.'>' .$tr->td[1]. '</td>'."\n";
+										}
+										else {
+											$filtered_html_td .= '<td class="competition"'.$td_2_attr_title.'>' .$tr->td[2]. '</td>'."\n";
+										}
 									}
 									if ( $highlight == $team_a || $highlight == $team_b ) {
 										$highlight_ok = str_replace(' class="', ' class="highlight ', $highlight_ok);
@@ -482,9 +675,17 @@ if ( !class_exists('SoccerInfo') ) {
 									$filtered_html_td .= '<td class="'.$all_columns['class'][2 + $van_comp].'">' .$team_a. '</td>'."\n";
 									$filtered_html_td .= '<td class="'.$all_columns['class'][3 + $van_comp].'">' .$time_new. '</td>'."\n";
 									$filtered_html_td .= '<td class="'.$all_columns['class'][4 + $van_comp].'">' .$team_b. '</td>'."\n";
+									
+									if ( $enetpulse != false && !empty($team) && $team != $team_a && $team != $team_b ) { //check for the ONLY team
+										$filtered_html_td = '';
+									}
 								}
 							}
 							if ( !empty($filtered_html_td) ) {
+								if ( $enetpulse != false && $date_new != $date_old ) {
+									$filtered_html .= $filtered_html_date;
+									$date_old = $date_new;
+								}
 								$filtered_html .= '<tr'.$highlight_ok.'>'."\n";
 								$filtered_html .= $filtered_html_td;
 								$filtered_html .= '</tr>'."\n";
@@ -508,7 +709,7 @@ if ( !class_exists('SoccerInfo') ) {
 		 * @param  none
 		 * @return void
 		 */
-		function wpsi_table($filtered_html, $columns = '', $highlight = '', $team = '', $limit = 0) {
+		function wpsi_table($filtered_html, $columns = '', $highlight = '', $team = '', $limit = 0, $enetpulse = false) {
 			$limit = (int)$limit;
 			if ( empty($columns) )
 				$columns = '#,Team,MP,W,D,L,F,A,G,P';
@@ -547,40 +748,61 @@ if ( !class_exists('SoccerInfo') ) {
 				}
 			}
 			
+			if ( $enetpulse != false ) {
+				$filtered_html = str_replace(array('Rank', '>P</', 'Gf-Ga', '>+/-</', 'Point'), array('#', '>MP</', 'F</td><td>A', '>G</', 'P'), $filtered_html);
+				
+				$filtered_html = preg_replace('/(\d+)\-(\d+)/i', '$1</td><td>$2', $filtered_html);
+			}
+			
 			$data = "<?xml version='1.0' ?>\n".$filtered_html;
 			
-			try {
-	    		$table = new SimpleXmlElement($data);
-			} catch (Exception $e) {}
+			//var_dump($data);
+			//echo $filtered_html;
+			
+			if ( !empty($filtered_html) ) {
+				try {
+		    		$table = new SimpleXmlElement($data);
+				} catch (Exception $e) {}
+			}
 			
 			if ( isset($table) && is_object($table) ) {
 				
 				$filtered_html = '<table>'."\n";
 				
-				if ( is_object($table->thead) ) {
+				if ( is_object($table->thead) || ( $enetpulse != false && is_object($table->tr) ) ) {
 					
-					$filtered_html .= '<thead><tr>'."\n";
-					
-					foreach ( $cols_ok as $i => $c ) {
+					$the_head = false;
+					if ( isset($table->thead[0]) ) {
 						
-						if ( isset($table->thead[0]->tr[0]->th[$c]) ) {
-							$th = $table->thead[0]->tr[0]->th[$c];
-							//$th_attr = $th->attributes();
-							if ( $i == 0 )
-								$first_last = ' first';
-							elseif ( $i == $c_count - 1 )
-								$first_last = ' last';
-							else
-								$first_last = '';
-							$filtered_html .= '<th class="'.$all_columns['class'][$c].$first_last.'" title="'.$all_columns['title'][$c].'">' .$all_columns['name_translation'][$c]. '</th>'."\n";
+						$the_head = true;
+						$filtered_html .= '<thead><tr>'."\n";
+						
+						foreach ( $cols_ok as $i => $c ) {
+							
+							if ( isset($table->thead[0]->tr[0]->th[$c]) ) {
+								$th = $table->thead[0]->tr[0]->th[$c];
+								//$th_attr = $th->attributes();
+								if ( $i == 0 )
+									$first_last = ' first';
+								elseif ( $i == $c_count - 1 )
+									$first_last = ' last';
+								else
+									$first_last = '';
+								$filtered_html .= '<th class="'.$all_columns['class'][$c].$first_last.'" title="'.$all_columns['title'][$c].'">' .$all_columns['name_translation'][$c]. '</th>'."\n";
+							}
 						}
-					}
-					$filtered_html .= '</tr></thead>'."\n";
+						$filtered_html .= '</tr></thead>'."\n";
 					
-					$filtered_html .= '<tbody>'."\n";
+						$filtered_html .= '<tbody>'."\n";
+					}
+					
+					if ( $enetpulse != false )
+						$table_tbody_0 = $table;
+					else
+						$table_tbody_0 = $table->tbody[0];
 					
 					$i_limit = 0;
-					foreach ( $table->tbody[0] as $ii => $tr ) {
+					foreach ( $table_tbody_0 as $ii => $tr ) {
 						$filtered_html_td = '';
 						
 						if ($i_limit % 2 == 0)
@@ -603,20 +825,38 @@ if ( !class_exists('SoccerInfo') ) {
 										$first_last = '';
 									if ( $c == 1 ) { //team column
 										$td = $this->correct_team_name( $td );
-										if ( !empty($team) && $team != $td ) { //check for the ONLY team
+										if ( !empty($team) && $team != $td && $the_head ) { //check for the ONLY team
 											$row_ok = 0;
 										}
 										if ( $td == $highlight ) {
 											$highlight_ok = str_replace(' class="', ' class="highlight ', $highlight_ok);
 										}
 									}
-									$filtered_html_td .= '<td class="'.$all_columns['class'][$c].$first_last.'">' .$td. '</td>'."\n";
+									if ( !$the_head ) {
+										$filtered_html_td .= '<th class="'.$all_columns['class'][$c].$first_last.'" title="'.$all_columns['title'][$c].'">' .$all_columns['name_translation'][$c]. '</th>'."\n";
+									}
+									else {
+										$filtered_html_td .= '<td class="'.$all_columns['class'][$c].$first_last.'">' .$td. '</td>'."\n";
+									}
 								}
 							}
 							if ( !empty($filtered_html_td) && $row_ok ) {
-								$filtered_html .= '<tr'.$highlight_ok.'>'."\n";
-								$filtered_html .= $filtered_html_td;
-								$filtered_html .= '</tr>'."\n";
+								if ( !$the_head ) {
+									$filtered_html .= '<thead><tr>'."\n";
+									$filtered_html .= $filtered_html_td;
+									$filtered_html .= '</thead></tr>'."\n";
+									
+									$filtered_html .= '<tbody>'."\n";
+									
+									$the_head = true;
+									
+									$i_limit --;
+								}
+								else {
+									$filtered_html .= '<tr'.$highlight_ok.'>'."\n";
+									$filtered_html .= $filtered_html_td;
+									$filtered_html .= '</tr>'."\n";
+								}
 								
 								$i_limit ++;
 							}
@@ -779,7 +1019,12 @@ if ( !class_exists('SoccerInfo') ) {
 									  "Wolverhampton …",
 									  "Queens Park Ra…",
 									  "Szombathelyi H…",
-									  "Deportivo La C…");
+									  "Deportivo La C…",
+									  "Arles",
+									  "Volendam",
+									  "Nyíregyháza Sp…",
+									  "Dunaújváros-Pá…",
+									  "Atlético de Ko…");
 									  
 			$correct_teams = array ("Eintracht Frankfurt",
 									"Borussia M'gladbach",
@@ -788,7 +1033,12 @@ if ( !class_exists('SoccerInfo') ) {
 									"Wolverhampton Wanderers",
 									"Queens Park Rangers",
 									"Szombathelyi Haladás",
-									"Deportivo La Coruña");
+									"Deportivo La Coruña",
+									"Arles-Avignon",
+									"FC Volendam",
+									"Nyíregyháza Spartacus FC",
+									"Dunaújváros FC",
+									"Atlético de Kolkata");
 			
 			$ii = array_search( $team_name, $incorrect_teams );
 			if ( $ii !== false && isset($correct_teams[$ii]) )
@@ -802,28 +1052,117 @@ if ( !class_exists('SoccerInfo') ) {
 		}
 		
 		function getTeams($league_id = 1) {
-			//http://widgets.soccerway.com/wizard/step2'
-			
-			$feed_url = 'http://widgets.soccerway.com/a/block_competition_team_control?block_id=page_step2_1_block_widget_parameters_2_block_competition_team_control_2&callback_params=%7B%22data_name%22%3A%20%22team_id%22%2C%20%22group%22%3A%20%22parameters%22%2C%20%22nullable%22%3A%20%22%22%2C%20%22filter%22%3A%20%22%22%7D&action=parentChanged&params=%7B%22parent_value%22%3A%20%22'.$league_id.'%22%7D';
+			if ( $league_id > -9 && $league_id < 0 ) {
+				$oFK = 836870 - 1 - $league_id;
+				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=42&country=11'.'&oFK='.$oFK; //'&oFK=836870';
+			}
+			elseif ( $league_id > -22 && $league_id < -8 ) {
+				$oFK = 836878 - 9 - $league_id;
+				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=73&country=11'.'&oFK='.$oFK; //'&oFK=836878';
+			}
+			else {
+				//http://widgets.soccerway.com/wizard/step2'
+				$feed_url = 'http://widgets.soccerway.com/a/block_competition_team_control?block_id=page_step2_1_block_widget_parameters_2_block_competition_team_control_2&callback_params=%7B%22data_name%22%3A%20%22team_id%22%2C%20%22group%22%3A%20%22parameters%22%2C%20%22nullable%22%3A%20%22%22%2C%20%22filter%22%3A%20%22%22%7D&action=parentChanged&params=%7B%22parent_value%22%3A%20%22'.$league_id.'%22%7D';
+			}
 				
 			$response = $this->wpsi_remote_get( $feed_url ); //, 'GET', array(), array('content-type' => 'application/json; charset=utf-8') ); //, $cache_args, $http_args);
 				
 			if ( !is_wp_error( $response ) ) {
 				
-				$json_html = json_decode($response['body']);
-				if ( !empty($json_html) && isset($json_html->{'commands'}[0]->{'parameters'}->{'content'}) ) {
-					
-					$f = "%<option\ value=\"(.*?)\".*?>(.*?)</option.*?>%is";
-					
-					preg_match_all($f, $json_html->{'commands'}[0]->{'parameters'}->{'content'}, $matches);
-					
-					if ( !isset($matches[0][0]) )
-						return array();
+				if ( $league_id > 0 ) {
+					$json_html = json_decode($response['body']);
+					if ( !empty($json_html) && isset($json_html->{'commands'}[0]->{'parameters'}->{'content'}) ) {
 						
-					foreach ($matches[2] as $k => $v)
-						$matches[2][$k] = $this->correct_team_name( $matches[2][$k] );
+						$f = "%<option\ value=\"(.*?)\".*?>(.*?)</option.*?>%is";
 						
-					return array( 'value' => $matches[1], 'option' => $matches[2] );
+						preg_match_all($f, $json_html->{'commands'}[0]->{'parameters'}->{'content'}, $matches);
+						
+						if ( !isset($matches[0][0]) )
+							return array();
+							
+						foreach ($matches[2] as $k => $v)
+							$matches[2][$k] = $this->correct_team_name( $matches[2][$k] );
+						
+						//var_export($matches[1]);
+						//var_export($matches[2]);
+							
+						return array( 'value' => $matches[1], 'option' => $matches[2] );
+					}
+				}
+				else {
+					//echo $league_id."\n".$feed_url."\n\n";
+					//var_export($response);
+					
+					$what = 'table';
+					$enetpulse = $league_id;
+					$filter_links = '<a><span><img>';
+					$selector = 'table.BackgroundTableHeader';
+					
+					$raw_html = $response['body'];
+					
+					$filtered_html = '';
+					if( !empty($selector) ) {
+						$raw_html = $this->wpsi_get_html_by_selector($raw_html, $selector); //, $wpwsopt['output']);
+						 if( !is_wp_error( $raw_html ) ) {
+							 $filtered_html = $raw_html;
+						 } else {
+							 $err_str = $raw_html->get_error_message();
+						 }
+					} elseif( !empty($xpath) ) {
+						$raw_html = $this->wpsi_get_html_by_xpath($raw_html, $xpath); //, $wpwsopt['output']);
+						 if( !is_wp_error( $raw_html ) ) {
+							 $filtered_html = $raw_html;
+						 } else {
+							 $err_str = $raw_html->get_error_message();
+						 }
+					} else {
+						$filtered_html = $raw_html;
+					}
+					
+					$filtered_html = $this->wpsi_strip_only($filtered_html, $filter_links); //'<a>');
+					
+					$filtered_html = '<table>'.str_replace('nowrap', '', $filtered_html).'</table>';
+					
+					//echo $filtered_html;
+					
+					$data = "<?xml version='1.0' ?>\n".$filtered_html;
+					
+					if ( !empty($filtered_html) ) {
+						try {
+							$table = new SimpleXmlElement($data);
+						} catch (Exception $e) { return array(); }
+					}
+					
+					if ( isset($table) && is_object($table) ) {
+						
+						if ( is_object($table->tr) ) {
+							
+							$the_head = false;
+							$table_tbody_0 = $table;
+							
+							$limit = 0;
+							$i_limit = 0;
+							foreach ( $table_tbody_0 as $ii => $tr ) {
+								$filtered_html_td = '';
+								
+								$row_ok = 1;
+								if ( $i_limit > 0 && isset($tr->td[1]) ) {
+										$td = $tr->td[1];
+										$td = $this->correct_team_name( $td );
+										
+										//$filtered_html_td .= $td."\n";
+										$filtered_html .= $filtered_html_td;
+										
+										$matches[1][] = 1;
+										$matches[2][] = $td;
+								}
+								$i_limit ++;
+							}
+							if ( isset($matches[1]) && count($matches[1]) > 0 ) {
+								return array( 'value' => $matches[1], 'option' => $matches[2] );
+							}
+						}
+					}
 				}
 			}
 			
@@ -846,7 +1185,6 @@ if ( !class_exists('SoccerInfo') ) {
 				$league_id = (int)$_REQUEST['league_id'];
 			
 			$teams = $this->getTeams( $league_id );
-			
 			
 			if (isset($_REQUEST['team_id']))
 				$team_id = $_REQUEST['team_id'];
@@ -1466,6 +1804,44 @@ if ( !class_exists('SoccerInfo') ) {
 			'Venezuela - U20 League'				 => 1260,	 //586
 			'Vietnam - Second Division'				 => 1344,	 //587
 			'Vietnam - U19 Championship'			 => 1326,	 //588
+			
+			//new leagues, added on - 2014-10-02
+			'Bonaire - Bonaire League'				 => 1355,	 //589
+			'England - Professional U18 Development League 2'	 => 1387,	 //590
+			'England - U21 Premier League Division 2' => 1405,	 //591
+			'England - Youth Alliance'				 => 1385,	 //592
+			'Iceland - 4. Deild'					 => 1363,	 //593
+			'India - Indian Super League'			 => 1417,	 //594
+			'Scotland - Development League'			 => 1415,	 //595
+			'Scotland - Development League 2'		 => 1413,	 //596
+			'Serbia - Play-offs 1/2'				 => 1373,	 //597
+			'Turkey - U21 Süper Lig'				 => 1403,	 //598
+			'United Arab Emirates - U21 League'		 => 1421,	 //599
+			'United Arab Emirates - U18 League'		 => 1419,	 //600
+			'Vietnam - Play-offs 1/2'				 => 1409,	 //601
+			'Vietnam - U21 Championship'			 => 1411,	 //602
+			
+			'UEFA Champions League Group A'			 => -1,		 //603
+			'UEFA Champions League Group B'			 => -2,		 //604
+			'UEFA Champions League Group C'			 => -3,		 //605
+			'UEFA Champions League Group D'			 => -4,		 //606
+			'UEFA Champions League Group E'			 => -5,		 //607
+			'UEFA Champions League Group F'			 => -6,		 //608
+			'UEFA Champions League Group G'			 => -7,		 //609
+			'UEFA Champions League Group H'			 => -8,		 //610
+			
+			'UEFA Europa League Group A'			 => -9,		 //611
+			'UEFA Europa League Group B'			 => -10,	 //612
+			'UEFA Europa League Group C'			 => -11,	 //613
+			'UEFA Europa League Group D'			 => -12,	 //614
+			'UEFA Europa League Group E'			 => -13,	 //615
+			'UEFA Europa League Group F'			 => -14,	 //616
+			'UEFA Europa League Group G'			 => -15,	 //617
+			'UEFA Europa League Group H'			 => -16,	 //618
+			'UEFA Europa League Group I'			 => -17,	 //619
+			'UEFA Europa League Group J'			 => -18,	 //620
+			'UEFA Europa League Group K'			 => -19,	 //621
+			'UEFA Europa League Group L'			 => -20,	 //622
 			
 			/**/
 			

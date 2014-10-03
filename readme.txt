@@ -1,23 +1,31 @@
 === Soccer Info ===
-Contributors: szi19830728, Mihaly Soft
-Donate link: http://www.mihalysoft.com/
-Tags: soccer info, football, sport, league table, championship, soccer, sports, leagues, next fixtures, latest results
+Contributors: szi19830728
+Author URI: http://www.mihalysoft.com/
+Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4V94PVSJNFZMA
+Tags: soccer info, football, sport, league table, champions league, uefa europa league, soccer, sports, leagues, next fixtures, latest results
 Requires at least: 3.3
-Tested up to: 3.9.2
-Stable tag: 1.6
+Tested up to: 4.0
+Stable tag: 1.7
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
-Soccer Info lets you display the ranking tables, fixtures and results of the major soccer leagues (450+) without any hassles.
+Soccer Info lets you display the ranking tables, fixtures and results of the major soccer leagues (550+) without any hassles.
 
 == Description ==
 Soccer Info is a plugin that lets you show the ranking tables, upcoming fixtures and results of the different soccer leagues.
 
 Requires WordPress 3.3+ and PHP 5.2+.
 
+= Help Keep This Plugin Free =
+
+If you find Soccer Info useful to you, please consider [__making a small donation__](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4V94PVSJNFZMA) to help contribute to my time invested and to further development. Thanks for your kind support!
+
 **Current features**
 
-* Available Leagues:
+Available Leagues:
+-----------------
+* UEFA Champions League (New)
+* UEFA Europa League (New)
 * Spanish Primera Division
 * English Premier League
 * German Bundesliga
@@ -29,7 +37,7 @@ Requires WordPress 3.3+ and PHP 5.2+.
 * Finnish Veikkausliiga
 * Hungarian NB I
 * Brazilian Serie A
-* and many more (500+)
+* and many more (550+)
 
 * Accessible easily through your posts or pages
 * Display full or partial data, it's up to you
@@ -42,20 +50,21 @@ Requires WordPress 3.3+ and PHP 5.2+.
 
 **Languages**
 
-* This plugin is currently available in
-English,
-Spanish (by Wilfredo Cayllahua),
-German (by Hans Puac),
-Italian (by Andrea Cavasin),
-French (by Papinade),
-Dutch (by Team VoetbalKN),
-Russian (by Георгий Фисичев),
-Greek (by Spiros Smilianis),
-Finnish (by Jukka Lammi I),
-Romanian (by Gabor Mihaly),
-Turkish (by Ferhat ERSOY),
-Portuguese (by Jorge "FLaK" Rodrigues)
-and Hungarian (by Szilard Mihaly).
+This plugin is currently available in
+-------------------------------------
+* English,
+* Spanish (by Wilfredo Cayllahua),
+* German (by Hans Puac),
+* Italian (by Andrea Cavasin),
+* French (by Papinade),
+* Dutch (by Team VoetbalKN),
+* Russian (by Георгий Фисичев),
+* Greek (by Spiros Smilianis),
+* Finnish (by Jukka Lammi I),
+* Romanian (by Gabor Mihaly),
+* Turkish (by Ferhat ERSOY),
+* Portuguese (by Jorge "FLaK" Rodrigues)
+* and Hungarian (by Szilard Mihaly).
 
 Please help me translate it into other languages!
 
@@ -63,7 +72,7 @@ Please help me translate it into other languages!
 
 * Pre-defined styles
 
-If you have any suggestions for a new add-on or league, feel free to contact us: [Soccer Info - WordPress Plugin](http://www.mihalysoft.com/wordpress-plugins/soccer-info/)
+If you have any suggestions for a new add-on or league, feel free to contact us: [__Soccer Info - WordPress Plugin__](http://www.mihalysoft.com/wordpress-plugins/soccer-info/)
 
 == Installation ==
 
@@ -109,6 +118,10 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 
 == Changelog ==
 
+= 1.7 =
+* New: Added leagues: UEFA Champions League, UEFA Europa League, Bonaire - Bonaire League, England - Professional U18 Development League 2, England - U21 Premier League Division 2, England - Youth Alliance, Iceland - 4. Deild, India - Indian Super League, Scotland - Development League, Scotland - Development League 2, Serbia - Play-offs 1/2, Turkey - U21 Süper Lig, United Arab Emirates - U21 League, United Arab Emirates - U18 League, Vietnam - Play-offs 1/2, Vietnam - U21 Championship
+* New: Contribution button was added to the admin page. Please donate to help keep this plugin FREE.
+
 = 1.6 =
 * New: Added language: Portuguese - Thanks to Jorge "FLaK" Rodrigues
 * Fixed: Inserting shortcodes in 3.9+ was fixed. A Javascript file was modified, so please clear your browser's cache after you update the plugin.
@@ -149,6 +162,10 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 * Initial release!
 
 == Upgrade Notice ==
+
+= 1.7 =
+* New: Added leagues: UEFA Champions League, UEFA Europa League, Bonaire - Bonaire League, England - Professional U18 Development League 2, England - U21 Premier League Division 2, England - Youth Alliance, Iceland - 4. Deild, India - Indian Super League, Scotland - Development League, Scotland - Development League 2, Serbia - Play-offs 1/2, Turkey - U21 Süper Lig, United Arab Emirates - U21 League, United Arab Emirates - U18 League, Vietnam - Play-offs 1/2, Vietnam - U21 Championship
+* New: Contribution button was added to the admin page. Please donate to help keep this plugin FREE.
 
 = 1.6 =
 * New: Added language: Portuguese - Thanks to Jorge "FLaK" Rodrigues

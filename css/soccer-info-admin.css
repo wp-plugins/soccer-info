@@ -103,3 +103,11 @@
 						div.si-update-nag {
 							margin-top:10px!important;
 						}
+
+div.si-star-holder { position: relative; height:19px; width:100px; font-size:19px;}
+div.si-star {height: 100%; position:absolute; top:0px; left:0px; background-color: transparent; letter-spacing:1ex; border:none;}
+.si-star1 {width:20%;} .si-star2 {width:40%;} .si-star3 {width:60%;} .si-star4 {width:80%;} .si-star5 {width:100%;}
+.si-star.si-star-rating {background-color: #fc0;}
+.si-star img{display:block; position:absolute; right:0px; border:none; text-decoration:none;}
+div.si-star img {width:19px; height:19px; border-left:1px solid #fff; border-right:1px solid #fff;}
+.si-notice{background-color:#ffffe0;border-color:#e6db55;border-width:1px;border-style:solid;padding:5px;margin:5px 5px 20px;-moz-border-radius:3px;-khtml-border-radius:3px;-webkit-border-radius:3px;border-radius:3px;}

@@ -103,7 +103,6 @@ if ( ! class_exists('SoccerInfo_Admin')) {
 			?>
 			
 			<div class="wrap" id="si_div">
-				<form method="post" action="<?php echo $this->GetBackLink() ?>">
 				<h2><?php printf(__('Soccer Info %s for WordPress', SOCCER_INFO), SOCCER_INFO_VERSION); ?> </h2>
 				
 				<?php
@@ -171,6 +170,90 @@ if ( ! class_exists('SoccerInfo_Admin')) {
 											echo '</a>';
 									}
 								?>
+								<br /><br />
+								<?php
+								if (function_exists('get_transient')) {
+								  require_once( ABSPATH . 'wp-admin/includes/plugin-install.php' );
+								
+								  // Before, try to access the data, check the cache.
+								  if (false === ($api = get_transient('soccerinfo_plugin_info'))) {
+									// The cache data doesn't exist or it's expired.
+								
+									$api = plugins_api('plugin_information', array('slug' => 'soccer-info' ));
+									if ( !is_wp_error($api) ) {
+									  // cache isn't up to date, write this fresh information to it now to avoid the query for xx time.
+									  $myexpire = 60 * 15; // Cache data for 15 minutes
+									  set_transient('soccerinfo_plugin_info', $api, $myexpire);
+									}
+								  }
+								  if ( !is_wp_error($api) ) {
+									$plugins_allowedtags = array('a' => array('href' => array(), 'title' => array(), 'target' => array()),
+																'abbr' => array('title' => array()), 'acronym' => array('title' => array()),
+																'code' => array(), 'pre' => array(), 'em' => array(), 'strong' => array(),
+																'div' => array(), 'p' => array(), 'ul' => array(), 'ol' => array(), 'li' => array(),
+																'h1' => array(), 'h2' => array(), 'h3' => array(), 'h4' => array(), 'h5' => array(), 'h6' => array(),
+																'img' => array('src' => array(), 'class' => array(), 'alt' => array()));
+									//Sanitize HTML
+									foreach ( (array)$api->sections as $section_name => $content )
+										$api->sections[$section_name] = wp_kses($content, $plugins_allowedtags);
+									foreach ( array('version', 'author', 'requires', 'tested', 'homepage', 'downloaded', 'slug') as $key )
+										$api->$key = wp_kses($api->$key, $plugins_allowedtags);
+								
+									  if ( ! empty($api->downloaded) ) {
+										echo sprintf(__('Downloaded %s times', SOCCER_INFO),number_format_i18n($api->downloaded));
+										echo '.';
+									  }
+								?>
+										<?php if ( ! empty($api->rating) ) : ?>
+										<div class="si-star-holder" title="<?php echo esc_attr(sprintf(__('(Average rating based on %s ratings)', SOCCER_INFO),number_format_i18n($api->num_ratings))); ?>">
+											<div class="si-star si-star-rating" style="width: <?php echo esc_attr($api->rating) ?>px"></div>
+											<div class="si-star si-star5"><img src="<?php echo WP_PLUGIN_URL; ?>/soccer-info/img/star.png" alt="<?php _e('5 stars', SOCCER_INFO) ?>" /></div>
+											<div class="si-star si-star4"><img src="<?php echo WP_PLUGIN_URL; ?>/soccer-info/img/star.png" alt="<?php _e('4 stars', SOCCER_INFO) ?>" /></div>
+											<div class="si-star si-star3"><img src="<?php echo WP_PLUGIN_URL; ?>/soccer-info/img/star.png" alt="<?php _e('3 stars', SOCCER_INFO) ?>" /></div>
+											<div class="si-star si-star2"><img src="<?php echo WP_PLUGIN_URL; ?>/soccer-info/img/star.png" alt="<?php _e('2 stars', SOCCER_INFO) ?>" /></div>
+											<div class="si-star si-star1"><img src="<?php echo WP_PLUGIN_URL; ?>/soccer-info/img/star.png" alt="<?php _e('1 star',  SOCCER_INFO) ?>" /></div>
+										</div>
+										<small><?php echo sprintf(__('(Average rating based on %s ratings)', SOCCER_INFO),number_format_i18n($api->num_ratings)); ?> <a target="_blank" href="http://wordpress.org/support/view/plugin-reviews/soccer-info"> <?php _e('rate', SOCCER_INFO) ?></a></small>
+										<br />
+										<?php endif; ?>
+								
+								<?php
+								  } // if ( !is_wp_error($api)
+								 }// end if (function_exists('get_transient'
+								
+								$si_update = '';
+								if (isset($api->version)) {
+								 if ( version_compare($api->version, SOCCER_INFO_VERSION, '>') ) {
+									 $si_update = ', <a href="'.admin_url( 'plugins.php' ).'">'.sprintf(__('a newer version is available: %s', SOCCER_INFO),$api->version).'</a>';
+									 echo '<div id="message" class="updated">';
+									 echo '<a href="'.admin_url( 'plugins.php' ).'">'.sprintf(__('A newer version of Soccer Info is available: %s', SOCCER_INFO),$api->version).'</a>';
+									 echo "</div>\n";
+								  }else{
+									 $si_update = ' '. __('(latest version)', SOCCER_INFO);
+								  }
+								}
+								?>
+								
+								<p>
+								<?php echo __('Version:', SOCCER_INFO). ' '.SOCCER_INFO_VERSION.$si_update; ?> <br />
+								<a href="http://wordpress.org/extend/plugins/soccer-info/changelog/" target="_blank"><?php echo __('Changelog', SOCCER_INFO); ?></a> |
+								<a href="http://wordpress.org/extend/plugins/soccer-info/faq/" target="_blank"><?php echo __('FAQ', SOCCER_INFO); ?></a> |
+								<a href="http://wordpress.org/support/view/plugin-reviews/soccer-info" target="_blank"><?php echo __('Rate This', SOCCER_INFO); ?></a> |
+								<a href="http://wordpress.org/support/plugin/soccer-info" target="_blank"><?php echo __('Support', SOCCER_INFO); ?></a> |
+								<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4V94PVSJNFZMA" target="_blank"><?php echo __('Donate', SOCCER_INFO); ?></a>
+								</p>
+									
+							<?php $this->HtmlPrintBoxFooter(true); ?>
+							
+							<?php $this->HtmlPrintBoxHeader('si_contribute',__('Contribute:',SOCCER_INFO),true); ?>
+								<?php _e('Please donate to keep this plugin FREE. If you find this plugin useful, please consider making a small donation to help contribute to my time invested and to further development. Thanks for your kind support!',SOCCER_INFO); ?>
+								
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="clear:both; text-align:center;">
+								<input type="hidden" name="cmd" value="_s-xclick" />
+								<input type="hidden" name="hosted_button_id" value="4V94PVSJNFZMA" />
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+								</form>
 									
 							<?php $this->HtmlPrintBoxFooter(true); ?>
 							
@@ -218,6 +301,7 @@ For more information, check out the plugin's website: <a href='http://www.mihaly
 					</div>
 					
 					<div class="has-sidebar si-padded" >
+					<form method="post" action="<?php echo $this->GetBackLink() ?>">
 					
 						<div id="post-body-content" class="has-sidebar-content">
 						
@@ -342,11 +426,11 @@ For more information, check out the plugin's website: <a href='http://www.mihaly
 								<input type="submit" name="si_update" value="<?php _e('Update options', SOCCER_INFO); ?>" class="button-primary" />
 								<input type="submit" onclick='return confirm("<?php _e('Do you really want to reset your configuration?', SOCCER_INFO); ?>");' class="si_warning" name="si_reset_config" value="<?php _e('Reset options', SOCCER_INFO); ?>" />
 						</p>
+					</form>
 					</div> <!-- has-sidebar si-padded -->
 					
 				</div> <!-- metabox-holder has-right-sidebar -->
 				
-				</form>
 			</div> <!-- wrap -->
 			<?php
             
