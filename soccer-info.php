@@ -143,7 +143,7 @@ if ( !class_exists('SoccerInfo') ) {
 			// Check user capability
 			if ( current_user_can('manage_options') ) {
 				if ( !isset($this->wpsiopt['si_donated']) || !$this->wpsiopt['si_donated'] ) {
-					echo '<div class="error fade"><p>'.__('Please donate to keep this plugin FREE. If you find this plugin useful, please consider making a small donation to help contribute to my time invested and to further development. Thanks for your kind support!',SOCCER_INFO).'</p>';
+					echo '<div class="error fade"><p><b>'.sprintf(__('Soccer Info %s for WordPress', SOCCER_INFO), SOCCER_INFO_VERSION).'</b>: '.__('Please donate to keep this plugin FREE. If you find this plugin useful, please consider making a small donation to help contribute to my time invested and to further development. Thanks for your kind support!',SOCCER_INFO).'</p>';
 					echo '
 								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="clear:both;">
 								<input type="hidden" name="cmd" value="_s-xclick" />
