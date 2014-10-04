@@ -121,6 +121,11 @@ if ( ! class_exists('SoccerInfo_Admin')) {
 					if (isset($_POST['si_date_format_custom']) && !empty($_POST['si_date_format_custom']))
 						$wpsiopt['si_date_format_custom'] = $_POST['si_date_format_custom'];
 					
+					if (isset($_POST['si_donated']) && !empty($_POST['si_donated']))
+						$wpsiopt['si_donated'] = $_POST['si_donated'];
+					else
+						$wpsiopt['si_donated'] = false;
+					
 					update_option("soccer_info_options", $wpsiopt);
 					
 					?>
@@ -381,7 +386,7 @@ For more information, check out the plugin's website: <a href='http://www.mihaly
 												}
 												else
 													$checked = '';
-												echo '<label title="'.$o_d.'"><input type="radio" name="si_date_format" value="'.$o_d.'"'.$checked.'> <span>'.date_i18n($o_d).'</span></label><br />';
+												echo '<label title="'.$o_d.'"><input type="radio" name="si_date_format" value="'.$o_d.'"'.$checked.' /> <span>'.date_i18n($o_d).'</span></label><br />';
 											}
 											?>
 											<label><input type="radio" name="si_date_format" id="si_date_format_custom_radio" value="custom"<?php if ($wpsiopt['si_date_format'] == 'custom') echo ' checked="checked"'; ?> /> <?php _e('Custom:', SOCCER_INFO);?> </label><input type="text" name="si_date_format_custom" value="<?php echo $wpsiopt['si_date_format_custom'];?>" class="small-text" /> <span class="example"><?php echo date_i18n($wpsiopt['si_date_format_custom']);?></span>  <img class='ajax-loading' src='<?php echo admin_url();?>images/wpspin_light.gif' />
@@ -407,8 +412,27 @@ For more information, check out the plugin's website: <a href='http://www.mihaly
 													$checked = ' checked="checked"';
 												else
 													$checked = '';
-												echo '<label title="'.$o_t.'"><input type="radio" name="si_time_format" value="'.$o_t.'"'.$checked.'> <span>'.date_i18n($o_t).'</span></label><br />';
+												echo '<label title="'.$o_t.'"><input type="radio" name="si_time_format" value="'.$o_t.'"'.$checked.' /> <span>'.date_i18n($o_t).'</span></label><br />';
 											}
+											?>
+										</fieldset>
+									</td>
+								</tr>
+								<tr valign="top">
+									<th scope="row">
+										<label for="si_date_format">
+											<?php _e('Contribution', SOCCER_INFO); ?>
+										</label>
+									</th>
+									<td>
+										<fieldset>
+											<legend class="screen-reader-text"><span><?php _e('Contribution', SOCCER_INFO); ?></span></legend>
+											<?php
+												if ( isset($wpsiopt['si_donated']) && $wpsiopt['si_donated'] )
+													$checked = ' checked="checked"';
+												else
+													$checked = '';
+												echo '<label title="'.__('Contribution', SOCCER_INFO).'"><input type="checkbox" name="si_donated" value="true"'.$checked.' /> <span>'.__('I have donated to help contribute for the development of this plugin. ', SOCCER_INFO).'</span></label><br />';
 											?>
 										</fieldset>
 									</td>

@@ -28,7 +28,8 @@ if ( !class_exists('SoccerInfo') ) {
 			'si_timezone'			 => '0',
 			'si_date_format'		 => 'l, F j, Y',
 			'si_time_format'		 => 'H:i',
-			'si_date_format_custom'	 => 'l, F j, Y'
+			'si_date_format_custom'	 => 'l, F j, Y',
+			'si_donated'			 => false			//added as of 1.7.1 version
 		);
 		
 		public $wpsiopt = array();
@@ -88,6 +89,8 @@ if ( !class_exists('SoccerInfo') ) {
                 
                 // Ajax request to delete a team in player history
                // add_action('wp_ajax_delete_player_history_team', array('SoccerInfo_AJAX', 'delete_player_history_team'));
+			   
+				add_action('admin_notices', array(&$this, 'si_admin_notices'));
 			}
 			else { //front-end
 				add_shortcode('soccer-info', array(&$this, 'shortcodes_controller'));
@@ -133,6 +136,24 @@ if ( !class_exists('SoccerInfo') ) {
 				$links[] = '<a href="https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4V94PVSJNFZMA" target="_blank">'.__('Donate', SOCCER_INFO).'</a>';
 			}
 			return $links;
+		}
+		
+		// Add donation notification to the admin panel
+		function si_admin_notices() {
+			// Check user capability
+			if ( current_user_can('manage_options') ) {
+				if ( !isset($this->wpsiopt['si_donated']) || !$this->wpsiopt['si_donated'] ) {
+					echo '<div class="error fade"><p>'.__('Please donate to keep this plugin FREE. If you find this plugin useful, please consider making a small donation to help contribute to my time invested and to further development. Thanks for your kind support!',SOCCER_INFO).'</p>';
+					echo '
+								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="clear:both;">
+								<input type="hidden" name="cmd" value="_s-xclick" />
+								<input type="hidden" name="hosted_button_id" value="4V94PVSJNFZMA" />
+								<input type="image" src="https://www.paypalobjects.com/en_US/i/btn/btn_donate_LG.gif" border="0" name="submit" alt="PayPal - The safer, easier way to pay online!" />
+								<img alt="" border="0" src="https://www.paypalobjects.com/en_US/i/scr/pixel.gif" width="1" height="1" />
+								</form>';
+					echo '</div>';
+				}
+			}
 		}
         
         /**
@@ -1861,6 +1882,7 @@ if ( !class_exists('SoccerInfo') ) {
 			$this->wpsiopt['si_date_format'] = get_option('date_format');
 			$this->wpsiopt['si_time_format'] = SoccerInfo::$wpsiopt_default['si_time_format'];
 			$this->wpsiopt['si_date_format_custom'] = $this->wpsiopt['si_date_format'];
+			$this->wpsiopt['si_donated'] = SoccerInfo::$wpsiopt_default['si_donated'];
 			
 			
 			//Use this only when you are adding a new element
