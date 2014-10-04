@@ -5,7 +5,7 @@ Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_i
 Tags: soccer info, football, sport, league table, champions league, uefa europa league, soccer, sports, leagues, next fixtures, latest results
 Requires at least: 3.3
 Tested up to: 4.0
-Stable tag: 1.7
+Stable tag: 1.7.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -117,6 +117,9 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 8. In action - 2
 
 == Changelog ==
+
+= 1.7.1 =
+* Fixed: Warning reported by Wilfredo was fixed.
 
 = 1.7 =
 * New: Added leagues: UEFA Champions League, UEFA Europa League, Bonaire - Bonaire League, England - Professional U18 Development League 2, England - U21 Premier League Division 2, England - Youth Alliance, Iceland - 4. Deild, India - Indian Super League, Scotland - Development League, Scotland - Development League 2, Serbia - Play-offs 1/2, Turkey - U21 Süper Lig, United Arab Emirates - U21 League, United Arab Emirates - U18 League, Vietnam - Play-offs 1/2, Vietnam - U21 Championship

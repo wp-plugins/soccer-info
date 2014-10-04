@@ -3,7 +3,7 @@
 Plugin Name: Soccer Info
 Plugin URI: http://www.mihalysoft.com/wordpress-plugins/soccer-info/
 Description: Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
-Version: 1.7
+Version: 1.7.1
 Requires at least: WordPress 3.3
 Tested up to: WordPress 4.0
 License: GPLv2 or later
@@ -45,7 +45,7 @@ if ( !class_exists('SoccerInfo') ) {
 		 */
 		public function __construct() {
 			
-			define('SOCCER_INFO_VERSION', '1.7');
+			define('SOCCER_INFO_VERSION', '1.7.1');
 			define('SOCCER_INFO_PATH', plugin_dir_path(__FILE__));
 			define('SOCCER_INFO_BASEPATH', basename(dirname(__FILE__)));
 			
@@ -266,7 +266,7 @@ if ( !class_exists('SoccerInfo') ) {
 							$selector = 'div#LeagueMatches table';
 					}
 					
-					$raw_html = $response['body'];
+					$raw_html = str_ireplace(' id="{country}"', '', $response['body']);
 					
 					$filtered_html = '';
 					if( !empty($selector) ) {
@@ -365,7 +365,7 @@ if ( !class_exists('SoccerInfo') ) {
 				$filtered_html = str_replace(" colspan='5'", '></td><td></td><td></td><td></td><td', $filtered_html);
 				$filtered_html = str_replace(" colspan='6'", '></td><td></td><td></td><td></td><td></td><td', $filtered_html);
 			
-				$filtered_html = str_replace(' id="{country}"', '', $filtered_html);
+				$filtered_html = str_ireplace(' id="{country}"', '', $filtered_html);
 			}
 			
 			$filtered_html = preg_replace('#<td[^>]*>#is', '<td>', $filtered_html);
@@ -547,7 +547,7 @@ if ( !class_exists('SoccerInfo') ) {
 				$filtered_html = str_replace(" colspan='5'", '></td><td></td><td></td><td></td><td', $filtered_html);
 				$filtered_html = str_replace(" colspan='6'", '></td><td></td><td></td><td></td><td></td><td', $filtered_html);
 			
-				$filtered_html = str_replace(' id="{country}"', '', $filtered_html);
+				$filtered_html = str_ireplace(' id="{country}"', '', $filtered_html);
 			}
 			
 			//echo $filtered_html;
@@ -750,6 +750,8 @@ if ( !class_exists('SoccerInfo') ) {
 			
 			if ( $enetpulse != false ) {
 				$filtered_html = str_replace(array('Rank', '>P</', 'Gf-Ga', '>+/-</', 'Point'), array('#', '>MP</', 'F</td><td>A', '>G</', 'P'), $filtered_html);
+				
+				$filtered_html = str_ireplace(' id="{country}"', '', $filtered_html);
 				
 				$filtered_html = preg_replace('/(\d+)\-(\d+)/i', '$1</td><td>$2', $filtered_html);
 			}
@@ -1098,7 +1100,7 @@ if ( !class_exists('SoccerInfo') ) {
 					$filter_links = '<a><span><img>';
 					$selector = 'table.BackgroundTableHeader';
 					
-					$raw_html = $response['body'];
+					$raw_html = str_ireplace(' id="{country}"', '', $response['body']);
 					
 					$filtered_html = '';
 					if( !empty($selector) ) {

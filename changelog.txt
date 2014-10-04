@@ -1,6 +1,9 @@
 Soccer Info
 by Szilard Mihaly
 
+= 1.7.1 - 10.04.2014 =
+* Fixed: Warning reported by Wilfredo was fixed.
+
 = 1.7 - 10.03.2014 =
 * New: Added leagues: UEFA Champions League, UEFA Europa League, Bonaire - Bonaire League, England - Professional U18 Development League 2, England - U21 Premier League Division 2, England - Youth Alliance, Iceland - 4. Deild, India - Indian Super League, Scotland - Development League, Scotland - Development League 2, Serbia - Play-offs 1/2, Turkey - U21 Süper Lig, United Arab Emirates - U21 League, United Arab Emirates - U18 League, Vietnam - Play-offs 1/2, Vietnam - U21 Championship
 * New: Contribution button was added to the admin page. Please donate to help keep this plugin FREE.
