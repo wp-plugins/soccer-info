@@ -3,7 +3,7 @@
 Plugin Name: Soccer Info
 Plugin URI: http://www.mihalysoft.com/wordpress-plugins/soccer-info/
 Description: Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
-Version: 1.7.1
+Version: 1.8
 Requires at least: WordPress 3.3
 Tested up to: WordPress 4.0
 License: GPLv2 or later
@@ -46,7 +46,7 @@ if ( !class_exists('SoccerInfo') ) {
 		 */
 		public function __construct() {
 			
-			define('SOCCER_INFO_VERSION', '1.7.1');
+			define('SOCCER_INFO_VERSION', '1.8');
 			define('SOCCER_INFO_PATH', plugin_dir_path(__FILE__));
 			define('SOCCER_INFO_BASEPATH', basename(dirname(__FILE__)));
 			
@@ -251,9 +251,13 @@ if ( !class_exists('SoccerInfo') ) {
 				$oFK = 836870 - 1 - $league_id;
 				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=42&country=11'.'&oFK='.$oFK; //'&oFK=836870';
 			}
-			elseif ( $league_id > -22 && $league_id < -8 ) {
+			elseif ( $league_id > -21 && $league_id < -8 ) {
 				$oFK = 836878 - 9 - $league_id;
 				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=73&country=11'.'&oFK='.$oFK; //'&oFK=836878';
+			}
+			elseif ( $league_id > -30 && $league_id < -20 ) {
+				$oFK = array(-21 => 834918, -22 => 834921, -23 => 834922, -24 => 834923, -25 => 834924, -26 => 834925, -27 => 834926, -28 => 834927, -29 => 834928);
+				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=50&country=all&round=8389'.'&oFK='.$oFK[$league_id]; //'&oFK=834918';
 			}
 			else {
 				$feed_url1 = 'http://widgets.soccerway.com/widget/free/classic/competition/';
@@ -1079,9 +1083,13 @@ if ( !class_exists('SoccerInfo') ) {
 				$oFK = 836870 - 1 - $league_id;
 				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=42&country=11'.'&oFK='.$oFK; //'&oFK=836870';
 			}
-			elseif ( $league_id > -22 && $league_id < -8 ) {
+			elseif ( $league_id > -21 && $league_id < -8 ) {
 				$oFK = 836878 - 9 - $league_id;
 				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=73&country=11'.'&oFK='.$oFK; //'&oFK=836878';
+			}
+			elseif ( $league_id > -30 && $league_id < -20 ) {
+				$oFK = array(-21 => 834918, -22 => 834921, -23 => 834922, -24 => 834923, -25 => 834924, -26 => 834925, -27 => 834926, -28 => 834927, -29 => 834928);
+				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=50&country=all&round=8389'.'&oFK='.$oFK[$league_id]; //'&oFK=834918';
 			}
 			else {
 				//http://widgets.soccerway.com/wizard/step2'
@@ -1865,6 +1873,17 @@ if ( !class_exists('SoccerInfo') ) {
 			'UEFA Europa League Group J'			 => -18,	 //620
 			'UEFA Europa League Group K'			 => -19,	 //621
 			'UEFA Europa League Group L'			 => -20,	 //622
+			
+			//new leagues, added on - 2014-10-06
+			'Euro 2016 Qualification Group A'		 => -21,	 //623
+			'Euro 2016 Qualification Group B'		 => -22,	 //624
+			'Euro 2016 Qualification Group C'		 => -23,	 //625
+			'Euro 2016 Qualification Group D'		 => -24,	 //626
+			'Euro 2016 Qualification Group E'		 => -25,	 //627
+			'Euro 2016 Qualification Group F'		 => -26,	 //628
+			'Euro 2016 Qualification Group G'		 => -27,	 //629
+			'Euro 2016 Qualification Group H'		 => -28,	 //630
+			'Euro 2016 Qualification Group I'		 => -29,	 //631
 			
 			/**/
 			

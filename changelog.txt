@@ -1,6 +1,9 @@
 Soccer Info
 by Szilard Mihaly
 
+= 1.8 - 10.06.2014 =
+* New: Added leagues: Euro 2016 Qualification
+
 = 1.7.1 - 10.04.2014 =
 * Fixed: Warning reported by Wilfredo was fixed.
 
