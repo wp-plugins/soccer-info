@@ -16,9 +16,9 @@ Soccer Info is a plugin that lets you show the ranking tables, upcoming fixtures
 
 Requires WordPress 3.3+ and PHP 5.2+.
 
-= Help Keep This Plugin Free =
+= Soccer Info 2.0 - COMING SOON =
 
-If you find Soccer Info useful to you, please consider [__making a small donation__](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4V94PVSJNFZMA) to help contribute to my time invested and to further development. Thanks for your kind support!
+Please help me to release the new version with the new features as soon as possible. Click the following link and read more about [__how you can contribute__](http://igg.me/p/soccer-info-2-0-football-plugin-for-wordpress/x/9032264) with the further development. Thanks for your kind support!
 
 **Current features**
 
