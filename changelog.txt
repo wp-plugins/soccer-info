@@ -1,6 +1,9 @@
 Soccer Info
 by Szilard Mihaly
 
+= 1.8.1 - 20.01.2015 =
+* New: Added leagues: Final Stages to UEFA Champions League and UEFA Europa League
+
 = 1.8 - 10.06.2014 =
 * New: Added leagues: Euro 2016 Qualification
 

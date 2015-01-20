@@ -17,7 +17,7 @@ if ( ! class_exists('SoccerInfo_Admin')) {
      * @category   Admin
      * @package    SoccerInfo
      * @author     Szilard Mihaly
-     * @copyright  (c) 2014 Mihaly Soft
+     * @copyright  (c) 2015 Mihaly Soft
      */
     class SoccerInfo_Admin {
 
@@ -122,7 +122,7 @@ if ( ! class_exists('SoccerInfo_Admin')) {
 						$wpsiopt['si_date_format_custom'] = $_POST['si_date_format_custom'];
 					
 					if (isset($_POST['si_donated']) && !empty($_POST['si_donated']))
-						$wpsiopt['si_donated'] = $_POST['si_donated'];
+						$wpsiopt['si_donated'] = SOCCER_INFO_VERSION; //$_POST['si_donated'];
 					else
 						$wpsiopt['si_donated'] = false;
 					
@@ -428,7 +428,7 @@ For more information, check out the plugin's website: <a href='http://www.mihaly
 										<fieldset>
 											<legend class="screen-reader-text"><span><?php _e('Contribution', SOCCER_INFO); ?></span></legend>
 											<?php
-												if ( isset($wpsiopt['si_donated']) && $wpsiopt['si_donated'] )
+												if ( isset($wpsiopt['si_donated']) && $wpsiopt['si_donated'] == SOCCER_INFO_VERSION )
 													$checked = ' checked="checked"';
 												else
 													$checked = '';
@@ -559,7 +559,7 @@ For more information, check out the plugin's website: <a href='http://www.mihaly
          * @param  none
          * @return void
          */
-        public static function add_editor_button()
+        public function add_editor_button() //static
         {
             // Don't bother doing this stuff if the current user lacks permissions
             if ( ! current_user_can('edit_posts') && ! current_user_can('edit_pages')) return;

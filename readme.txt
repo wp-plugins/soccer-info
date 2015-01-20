@@ -4,8 +4,8 @@ Author URI: http://www.mihalysoft.com/
 Donate link: https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4V94PVSJNFZMA
 Tags: soccer info, football, sport, league table, champions league, uefa europa league, soccer, sports, leagues, next fixtures, latest results
 Requires at least: 3.3
-Tested up to: 4.0
-Stable tag: 1.8
+Tested up to: 4.1
+Stable tag: 1.8.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 
@@ -18,7 +18,7 @@ Requires WordPress 3.3+ and PHP 5.2+.
 
 = Soccer Info 2.0 - COMING SOON =
 
-Please help me to release the new version with the new features as soon as possible. Click the following link and read more about [__how you can contribute__](http://igg.me/p/soccer-info-2-0-football-plugin-for-wordpress/x/9032264) with the further development. Thanks for your kind support!
+Please help me to release the new version with the new features. If you find Soccer Info useful, please consider [__making a small donation__](https://www.paypal.com/cgi-bin/webscr?cmd=_s-xclick&hosted_button_id=4V94PVSJNFZMA) to help contribute to my time invested and to further development. Thanks for your kind support!
 
 **Current features**
 
@@ -118,6 +118,9 @@ For more information, check out the plugin's website: [Soccer Info - WordPress P
 8. In action - 2
 
 == Changelog ==
+
+= 1.8.1 - 20.01.2015 =
+* New: Added leagues: Final Stages to UEFA Champions League and UEFA Europa League
 
 = 1.8 - 10.06.2014 =
 * New: Added leagues: Euro 2016 Qualification

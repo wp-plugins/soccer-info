@@ -3,9 +3,9 @@
 Plugin Name: Soccer Info
 Plugin URI: http://www.mihalysoft.com/wordpress-plugins/soccer-info/
 Description: Soccer Info lets you display ranking tables, fixtures and results of major soccer leagues without any hassles.
-Version: 1.8
+Version: 1.8.1
 Requires at least: WordPress 3.3
-Tested up to: WordPress 4.0
+Tested up to: WordPress 4.1
 License: GPLv2 or later
 License URI: http://www.gnu.org/licenses/gpl-2.0.html
 Author: Szilard Mihaly
@@ -18,7 +18,7 @@ Author URI: http://www.mihalysoft.com/
 * 
 * @author 	Szilard Mihaly
 * @package	Soccer Info
-* @copyright 	Copyright 2013-2014
+* @copyright 	Copyright 2013-2015
 */
 if ( !class_exists('SoccerInfo') ) {
 	
@@ -46,7 +46,7 @@ if ( !class_exists('SoccerInfo') ) {
 		 */
 		public function __construct() {
 			
-			define('SOCCER_INFO_VERSION', '1.8');
+			define('SOCCER_INFO_VERSION', '1.8.1');
 			define('SOCCER_INFO_PATH', plugin_dir_path(__FILE__));
 			define('SOCCER_INFO_BASEPATH', basename(dirname(__FILE__)));
 			
@@ -142,7 +142,7 @@ if ( !class_exists('SoccerInfo') ) {
 		function si_admin_notices() {
 			// Check user capability
 			if ( current_user_can('manage_options') ) {
-				if ( !isset($this->wpsiopt['si_donated']) || !$this->wpsiopt['si_donated'] ) {
+				if ( !isset($this->wpsiopt['si_donated']) || $this->wpsiopt['si_donated'] != SOCCER_INFO_VERSION ) {
 					echo '<div class="error fade"><p><b>'.sprintf(__('Soccer Info %s for WordPress', SOCCER_INFO), SOCCER_INFO_VERSION).'</b>: '.__('Please donate to keep this plugin FREE. If you find this plugin useful, please consider making a small donation to help contribute to my time invested and to further development. Thanks for your kind support!',SOCCER_INFO).' | <a href="'.admin_url('options-general.php?page='.SOCCER_INFO).'">'.__('Settings', SOCCER_INFO).'</a></p>';
 					echo '
 								<form action="https://www.paypal.com/cgi-bin/webscr" method="post" target="_blank" style="clear:both;">
@@ -234,7 +234,7 @@ if ( !class_exists('SoccerInfo') ) {
 			if ( 1 == 0 && $team_id > 0 ) {
 				$feed_url = 'http://widgets.soccerway.com/widget/free/classic/team/'.$team_id;
 			}
-			elseif ( $league_id > -9 && $league_id < 0 ) {
+			elseif ( ($league_id > -9 && $league_id < 0) || $league_id == -30 ) {
 				/**
 					if ( $seasons_data[$season_id][$bookie] == '&ttFK=42&country=11' ) {
 						//836165 - BL Qualification
@@ -249,10 +249,14 @@ if ( !class_exists('SoccerInfo') ) {
 					}
 				/**/
 				$oFK = 836870 - 1 - $league_id;
+				if ( $league_id == -30 )
+					$oFK = 838266;
 				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=42&country=11'.'&oFK='.$oFK; //'&oFK=836870';
 			}
-			elseif ( $league_id > -21 && $league_id < -8 ) {
+			elseif ( ($league_id > -21 && $league_id < -8) || $league_id == -31 ) {
 				$oFK = 836878 - 9 - $league_id;
+				if ( $league_id == -31 )
+					$oFK = 838267;
 				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=73&country=11'.'&oFK='.$oFK; //'&oFK=836878';
 			}
 			elseif ( $league_id > -30 && $league_id < -20 ) {
@@ -1079,12 +1083,16 @@ if ( !class_exists('SoccerInfo') ) {
 		}
 		
 		function getTeams($league_id = 1) {
-			if ( $league_id > -9 && $league_id < 0 ) {
+			if ( ($league_id > -9 && $league_id < 0) || $league_id == -30 ) {
 				$oFK = 836870 - 1 - $league_id;
+				if ( $league_id == -30 )
+					$oFK = 838266;
 				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=42&country=11'.'&oFK='.$oFK; //'&oFK=836870';
 			}
-			elseif ( $league_id > -21 && $league_id < -8 ) {
+			elseif ( ($league_id > -21 && $league_id < -8) || $league_id == -31 ) {
 				$oFK = 836878 - 9 - $league_id;
+				if ( $league_id == -31 )
+					$oFK = 838267;
 				$feed_url = 'http://football-data.enetpulse.com/standings.php?standing=false'.'&ttFK=73&country=11'.'&oFK='.$oFK; //'&oFK=836878';
 			}
 			elseif ( $league_id > -30 && $league_id < -20 ) {
@@ -1884,6 +1892,11 @@ if ( !class_exists('SoccerInfo') ) {
 			'Euro 2016 Qualification Group G'		 => -27,	 //629
 			'Euro 2016 Qualification Group H'		 => -28,	 //630
 			'Euro 2016 Qualification Group I'		 => -29,	 //631
+			
+			//new leagues, added on - 2015-01-20
+			'UEFA Champions League Final Stages'	 => -30,	 //632
+			
+			'UEFA Europa League Final Stages'		 => -31,	 //633
 			
 			/**/
 			
